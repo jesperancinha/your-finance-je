@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <kumuluzee.version>2.0.0</kumuluzee.version>
+        <kumuluzee.version>2.6.0</kumuluzee.version>
         <junit.version>4.12</junit.version>
     </properties>
 
