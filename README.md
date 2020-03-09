@@ -15,7 +15,7 @@ $ java -cp yourfinanceje-overview/target/classes:yourfinanceje-overview/target/d
 
 * https://ee.kumuluz.com/tutorial/2015/06/04/microservices-with-java-ee-and-kumuluzee.html
 
-## About me
+## About me 👨🏽‍💻🚀
 
 [![Twitter Follow](https://img.shields.io/twitter/follow/joaofse?label=João%20Esperancinha&style=social)](https://twitter.com/joaofse)
 [![GitHub followers](https://img.shields.io/github/followers/jesperancinha.svg?label=jesperancinha&style=social)](https://github.com/jesperancinha)
