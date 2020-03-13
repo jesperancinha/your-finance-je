@@ -1,5 +1,6 @@
-# your-finance-je
-Analysis of a particular test case for KumuluzEE. Goal is to understand the framework and buld microservices for a future application
+# Your Finance App
+
+Analysis of a particular test case for KumuluzEE. Goal is to understand the framework and build microservices for a future application
 
 ## Running microservices
 
@@ -10,10 +11,71 @@ To run the yourfinanceje-overview module on port 8080:
 ```
 $ java -cp yourfinanceje-overview/target/classes:yourfinanceje-overview/target/dependency/* com.kumuluz.ee.EeApplication
 ```
+## Hints and Tricks
 
-## Resources:
+-   [SDKMAN!](https://sdkman.io/install)
 
-* https://ee.kumuluz.com/tutorial/2015/06/04/microservices-with-java-ee-and-kumuluzee.html
+-   Install java versions with [SDKMan](https://sdkman.io/) for MAC-OS and Linux based systems
+
+```bash
+sdk install java 8.0.242.hs-adpt
+sdk install java 11.0.6.hs-adpt
+sdk install java 12.0.2.hs-adpt
+sdk install java 13.0.2.hs-adpt
+```
+
+-   Install java versions without [SDKMan](https://sdkman.io/) for [ubuntu prompt for windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
+
+```bash
+apt-get -y update
+apt-get -y upgrade
+apt -y install apt-transport-https ca-certificates wget dirmngr gnupg software-properties-common
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
+add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt -y update
+sudo apt -y install openjdk-11-jdk
+sudo apt install openjdk-13-jdk
+sudo apt -y install adoptopenjdk-8-hotspot
+sudo apt -y autoremove
+```
+
+- .bashrc file to get Gradle, GitPrompt, [SDKMAN](https://sdkman.io/) and some handy aliases in a Windows environment with [MinGW](http://www.mingw.org/).
+
+```bash
+if [ -f "/root/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source /root/.bash-git-prompt/gitprompt.sh
+fi
+
+alias java8="sdk use java 8.0.242.hs-adpt"
+alias java11="sdk use java  11.0.6.hs-adpt"
+alias java12="sdk use java 12.0.2.hs-adpt"
+alias java13="sdk use java 13.0.2.hs-adpt"
+alias m2disable="rm ~/.m2/settings.xml"
+alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/root/.sdkman"
+[[ -s "/root/.sdkman/bin/sdkman-init.sh" ]] && source "/root/.sdkman/bin/sdkman-init.sh"
+```
+
+- .bashrc file to get Gradle, GitPrompt and some handy aliases in a Windows environment with [ubuntu prompt for windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
+
+```bash
+if [ -f "/root/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source /root/.bash-git-prompt/gitprompt.sh
+fi
+
+alias java8="export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64 && update-java-alternatives -s adoptopenjdk-8-hotspot-amd64"
+alias java11="export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64 && update-java-alternatives -s java-1.11.0-openjdk-amd64"
+alias java12="echo \"Java 12 is not available. Setting up 13\" && export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-alternatives -s java-13-oracle"
+alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-alternatives -s java-13-oracle"
+```
+
+## References:
+
+-   https://ee.kumuluz.com/tutorial/2015/06/04/microservices-with-java-ee-and-kumuluzee.html
 
 ## About me 👨🏽‍💻🚀
 

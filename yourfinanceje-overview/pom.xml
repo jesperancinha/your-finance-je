@@ -45,7 +45,6 @@
             <version>${kumuluzee.version}</version>
         </dependency>
 
-        <!-- Kumuluz.EE -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
