@@ -75,7 +75,8 @@ alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-altern
 
 ## References:
 
--   https://ee.kumuluz.com/tutorial/2015/06/04/microservices-with-java-ee-and-kumuluzee.html
+-   [kumuluzEE](https://ee.kumuluz.com/)
+-   [REST API Security](https://dzone.com/refcardz/rest-api-security-1?chapter=1)
 
 ## About me 👨🏽‍💻🚀
 
