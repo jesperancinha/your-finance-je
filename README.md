@@ -16,7 +16,17 @@
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/your-finance-je.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/your-finance-je.svg)](#)
 
-Analysis of a particular test case for KumuluzEE. Goal is to understand the framework and build microservices for a future application
+Let's make a bunch of KumuluzEE Apps and with it investigate the most common secure protocols using REST services.
+
+Here a the definitions of our apps:
+
+-   yourfinance-invoice-shipping - We will use JWT token. It will handle the sending of invoices
+-   yourfinance-banking - We will access banking
+-   yourfinance-mortgages - Let's buy a house!
+
+## Status
+
+[Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md)
 
 ## Running microservices
 
@@ -93,6 +103,13 @@ alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-altern
 
 -   [kumuluzEE](https://ee.kumuluz.com/)
 -   [REST API Security](https://dzone.com/refcardz/rest-api-security-1?chapter=1)
+-   [RESTful API Security](https://dzone.com/articles/restful-api-security?fromrel=true)
+-   [Tutorial: Create and Verify JWTs in Java](https://developer.okta.com/blog/2018/10/31/jwts-with-java)
+-   [oktadeveloper/okta-java-jwt-example](https://github.com/oktadeveloper/okta-java-jwt-example)
+-   [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html)
+-   [Java EE Security API (JSR 375/Soteria) with JWT tokens](https://blog.payara.fish/java-ee-security-api-jsr-375/soteria-with-jwt-tokens)
+-   [payara/Payara-Examples](https://github.com/payara/Payara-Examples/tree/master/javaee/security-jwt-example)
+-   [Securing JAX-RS Endpoints with JWT](https://antoniogoncalves.org/2016/10/03/securing-jax-rs-endpoints-with-jwt/)
 
 ## About me 👨🏽‍💻🚀
 

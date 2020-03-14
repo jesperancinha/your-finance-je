@@ -20,7 +20,7 @@
     </properties>
 
     <modules>
-        <module>yourfinanceje-database-model</module>
+        <module>yourfinanceje-model</module>
         <module>yourfinanceje-invoice-shipping</module>
         <module>yourfinanceje-overview</module>
     </modules>
