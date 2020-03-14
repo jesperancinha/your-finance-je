@@ -6,7 +6,7 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0692606b0864078b03f04e5d3464e5d)](https://www.codacy.com/manual/jofisaes/your-finance-je?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
-[![codebeat badge](https://codebeat.co/badges/58319e19-d5c1-414d-ad76-7f8acf833e60)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
+[![codebeat badge](https://codebeat.co/badges/66bd8179-b645-40f4-9a02-072a8df5ff32)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
 [![Build Status](https://travis-ci.org/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.org/jesperancinha/your-finance-je)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/results/jesperancinha/your-finance-je)
 [![Build status](https://ci.appveyor.com/api/projects/status/k2ukf8h95eys6npr?svg=true)](https://ci.appveyor.com/project/jesperancinha/your-finance-je)
