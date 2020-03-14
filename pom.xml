@@ -16,7 +16,7 @@
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 
         <junit.version>4.12</junit.version>
-        <kumuluzee.version>2.6.0</kumuluzee.version>
+        <kumuluzee.version>3.7.0</kumuluzee.version>
     </properties>
 
     <modules>
