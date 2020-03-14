@@ -20,8 +20,9 @@
     </properties>
 
     <modules>
-        <module>yourfinanceje-model</module>
-        <module>yourfinanceje-invoice-shipping</module>
-        <module>yourfinanceje-overview</module>
+        <module>your-financeje-banking</module>
+        <module>your-financeje-invoice-shipping</module>
+        <module>your-financeje-overview</module>
+        <module>your-financeje-mortgages</module>
     </modules>
 </project>
