@@ -1,5 +1,21 @@
 # Your Finance App
 
+[![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Your%20finance%20JE&color=informational)](https://github.com/jesperancinha/your-finance-je) 
+[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/your-finance-je.svg)](#)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0692606b0864078b03f04e5d3464e5d)](https://www.codacy.com/manual/jofisaes/your-finance-je?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
+[![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
+[![codebeat badge](https://codebeat.co/badges/58319e19-d5c1-414d-ad76-7f8acf833e60)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
+[![Build Status](https://travis-ci.org/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.org/jesperancinha/your-finance-je)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/results/jesperancinha/your-finance-je)
+[![Build status](https://ci.appveyor.com/api/projects/status/k2ukf8h95eys6npr?svg=true)](https://ci.appveyor.com/project/jesperancinha/your-finance-je)
+[![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/your-finance-je/badge.svg)](https://snyk.io/test/github/jesperancinha/your-finance-je)
+
+[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/your-finance-je.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/your-finance-je.svg)](#)
+[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/your-finance-je.svg)](#)
+
 Analysis of a particular test case for KumuluzEE. Goal is to understand the framework and build microservices for a future application
 
 ## Running microservices
