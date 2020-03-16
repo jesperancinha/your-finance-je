@@ -5,7 +5,7 @@
     <artifactId>yourfinanceje-database-model</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>yourfinanceje-database-model</name>
+    <name>your-financeje-banking</name>
     <url>http://maven.apache.org</url>
 
 
@@ -16,6 +16,12 @@
     </parent>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.apache.johnzon/johnzon-core -->
+        <dependency>
+            <groupId>org.apache.johnzon</groupId>
+            <artifactId>johnzon-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-core</artifactId>
@@ -44,6 +50,21 @@
             <groupId>com.kumuluz.ee.rest</groupId>
             <artifactId>kumuluzee-rest-core</artifactId>
             <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee.jwt</groupId>
+            <artifactId>kumuluzee-jwt-auth</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-json_1.1_spec</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-json-p-jsonp</artifactId>
+            <version>3.7.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

@@ -11,8 +11,8 @@
 
     <properties>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-        <maven-compiler-plugin.target>13</maven-compiler-plugin.target>
-        <maven-compiler-plugin.source>13</maven-compiler-plugin.source>
+        <maven-compiler-plugin.target>12</maven-compiler-plugin.target>
+        <maven-compiler-plugin.source>12</maven-compiler-plugin.source>
         <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 
         <junit.version>4.12</junit.version>
