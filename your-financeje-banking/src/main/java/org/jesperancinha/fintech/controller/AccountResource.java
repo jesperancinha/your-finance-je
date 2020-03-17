@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jesperancinha.fintech.model.Account;
+import org.jesperancinha.fintech.model.Client;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -20,6 +21,7 @@ import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @Path("accounts")
 @RequestScoped
@@ -55,17 +57,17 @@ public class AccountResource {
     @RolesAllowed("admin")
     public Response getBook() {
 
-        System.out.println("Secret book for " + principal.getName()
-                + " with roles " + jsonWebToken.getGroups());
-        System.out.println("Administrator level: "
-                + jsonWebToken.getClaim("administrator_level").toString());
-        System.out.println("Administrator id: " + administratorId);
+        Account currentAccount = Optional.ofNullable(accountMap.get(name.getString())).orElse(Account.builder()
+                .client(Client.builder().name(name.getString()).build()).build());
+
+        currentAccount.addValue();
 
         JsonObject secretBook = Json.createObjectBuilder()
-                .add("title", "secret")
-                .add("author", "duke")
+                .add("balance", currentAccount.getCurrentValue())
+                .add("client", name)
                 .build();
 
+        accountMap.put(name.getString(), currentAccount);
         return Response.ok(secretBook).build();
     }
 
