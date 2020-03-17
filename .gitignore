@@ -23,6 +23,6 @@ jwtenizr.jar
 microprofile-config.properties
 jwtenizr-config.json
 token.jwt
-#config.yml
+config.yml
 config_cert.yml
 config_copy.yml
