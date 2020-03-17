@@ -1,5 +1,6 @@
 package org.jesperancinha.fintech.controller;
 
+import org.apache.johnzon.core.JsonLongImpl;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 
@@ -30,6 +31,10 @@ public class AccountResource {
     @Inject
     @Claim("administrator_id")
     private JsonNumber administrator_id;
+
+    @Inject
+    @Claim("iat")
+    private JsonNumber iat;
 
     @GET
     @RolesAllowed("admin")

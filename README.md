@@ -125,6 +125,8 @@ alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-altern
 -   [JWT Dispenser](http://jwtenizr.sh/)
 -   [Configurable Token Expiration 4.0.0](https://github.com/AdamBien/jwtenizr/releases/tag/0.0.4)
 -   [Microservices with KumuluzEE MicroProfile 1.2](https://github.com/kumuluz/kumuluzee-samples/tree/master/kumuluzee-microProfile-1.2)
+-   [JWT authentication: When and how to use it](https://blog.logrocket.com/jwt-authentication-best-practices/)
+-   [The Ultimate Guide to handling JWTs on frontend clients (GraphQL)](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/)
 
 ## About me 👨🏽‍💻🚀
 
