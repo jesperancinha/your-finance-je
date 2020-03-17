@@ -52,6 +52,8 @@ openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key
 -   Install java versions with [SDKMan](https://sdkman.io/) for MAC-OS and Linux based systems
 
 ```bash
+curl -s "https://get.sdkman.io" | bash
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 sdk install java 8.0.242.hs-adpt
 sdk install java 11.0.6.hs-adpt
 sdk install java 12.0.2.hs-adpt
