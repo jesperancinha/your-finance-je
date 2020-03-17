@@ -37,6 +37,14 @@ To run the yourfinanceje-overview module on port 8080:
 ```
 $ java -cp yourfinanceje-overview/target/classes:yourfinanceje-overview/target/dependency/* com.kumuluz.ee.EeApplication
 ```
+
+## Generating Certificates
+
+```bash
+openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinance.csr
+openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key -out yourfinance.pem
+```
+
 ## Hints and Tricks
 
 -   [SDKMAN!](https://sdkman.io/install)
@@ -112,6 +120,8 @@ alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-altern
 -   [payara/Payara-Examples](https://github.com/payara/Payara-Examples/tree/master/javaee/security-jwt-example)
 -   [Securing JAX-RS Endpoints with JWT](https://antoniogoncalves.org/2016/10/03/securing-jax-rs-endpoints-with-jwt/)
 -   [Secure your application with Eclipse MicroProfile JWT Auth](https://rieckpil.de/whatis-eclipse-microprofile-jwt-auth/)
+-   [JWT Dispenser](http://jwtenizr.sh/)
+-   [Configurable Token Expiration 4.0.0](https://github.com/AdamBien/jwtenizr/releases/tag/0.0.4)
 
 ## About me 👨🏽‍💻🚀
 
