@@ -14,6 +14,7 @@ import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -55,9 +56,26 @@ public class AccountResource {
 
     @GET
     @RolesAllowed("admin")
-    public Response getBook() {
 
-        Account currentAccount = Optional.ofNullable(accountMap.get(name.getString())).orElse(Account.builder()
+    public Response getAccount() {
+
+        final Account currentAccount = Optional.ofNullable(accountMap.get(name.getString())).orElse(Account.builder()
+                .client(Client.builder().name(name.getString()).build()).build());
+
+        JsonObject secretBook = Json.createObjectBuilder()
+                .add("balance", currentAccount.getCurrentValue())
+                .add("client", name)
+                .build();
+
+        accountMap.put(name.getString(), currentAccount);
+        return Response.ok(secretBook).build();
+    }
+
+    @POST
+    @RolesAllowed("admin")
+    public Response cashIn() {
+
+        final Account currentAccount = Optional.ofNullable(accountMap.get(name.getString())).orElse(Account.builder()
                 .client(Client.builder().name(name.getString()).build()).build());
 
         currentAccount.addValue();
