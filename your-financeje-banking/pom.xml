@@ -19,13 +19,13 @@
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-microProfile-1.2</artifactId>
-            <version>3.7.0</version>
+            <version>${kumuluzee-microProfile-1.2.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.johnzon/johnzon-core -->
         <dependency>
             <groupId>org.apache.johnzon</groupId>
             <artifactId>johnzon-core</artifactId>
-            <version>1.2.3</version>
+            <version>${johnzon-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
@@ -39,7 +39,7 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
+            <version>${jjwt.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
@@ -66,13 +66,19 @@
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-json_1.1_spec</artifactId>
-            <version>1.0</version>
+            <version>${geronimo-json_1.1_spec.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
-            <version>3.7.0</version>
+            <version>${kumuluzee-json-p-jsonp.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

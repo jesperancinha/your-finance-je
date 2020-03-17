@@ -1,13 +1,15 @@
 {
   "iss": "airhacks",
-  "jti": "42",
-  "sub": "duke",
+  "jti": "42MASTERFINANCE",
+  "sub": "Master of Finance",
+  "aud": "Everyone",
   "upn": "duke",
   "groups": [
-    "chief",
-    "hacker",
-    "admin"
+    "user",
+    "admin",
+    "client"
   ],
   "administrator_id": 42,
-  "administrator_level": "HIGH"
+  "administrator_level": "HIGH",
+  "name": "Administrator"
 }

@@ -7,8 +7,8 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 @LoginConfig(authMethod = "MP-JWT")
-@ApplicationPath("resources")
-@DeclareRoles({"admin", "chief", "duke", "hacker"})
+@ApplicationPath("/")
+@DeclareRoles({"admin", "client", "user"})
 public class BankApplication extends Application {
 
 }
