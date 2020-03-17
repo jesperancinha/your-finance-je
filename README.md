@@ -38,15 +38,22 @@ To run the yourfinanceje-overview module on port 8080:
 $ java -cp yourfinanceje-overview/target/classes:yourfinanceje-overview/target/dependency/* com.kumuluz.ee.EeApplication
 ```
 
-## Generating Certificates
+## Setting up certificates
+
+In order to setup the certificate, private key and get the main admin token, please run the following file.
+
+```bash
+setupCertificates.sh
+```
+
+## Hints and Tricks
+
+--  Generating Certificates
 
 ```bash
 openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinance.csr
 openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key -out yourfinance.pem
 ```
-
-## Hints and Tricks
-
 -   [SDKMAN!](https://sdkman.io/install)
 
 -   Install java versions with [SDKMan](https://sdkman.io/) for MAC-OS and Linux based systems

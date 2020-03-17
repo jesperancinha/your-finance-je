@@ -3,6 +3,7 @@ package org.jesperancinha.fintech.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.jesperancinha.fintech.model.Account;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -17,12 +18,16 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 
 @Path("accounts")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Slf4j
 public class AccountResource {
+
+    private static Map<String, Account> accountMap = new HashMap<>();
 
     @Inject
     private Principal principal;
@@ -49,7 +54,6 @@ public class AccountResource {
     @GET
     @RolesAllowed("admin")
     public Response getBook() {
-
 
         System.out.println("Secret book for " + principal.getName()
                 + " with roles " + jsonWebToken.getGroups());
