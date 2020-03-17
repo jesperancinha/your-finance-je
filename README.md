@@ -65,7 +65,7 @@ sudo apt -y install adoptopenjdk-8-hotspot
 sudo apt -y autoremove
 ```
 
-- .bashrc file to get Gradle, GitPrompt, [SDKMAN](https://sdkman.io/) and some handy aliases in a Windows environment with [MinGW](http://www.mingw.org/).
+- .bashrc file to get GitPrompt, [SDKMAN](https://sdkman.io/) and some handy aliases in a Windows environment with [MinGW](http://www.mingw.org/) or just in a MAC-OS environment.
 
 ```bash
 if [ -f "/root/.bash-git-prompt/gitprompt.sh" ]; then
@@ -85,7 +85,7 @@ export SDKMAN_DIR="/root/.sdkman"
 [[ -s "/root/.sdkman/bin/sdkman-init.sh" ]] && source "/root/.sdkman/bin/sdkman-init.sh"
 ```
 
-- .bashrc file to get Gradle, GitPrompt and some handy aliases in a Windows environment with [ubuntu prompt for windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
+- .bashrc file to get GitPrompt and some handy aliases in a Windows environment with [ubuntu prompt for windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab).
 
 ```bash
 if [ -f "/root/.bash-git-prompt/gitprompt.sh" ]; then
@@ -101,6 +101,7 @@ alias java13="export JAVA_HOME=/usr/lib/jvm/java-13-oracle && update-java-altern
 
 ## References:
 
+-   [Kumuluz Blog](https://blog.kumuluz.com/product/developers/2017/05/03/microservices-with-java-ee-and-kumuluzee-updated.html)
 -   [kumuluzEE](https://ee.kumuluz.com/)
 -   [REST API Security](https://dzone.com/refcardz/rest-api-security-1?chapter=1)
 -   [RESTful API Security](https://dzone.com/articles/restful-api-security?fromrel=true)
