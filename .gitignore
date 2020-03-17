@@ -22,5 +22,7 @@ hs_err_pid*
 jwtenizr.jar
 microprofile-config.properties
 jwtenizr-config.json
-jwt-token.json
 token.jwt
+#config.yml
+config_cert.yml
+config_copy.yml

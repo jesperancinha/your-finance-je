@@ -1,0 +1,13 @@
+{
+  "iss": "airhacks",
+  "jti": "42",
+  "sub": "duke",
+  "upn": "duke",
+  "groups": [
+    "chief",
+    "hacker",
+    "admin"
+  ],
+  "administrator_id": 42,
+  "administrator_level": "HIGH"
+}

@@ -1,0 +1,13 @@
+kumuluzee:
+  name: your-financeje-banking
+  version: 1.0.0
+  env:
+    name: dev
+  metrics:
+    web-instrumentation:
+      - name: accountsEndpoint
+        url-pattern: /resources/books
+  jwt-auth:
+    public-key: {{ publicKey }}
+    issuer: {{ issuer }}
+healthy: true
