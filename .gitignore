@@ -19,7 +19,7 @@ hs_err_pid*
 
 # Downloaded utilities
 # Available in: http://jwtenizr.sh/ and https://github.com/AdamBien/jwtenizr/releases/tag/0.0.4
-jwtenizr.jar
+#jwtenizr.jar
 microprofile-config.properties
 jwtenizr-config.json
 token.jwt

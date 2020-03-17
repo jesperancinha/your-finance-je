@@ -27,3 +27,8 @@ CERT_CLEAN=${CERT_PUBLIC_KEY//"/"/"\/"}
 
 sed "s/{{ publicKey }}/$CERT_CLEAN/g" your-financeje-banking/src/main/resources/config_copy.yml > your-financeje-banking/src/main/resources/config_cert.yml
 sed "s/{{ issuer }}/$CERT_ISSUER/g" your-financeje-banking/src/main/resources/config_cert.yml > your-financeje-banking/src/main/resources/config.yml
+
+rm your-financeje-banking/src/main/resources/config_cert.yml
+rm your-financeje-banking/src/main/resources/config_copy.yml
+
+echo -e "\e[93mSecurity elements completely generated!\e[0m"
