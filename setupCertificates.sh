@@ -11,7 +11,7 @@ function getProperty {
 
 curl -L https://github.com/AdamBien/jwtenizr/releases/download/0.0.4/jwtenizr.jar -o jwtenizr.jar
 
-cp jwt-plain-tokens/jwt-token-admin.json .
+cp jwt-plain-tokens/jwt-token-admin.json jwt-token.json
 
 java -jar jwtenizr.jar
 

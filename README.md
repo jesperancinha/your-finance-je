@@ -137,6 +137,7 @@ alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
 -   [JWT authentication: When and how to use it](https://blog.logrocket.com/jwt-authentication-best-practices/)
 -   [The Ultimate Guide to handling JWTs on frontend clients (GraphQL)](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/)
 -   [IANA JSON Web Token (JWT)](https://www.iana.org/assignments/jwt/jwt.xhtml)
+-   [CyberChef](https://gchq.github.io/CyberChef/)
 
 ## About me 👨🏽‍💻🚀
 
