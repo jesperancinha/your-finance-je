@@ -23,7 +23,7 @@ public class Account {
 
     private BigDecimal creditValue;
 
-    public void addValue() {
-        this.currentValue = Optional.ofNullable(currentValue).orElse(BigDecimal.ZERO).add(BigDecimal.valueOf(10L));
+    public void addValue(Long value) {
+        this.currentValue = Optional.ofNullable(currentValue).orElse(BigDecimal.ZERO).add(BigDecimal.valueOf(value));
     }
 }

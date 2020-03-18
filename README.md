@@ -138,6 +138,7 @@ alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
 -   [The Ultimate Guide to handling JWTs on frontend clients (GraphQL)](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/)
 -   [IANA JSON Web Token (JWT)](https://www.iana.org/assignments/jwt/jwt.xhtml)
 -   [CyberChef](https://gchq.github.io/CyberChef/)
+-   [Using KumuluzEE Security](https://kumuluz.io/blog/kumuluzee/security/2017/09/17/kumuluzee-security-usage/)
 
 ## About me 👨🏽‍💻🚀
 

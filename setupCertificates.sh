@@ -55,6 +55,6 @@ for item in jwt-plain-tokens/jwt*.json; do
         token=$(cat token.jwt)
         echo "# Send money to: "${token_name} >> sendMoney.sh
         echo "echo \"Sending money to ${token_name}\"" >> sendMoney.sh
-        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts -X POST >> sendMoney.sh
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts/"\$((1 + RANDOM % 500))" -X PUT >> sendMoney.sh
       fi
 done

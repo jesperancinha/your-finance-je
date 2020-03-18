@@ -17,7 +17,9 @@ import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -49,7 +51,7 @@ public class AccountResource {
     private JsonNumber administratorId;
 
     @Inject
-    @Claim("accecc_level")
+    @Claim("access_level")
     private JsonString administratorLevel;
 
     @Inject
@@ -74,16 +76,17 @@ public class AccountResource {
         return createResponse(currentAccount);
     }
 
-    @POST
+    @PUT
+    @Path("{value}")
     @RolesAllowed("admin")
-    public Response cashIn() throws JsonProcessingException {
+    public Response cashIn(@PathParam("value") Long value) throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accountMap.get(name.getString())).orElse(
                 Account.builder()
                         .accountNumber(userId.toString())
                         .client(Client.builder().name(name.getString()).build()).build());
 
-        currentAccount.addValue();
+        currentAccount.addValue(value);
 
         return createResponse(currentAccount);
     }
