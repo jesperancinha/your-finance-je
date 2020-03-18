@@ -48,7 +48,7 @@ setupCertificates.sh
 
 ## Hints and Tricks
 
---  Generating Certificates
+-   Generating Certificates
 
 ```bash
 openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinance.csr
