@@ -39,7 +39,7 @@ public class AccountResource {
     private JsonWebToken jsonWebToken;
 
     @Inject
-    @Claim("administrator_id")
+    @Claim("user_id")
     private JsonNumber administratorId;
 
     @Inject

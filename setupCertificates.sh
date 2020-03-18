@@ -32,3 +32,7 @@ rm your-financeje-banking/src/main/resources/config_cert.yml
 rm your-financeje-banking/src/main/resources/config_copy.yml
 
 echo -e "\e[93mSecurity elements completely generated!\e[0m"
+
+echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
+
+

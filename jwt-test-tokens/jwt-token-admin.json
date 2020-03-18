@@ -1,6 +1,6 @@
 {
   "iss": "airhacks",
-  "jti": "42MASTERFINANCE",
+  "jti": "01MASTERFINANCE",
   "sub": "Master of Finance",
   "aud": "Everyone",
   "upn": "fintech",
@@ -9,7 +9,7 @@
     "admin",
     "client"
   ],
-  "user_id": 42,
+  "user_id": 1,
   "administrator_level": "HIGH",
   "name": "Administrator"
 }
