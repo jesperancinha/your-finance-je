@@ -40,6 +40,9 @@ echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
 TOKEN_FOLDER=jwt-tokens
 mkdir -p ${TOKEN_FOLDER}
 
+echo "#!/usr/bin/env bash" > sendMoney.sh
+chmod +x sendMoney.sh
+
 for item in jwt-plain-tokens/jwt*.json; do
      if [[ -f "$item" ]]; then
         filename=${item##*/}
@@ -48,5 +51,10 @@ for item in jwt-plain-tokens/jwt*.json; do
         cp ${item} jwt-token.json
         java -jar jwtenizr.jar
         cp token.jwt ${TOKEN_FOLDER}/token-${token_name}.jwt
+
+        token=$(cat token.jwt)
+        echo "# Send money to: "${token_name} >> sendMoney.sh
+        echo "echo \"Sending money to ${token_name}\"" >> sendMoney.sh
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts -X POST >> sendMoney.sh
       fi
 done

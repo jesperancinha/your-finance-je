@@ -18,7 +18,8 @@ public class Account {
 
     private Client client;
 
-    private BigDecimal currentValue;
+    @Builder.Default
+    private BigDecimal currentValue = BigDecimal.ZERO;
 
     private BigDecimal creditValue;
 

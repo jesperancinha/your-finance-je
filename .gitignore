@@ -27,3 +27,4 @@ config_cert.yml
 config_copy.yml
 jwt-tokens
 jwt-token.json
+sendMoney.sh
