@@ -25,3 +25,4 @@ token.jwt
 config.yml
 config_cert.yml
 config_copy.yml
+jwt-tokens

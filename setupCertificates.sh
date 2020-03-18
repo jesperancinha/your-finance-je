@@ -4,12 +4,14 @@
 MICROPROFILE_PROPERTY_FILE=microprofile-config.properties
 
 function getProperty {
-   PROP_KEY=$1
-   PROP_VALUE=`cat $MICROPROFILE_PROPERTY_FILE | grep "$PROP_KEY" | cut -d'=' -f2`
-   echo $PROP_VALUE
+   property_key=$1
+   property_value=`cat ${MICROPROFILE_PROPERTY_FILE} | grep "$property_key" | cut -d'=' -f2`
+   echo ${property_value}
 }
 
 curl -L https://github.com/AdamBien/jwtenizr/releases/download/0.0.4/jwtenizr.jar -o jwtenizr.jar
+
+cp jwt-plain-tokens/jwt-token-admin.json .
 
 java -jar jwtenizr.jar
 
@@ -35,4 +37,16 @@ echo -e "\e[93mSecurity elements completely generated!\e[0m"
 
 echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
 
+TOKEN_FOLDER=jwt-tokens
+mkdir -p ${TOKEN_FOLDER}
 
+for item in jwt-plain-tokens/jwt*.json; do
+     if [[ -f "$item" ]]; then
+        filename=${item##*/}
+        per_token=${filename/jwt-token-/}
+        token_name=${per_token/.json/}
+        cp ${item} jwt-token.json
+        java -jar jwtenizr.jar
+        cp token.jwt ${TOKEN_FOLDER}/token-${token_name}.jwt
+      fi
+done
