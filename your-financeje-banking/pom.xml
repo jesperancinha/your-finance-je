@@ -19,13 +19,10 @@
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-microProfile-1.2</artifactId>
-            <version>${kumuluzee-microProfile-1.2.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.johnzon/johnzon-core -->
         <dependency>
             <groupId>org.apache.johnzon</groupId>
             <artifactId>johnzon-core</artifactId>
-            <version>${johnzon-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
@@ -35,64 +32,42 @@
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-servlet-jetty</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>${jjwt.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-cdi-weld</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-jpa-eclipselink</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-jta-narayana</artifactId>
-        </dependency>
-        <dependency>
             <groupId>com.kumuluz.ee.rest</groupId>
             <artifactId>kumuluzee-rest-core</artifactId>
-            <version>${kumuluzee-rest-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee.jwt</groupId>
             <artifactId>kumuluzee-jwt-auth</artifactId>
-            <version>${kumuluzee-jwt-auth.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
             <artifactId>geronimo-json_1.1_spec</artifactId>
-            <version>${geronimo-json_1.1_spec.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-json-p-jsonp</artifactId>
-            <version>${kumuluzee-json-p-jsonp.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
