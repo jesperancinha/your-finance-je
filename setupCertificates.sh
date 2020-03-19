@@ -40,8 +40,11 @@ echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
 TOKEN_FOLDER=jwt-tokens
 mkdir -p ${TOKEN_FOLDER}
 
-echo "#!/usr/bin/env bash" > sendMoney.sh
-chmod +x sendMoney.sh
+SEND_MONEY_FILE=sendMoney.sh
+
+echo "#!/usr/bin/env bash" > ${SEND_MONEY_FILE}
+chmod +x ${SEND_MONEY_FILE}
+
 
 for item in jwt-plain-tokens/jwt*.json; do
      if [[ -f "$item" ]]; then
@@ -53,8 +56,9 @@ for item in jwt-plain-tokens/jwt*.json; do
         cp token.jwt ${TOKEN_FOLDER}/token-${token_name}.jwt
 
         token=$(cat token.jwt)
-        echo "# Send money to: "${token_name} >> sendMoney.sh
-        echo "echo \"Sending money to ${token_name}\"" >> sendMoney.sh
-        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts/"\$((1 + RANDOM % 500))" -X PUT >> sendMoney.sh
+        echo "# Send money to: "${token_name} >> ${SEND_MONEY_FILE}
+        echo "echo  -e \"\e[93mSending money to \e[96m${token_name}\e[0m\"" >> ${SEND_MONEY_FILE}
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts/"\$((1 + RANDOM % 500))" -X PUT >> ${SEND_MONEY_FILE}
+        echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${SEND_MONEY_FILE}
       fi
 done

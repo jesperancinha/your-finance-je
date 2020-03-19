@@ -6,7 +6,6 @@
   "upn": "fintech",
   "groups": [
     "user",
-    "admin",
     "client"
   ],
   "user_id": 12,

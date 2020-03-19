@@ -2,16 +2,17 @@ package org.jesperancinha.fintech.controller;
 
 import org.jesperancinha.fintech.model.Accounts;
 
-import javax.enterprise.context.SessionScoped;
-import javax.ws.rs.Produces;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import java.io.Serializable;
 import java.util.HashMap;
 
-@SessionScoped
 public class AccountsFactory implements Serializable {
 
     @Produces
-    public Accounts getAccountMap() {
+    @AccountsProduct
+    @ApplicationScoped
+    public Accounts getAccounts() {
         return Accounts.builder().accountMap(new HashMap<>()).build();
     }
 

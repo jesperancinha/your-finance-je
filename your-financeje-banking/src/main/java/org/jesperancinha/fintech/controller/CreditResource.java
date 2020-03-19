@@ -37,6 +37,7 @@ public class CreditResource {
     private static ObjectMapper objectMapper = new ObjectMapper();
 
     @Inject
+    @AccountsProduct
     private Accounts accounts;
 
     @Inject

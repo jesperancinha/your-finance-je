@@ -5,9 +5,7 @@
   "aud": "Everyone",
   "upn": "fintech",
   "groups": [
-    "user",
-    "admin",
-    "client"
+    "user"
   ],
   "user_id": 5,
   "access_level": "HIGH",
