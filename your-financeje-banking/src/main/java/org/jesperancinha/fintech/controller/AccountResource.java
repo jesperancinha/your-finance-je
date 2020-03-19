@@ -26,7 +26,6 @@ import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Path("accounts")
@@ -67,7 +66,7 @@ public class AccountResource {
     private JsonNumber userId;
 
     @GET
-    @RolesAllowed("admin")
+    @RolesAllowed({"admin", "client"})
     public Response getAccount() throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(Account.builder()
@@ -78,7 +77,7 @@ public class AccountResource {
 
     @PUT
     @Path("{value}")
-    @RolesAllowed("admin")
+    @RolesAllowed({"admin", "client"})
     public Response cashIn(@PathParam("value") Long value) throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(
@@ -86,7 +85,7 @@ public class AccountResource {
                         .accountNumber(userId.toString())
                         .client(Client.builder().name(name.getString()).build()).build());
 
-        currentAccount.addValue(value);
+        currentAccount.addCurrentValue(value);
 
         return createResponse(currentAccount);
     }

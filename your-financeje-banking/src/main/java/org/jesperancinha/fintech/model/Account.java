@@ -2,6 +2,7 @@ package org.jesperancinha.fintech.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -18,12 +19,17 @@ public class Account {
 
     private Client client;
 
-    @Builder.Default
+    @Default
     private BigDecimal currentValue = BigDecimal.ZERO;
 
-    private BigDecimal creditValue;
+    @Default
+    private BigDecimal creditValue = BigDecimal.ZERO;
 
-    public void addValue(Long value) {
+    public void addCurrentValue(Long value) {
         this.currentValue = Optional.ofNullable(currentValue).orElse(BigDecimal.ZERO).add(BigDecimal.valueOf(value));
+    }
+
+    public void addCreditValue(Long value) {
+        this.creditValue = Optional.ofNullable(creditValue).orElse(BigDecimal.ZERO).add(BigDecimal.valueOf(value));
     }
 }

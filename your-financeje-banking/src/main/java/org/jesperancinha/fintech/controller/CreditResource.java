@@ -25,9 +25,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 @Path("credit")
@@ -68,7 +66,7 @@ public class CreditResource {
     private JsonNumber userId;
 
     @GET
-    @RolesAllowed("admin")
+    @RolesAllowed({"admin", "credit"})
     public Response getAccount() throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(Account.builder()
@@ -79,7 +77,7 @@ public class CreditResource {
 
     @PUT
     @Path("{value}")
-    @RolesAllowed("admin")
+    @RolesAllowed({"admin", "credit"})
     public Response cashIn(@PathParam("value") Long value) throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(
@@ -87,7 +85,7 @@ public class CreditResource {
                         .accountNumber(userId.toString())
                         .client(Client.builder().name(name.getString()).build()).build());
 
-        currentAccount.addValue(value);
+        currentAccount.addCreditValue(value);
 
         return createResponse(currentAccount);
     }
