@@ -56,12 +56,12 @@
         <dependency>
             <groupId>com.kumuluz.ee.rest</groupId>
             <artifactId>kumuluzee-rest-core</artifactId>
-            <version>1.2.3</version>
+            <version>${kumuluzee-rest-core.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee.jwt</groupId>
             <artifactId>kumuluzee-jwt-auth</artifactId>
-            <version>1.1.2</version>
+            <version>${kumuluzee-jwt-auth.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.geronimo.specs</groupId>
@@ -81,12 +81,12 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
-            <version>1.2.3</version>
+            <version>${logback.version}</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
+            <version>${logback.version}</version>
         </dependency>
 
         <dependency>

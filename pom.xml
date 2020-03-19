@@ -20,6 +20,9 @@
         <kumuluzee.version>3.7.0</kumuluzee.version>
         <kumuluzee-microProfile-1.2.version>3.7.0</kumuluzee-microProfile-1.2.version>
         <kumuluzee-json-p-jsonp.version>3.7.0</kumuluzee-json-p-jsonp.version>
+        <kumuluzee-jwt-auth.version>1.1.2</kumuluzee-jwt-auth.version>
+        <kumuluzee-rest-core.version>1.2.3</kumuluzee-rest-core.version>
+        <logback.version>1.2.3</logback.version>
         <johnzon-core.version>1.2.3</johnzon-core.version>
         <jjwt.version>0.9.1</jjwt.version>
         <geronimo-json_1.1_spec.version>1.0</geronimo-json_1.1_spec.version>
