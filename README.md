@@ -120,6 +120,7 @@ alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
 
 ## References:
 
+-   [JSON Web Token Claims](https://auth0.com/docs/tokens/concepts/jwt-claims)
 -   [Kumuluz Blog](https://blog.kumuluz.com/product/developers/2017/05/03/microservices-with-java-ee-and-kumuluzee-updated.html)
 -   [kumuluzEE](https://ee.kumuluz.com/)
 -   [REST API Security](https://dzone.com/refcardz/rest-api-security-1?chapter=1)
