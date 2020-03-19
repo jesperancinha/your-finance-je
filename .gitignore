@@ -28,3 +28,4 @@ config_copy.yml
 jwt-tokens
 jwt-token.json
 sendMoney.sh
+askCredit.sh

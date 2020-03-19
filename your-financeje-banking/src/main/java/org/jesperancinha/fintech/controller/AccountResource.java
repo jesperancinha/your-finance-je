@@ -23,6 +23,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -98,6 +99,23 @@ public class AccountResource {
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(allAcounts).build();
+    }
+
+
+    @GET
+    @Path("summary")
+    public Response getSummary() throws JsonProcessingException {
+
+        BigDecimal totalCredit = accounts.getAccountMap().values().stream().map(Account::getCurrentValue).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
+        final JsonObject jsonObject = Json.createObjectBuilder()
+                .add("totalCurrent", totalCredit)
+                .add("client", "Team Let's Get Physical")
+                .build();
+        
+        log.info("Summary");
+        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
+        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
+        return Response.ok(jsonObject).build();
     }
 
 
