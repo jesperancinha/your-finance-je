@@ -25,15 +25,16 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Path("accounts")
+@Path("credit")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Slf4j
-public class AccountResource {
+public class CreditResource {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 

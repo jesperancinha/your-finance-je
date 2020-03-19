@@ -139,6 +139,8 @@ alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
 -   [IANA JSON Web Token (JWT)](https://www.iana.org/assignments/jwt/jwt.xhtml)
 -   [CyberChef](https://gchq.github.io/CyberChef/)
 -   [Using KumuluzEE Security](https://kumuluz.io/blog/kumuluzee/security/2017/09/17/kumuluzee-security-usage/)
+-   [A plain English introduction to JSON web tokens (JWT): what it is and what it isn’t](https://medium.com/ag-grid/a-plain-english-introduction-to-json-web-tokens-jwt-what-it-is-and-what-it-isnt-8076ca679843)
+-   [Internet Engineering Task Force RFC7519](https://tools.ietf.org/html/rfc7519)
 
 ## About me 👨🏽‍💻🚀
 
