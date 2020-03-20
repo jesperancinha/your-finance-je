@@ -1,9 +1,9 @@
-Type,URL,Parameters,Result,Roles Allowed
-GET,http://localhost:8080/accounts,n/a,Matching account,admin/client
-PUT,http://localhost:8080/accounts/{value},Money Value, Current Balance,admin/client
-GET,http://localhost:8080/accounts/all,n/a,All current accounts,All
-GET,http://localhost:8080/accounts/summary,n/a,Sum of all balances,All
-GET,http://localhost:8080/credit,n/a,Matching account,admin/client
-PUT,http://localhost:8080/credit/{value},Money Value, Current Credit,admin/client
-GET,http://localhost:8080/credit/all,n/a,All credits,All
-GET,http://localhost:8080/credit/summary,n/a,Sum credits,All
+Type,URL                                   ,Parameters ,Result              ,Roles Allowed
+GET ,http://localhost:8080/accounts        ,n/a        ,Matching account    ,admin/client
+PUT ,http://localhost:8080/accounts/{value},Money Value,Current Balance     ,admin/client
+GET ,http://localhost:8080/accounts/all    ,n/a        ,All current accounts,All
+GET ,http://localhost:8080/accounts/summary,n/a        ,Sum of all balances ,All
+GET ,http://localhost:8080/credit          ,n/a        ,Matching account    ,admin/client
+PUT ,http://localhost:8080/credit/{value}  ,Money Value,Current Credit      ,admin/client
+GET ,http://localhost:8080/credit/all      ,n/a        ,All credits         ,All
+GET ,http://localhost:8080/credit/summary  ,n/a        ,Sum credits         ,All

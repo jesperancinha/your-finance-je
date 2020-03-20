@@ -111,7 +111,7 @@ public class AccountResource {
                 .add("totalCurrent", totalCredit)
                 .add("client", "Team Let's Get Physical")
                 .build();
-        
+
         log.info("Summary");
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
