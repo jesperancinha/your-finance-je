@@ -10,6 +10,6 @@
     "client"
   ],
   "user_id": 8,
-  "access_level": "HIGH",
+  "access": "TOP",
   "name": "Shay"
 }

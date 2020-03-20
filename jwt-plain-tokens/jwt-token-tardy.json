@@ -10,6 +10,6 @@
     "client"
   ],
   "user_id": 11,
-  "access_level": "HIGH",
+  "access": "TOP",
   "name": "Tardy-B"
 }

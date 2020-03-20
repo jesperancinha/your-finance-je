@@ -52,7 +52,7 @@ public class AccountResource {
     private JsonNumber administratorId;
 
     @Inject
-    @Claim("access_level")
+    @Claim("access")
     private JsonString administratorLevel;
 
     @Inject
@@ -130,4 +130,5 @@ public class AccountResource {
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(jsonObject).build();
     }
+
 }

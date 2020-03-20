@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 MICROPROFILE_PROPERTY_FILE=microprofile-config.properties
 
 function getProperty {
@@ -23,7 +22,6 @@ echo -e "\e[96mIssued by: \e[0m $CERT_ISSUER"
 echo -e "\e[96mYour token is: \e[0m `cat token.jwt`"
 
 cp your-financeje-banking/src/main/resources/config-template your-financeje-banking/src/main/resources/config_copy.yml
-
 
 CERT_CLEAN=${CERT_PUBLIC_KEY//"/"/"\/"}
 
@@ -48,7 +46,6 @@ chmod +x ${SEND_MONEY_FILE}
 echo "#!/usr/bin/env bash" > ${ASK_CREDIT_FILE}
 chmod +x ${ASK_CREDIT_FILE}
 
-
 for item in jwt-plain-tokens/jwt*.json; do
      if [[ -f "$item" ]]; then
         filename=${item##*/}
@@ -66,7 +63,7 @@ for item in jwt-plain-tokens/jwt*.json; do
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${SEND_MONEY_FILE}
 
         echo "# Asking money credit to: "${token_name} >> ${ASK_CREDIT_FILE}
-        echo "echo  -e \"\e[93mSending money to \e[96m${token_name}\e[0m\"" >> ${ASK_CREDIT_FILE}
+        echo "echo  -e \"\e[93mAsking credit from \e[96m${token_name}\e[0m\"" >> ${ASK_CREDIT_FILE}
         echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/credit/"\$((1 + RANDOM % 500))" -X PUT >> ${ASK_CREDIT_FILE}
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${ASK_CREDIT_FILE}
       fi

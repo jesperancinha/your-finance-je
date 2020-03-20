@@ -8,6 +8,6 @@
     "user"
   ],
   "user_id": 10,
-  "access_level": "HIGH",
+  "access": "TOP",
   "name": "Sunny"
 }

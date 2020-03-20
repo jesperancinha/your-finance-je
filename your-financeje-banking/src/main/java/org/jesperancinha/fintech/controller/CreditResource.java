@@ -52,7 +52,7 @@ public class CreditResource {
     private JsonNumber administratorId;
 
     @Inject
-    @Claim("access_level")
+    @Claim("access")
     private JsonString administratorLevel;
 
     @Inject
