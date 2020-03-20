@@ -1,0 +1,13 @@
+{
+  "iss": "airhacks",
+  "jti": "13Ginger",
+  "sub": "Master of Finance",
+  "aud": "Everyone",
+  "upn": "fintech",
+  "groups": [
+    "user"
+  ],
+  "user_id": 13,
+  "access": "TOP",
+  "name": "Ginger Snap"
+}
