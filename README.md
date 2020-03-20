@@ -120,6 +120,15 @@ alias m2disable="rm ~/.m2/settings.xml"
 alias m2enable="cp /your_repo_folder/settings.xml ~/.m2/"
 ```
 
+-   Git tag change
+```bash
+git tag new-tag old-tag
+git tag -d old-tag
+git push origin :refs/tags/old-tag
+git push --tags
+git pull --prune --tags
+```
+
 ## References:
 
 -   [JSON Web Token Claims](https://auth0.com/docs/tokens/concepts/jwt-claims)
