@@ -25,10 +25,6 @@ Here a the definitions of our apps:
 -   your-finance-mortgages - Let's buy a house!
 -   your-financeje-overview - Let's have an overview!
 
-## Status
-
-[Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md)
-
 ## Running microservices
 
 In version 1.0.0, Kumuluz.EE ran only on Jetty. This is the server that is now being used although version 2.0.0 is now available.
