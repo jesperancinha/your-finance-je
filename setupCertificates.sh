@@ -38,9 +38,12 @@ echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
 TOKEN_FOLDER=jwt-tokens
 mkdir -p ${TOKEN_FOLDER}
 
+CREATE_USER_FILE=createUser.sh
 SEND_MONEY_FILE=sendMoney.sh
 ASK_CREDIT_FILE=askCredit.sh
 
+echo "#!/usr/bin/env bash" > ${CREATE_USER_FILE}
+chmod +x ${CREATE_USER_FILE}
 echo "#!/usr/bin/env bash" > ${SEND_MONEY_FILE}
 chmod +x ${SEND_MONEY_FILE}
 echo "#!/usr/bin/env bash" > ${ASK_CREDIT_FILE}
@@ -56,6 +59,11 @@ for item in jwt-plain-tokens/jwt*.json; do
         cp token.jwt ${TOKEN_FOLDER}/token-${token_name}.jwt
 
         token=$(cat token.jwt)
+
+        echo "# Create user: "${token_name} >> ${CREATE_USER_FILE}
+        echo "echo  -e \"\e[93mCreating user \e[96m${token_name}\e[0m\"" >> ${CREATE_USER_FILE}
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts -X POST >> ${CREATE_USER_FILE}
+        echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${CREATE_USER_FILE}
 
         echo "# Send money to: "${token_name} >> ${SEND_MONEY_FILE}
         echo "echo  -e \"\e[93mSending money to \e[96m${token_name}\e[0m\"" >> ${SEND_MONEY_FILE}

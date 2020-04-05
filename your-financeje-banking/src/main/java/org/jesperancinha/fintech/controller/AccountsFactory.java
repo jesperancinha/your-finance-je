@@ -13,7 +13,9 @@ public class AccountsFactory implements Serializable {
     @AccountsProduct
     @ApplicationScoped
     public Accounts getAccounts() {
-        return Accounts.builder().accountMap(new HashMap<>()).build();
+        return Accounts.builder()
+            .accountMap(new HashMap<>())
+            .build();
     }
 
 }

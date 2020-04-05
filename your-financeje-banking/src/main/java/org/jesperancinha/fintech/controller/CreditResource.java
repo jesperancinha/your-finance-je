@@ -68,24 +68,37 @@ public class CreditResource {
     private JsonNumber userId;
 
     @GET
-    @RolesAllowed({"admin", "credit"})
+    @RolesAllowed({ "admin",
+                      "credit" })
     public Response getAccount() throws JsonProcessingException {
 
-        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(Account.builder()
-                .client(Client.builder().name(name.getString()).build()).build());
+        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap()
+            .get(name.getString()))
+            .orElse(Account.builder()
+                .client(Client.builder()
+                    .name(name.getString())
+                    .build())
+                .build());
 
         return createResponse(currentAccount);
     }
 
     @PUT
     @Path("{value}")
-    @RolesAllowed({"admin", "credit"})
-    public Response cashIn(@PathParam("value") Long value) throws JsonProcessingException {
+    @RolesAllowed({ "admin",
+                      "credit" })
+    public Response cashIn(
+        @PathParam("value")
+            Long value) throws JsonProcessingException {
 
-        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap().get(name.getString())).orElse(
-                Account.builder()
-                        .accountNumber(userId.toString())
-                        .client(Client.builder().name(name.getString()).build()).build());
+        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap()
+            .get(name.getString()))
+            .orElse(Account.builder()
+                .accountNumber(userId.toString())
+                .client(Client.builder()
+                    .name(name.getString())
+                    .build())
+                .build());
 
         currentAccount.addCreditValue(value);
 
@@ -95,37 +108,46 @@ public class CreditResource {
     @GET
     @Path("all")
     public Response getAll() throws JsonProcessingException {
-        final List<Account> allAcounts = new ArrayList<>(accounts.getAccountMap().values());
+        final List<Account> allAcounts = new ArrayList<>(accounts.getAccountMap()
+            .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(allAcounts).build();
+        return Response.ok(allAcounts)
+            .build();
     }
 
     @GET
     @Path("summary")
     public Response getSummary() throws JsonProcessingException {
 
-        BigDecimal totalCredit = accounts.getAccountMap().values().stream().map(Account::getCreditValue).reduce(BigDecimal::add).orElse(BigDecimal.ZERO);
+        BigDecimal totalCredit = accounts.getAccountMap()
+            .values()
+            .stream()
+            .map(Account::getCreditValue)
+            .reduce(BigDecimal::add)
+            .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
-                .add("totalCredit", totalCredit)
-                .add("client", "Team Let's Get Physical")
-                .build();
+            .add("totalCredit", totalCredit)
+            .add("client", "Team Let's Get Physical")
+            .build();
         log.info("Summary");
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(jsonObject).build();
+        return Response.ok(jsonObject)
+            .build();
     }
-
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
         final JsonObject jsonObject = Json.createObjectBuilder()
-                .add("balance", currentAccount.getCurrentValue())
-                .add("client", name)
-                .build();
+            .add("balance", currentAccount.getCurrentValue())
+            .add("client", name)
+            .build();
 
-        accounts.getAccountMap().put(name.getString(), currentAccount);
+        accounts.getAccountMap()
+            .put(name.getString(), currentAccount);
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(jsonObject).build();
+        return Response.ok(jsonObject)
+            .build();
     }
 }
