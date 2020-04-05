@@ -7,7 +7,6 @@ import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jesperancinha.fintech.model.Account;
 import org.jesperancinha.fintech.model.Accounts;
-import org.jesperancinha.fintech.model.Client;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -27,7 +26,8 @@ import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
+import static java.util.Objects.isNull;
 
 @Path("credit")
 @RequestScoped
@@ -70,16 +70,13 @@ public class CreditResource {
     @GET
     @RolesAllowed({ "admin", "credit" })
     public Response getAccount() throws JsonProcessingException {
-
-        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap()
-            .get(name.getString()))
-            .orElse(Account.builder()
-                .client(Client.builder()
-                    .name(name.getString())
-                    .build())
-                .build());
-
-        return createResponse(currentAccount);
+        final Account userAccount = accounts.getAccountMap()
+            .get(name.getString());
+        if (isNull(userAccount)) {
+            return Response.serverError()
+                .build();
+        }
+        return createResponse(userAccount);
     }
 
     @PUT
@@ -88,19 +85,14 @@ public class CreditResource {
     public Response cashIn(
         @PathParam("value")
             Long value) throws JsonProcessingException {
-
-        final Account currentAccount = Optional.ofNullable(accounts.getAccountMap()
-            .get(name.getString()))
-            .orElse(Account.builder()
-                .accountNumber(userId.toString())
-                .client(Client.builder()
-                    .name(name.getString())
-                    .build())
-                .build());
-
-        currentAccount.addCreditValue(value);
-
-        return createResponse(currentAccount);
+        final Account userAccount = accounts.getAccountMap()
+            .get(name.getString());
+        if (isNull(userAccount)) {
+            return Response.serverError()
+                .build();
+        }
+        userAccount.addCreditValue(value);
+        return createResponse(userAccount);
     }
 
     @GET
@@ -117,8 +109,7 @@ public class CreditResource {
     @GET
     @Path("summary")
     public Response getSummary() throws JsonProcessingException {
-
-        BigDecimal totalCredit = accounts.getAccountMap()
+        final BigDecimal totalCredit = accounts.getAccountMap()
             .values()
             .stream()
             .map(Account::getCreditValue)

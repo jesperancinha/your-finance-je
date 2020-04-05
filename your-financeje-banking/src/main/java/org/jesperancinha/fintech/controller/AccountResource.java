@@ -71,7 +71,7 @@ public class AccountResource {
     private JsonNumber userId;
 
     @POST
-    @RolesAllowed({ "admin",  "client", "credit"})
+    @RolesAllowed({ "admin", "client", "credit" })
     public Response createAccount() throws JsonProcessingException {
         final Account currentAccount = ofNullable(accounts.getAccountMap()
             .get(name.getString())).orElse(Account.builder()
@@ -82,8 +82,9 @@ public class AccountResource {
 
         return createResponse(currentAccount);
     }
+
     @POST
-    @RolesAllowed({ "admin",  "user"})
+    @RolesAllowed({ "admin", "user" })
     @Path("user")
     public Response createUser() throws JsonProcessingException {
         final Account currentAccount = ofNullable(accounts.getAccountMap()
