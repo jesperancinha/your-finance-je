@@ -30,3 +30,7 @@ jwt-token.json
 sendMoney.sh
 askCredit.sh
 createUser.sh
+createAccount.sh
+
+# MACOS
+.DS_Store

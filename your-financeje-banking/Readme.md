@@ -1,4 +1,11 @@
-# yourfinanceje-database-model
+# your-financeje-banking
+
+## Test Urls
+
+-   [http://localhost:8080/accounts/summary](http://localhost:8080/accounts/summary)
+-   [http://localhost:8080/accounts/all](http://localhost:8080/accounts/all)
+-   [http://localhost:8080/credit/summary](http://localhost:8080/credit/summary)
+-   [http://localhost:8080/credit/all](http://localhost:8080/credit/all)
 
 ## About me 👨🏽‍💻🚀
 

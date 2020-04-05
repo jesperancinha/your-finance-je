@@ -6,7 +6,7 @@
 
     <groupId>org.jesperancinha.fintech</groupId>
     <artifactId>your-finance</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>Your Finance Parent</name>
     <packaging>pom</packaging>

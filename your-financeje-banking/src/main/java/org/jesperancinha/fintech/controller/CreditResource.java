@@ -68,8 +68,7 @@ public class CreditResource {
     private JsonNumber userId;
 
     @GET
-    @RolesAllowed({ "admin",
-                      "credit" })
+    @RolesAllowed({ "admin", "credit" })
     public Response getAccount() throws JsonProcessingException {
 
         final Account currentAccount = Optional.ofNullable(accounts.getAccountMap()
@@ -85,8 +84,7 @@ public class CreditResource {
 
     @PUT
     @Path("{value}")
-    @RolesAllowed({ "admin",
-                      "credit" })
+    @RolesAllowed({ "admin", "credit" })
     public Response cashIn(
         @PathParam("value")
             Long value) throws JsonProcessingException {

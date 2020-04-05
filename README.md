@@ -20,9 +20,10 @@ Let's make a bunch of KumuluzEE Apps and with it investigate the most common sec
 
 Here a the definitions of our apps:
 
--   yourfinance-invoice-shipping - We will use JWT token. It will handle the sending of invoices
--   yourfinance-banking - We will access banking
--   yourfinance-mortgages - Let's buy a house!
+-   your-finance-invoice-shipping - We will use JWT token. It will handle the sending of invoices
+-   your-finance-banking - We will access banking
+-   your-finance-mortgages - Let's buy a house!
+-   your-financeje-overview - Let's have an overview!
 
 ## Status
 

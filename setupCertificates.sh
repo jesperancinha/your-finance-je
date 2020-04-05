@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+echo -e "\e[96mGenerating executable jar file...\e[0m"
+mvn clean install
 
 MICROPROFILE_PROPERTY_FILE=microprofile-config.properties
 
@@ -38,10 +40,13 @@ echo -e "\e[93mGenerating Dua Lipa tokens...\e[0m"
 TOKEN_FOLDER=jwt-tokens
 mkdir -p ${TOKEN_FOLDER}
 
+CREATE_ACCOUNT_FILE=createAccount.sh
 CREATE_USER_FILE=createUser.sh
 SEND_MONEY_FILE=sendMoney.sh
 ASK_CREDIT_FILE=askCredit.sh
 
+echo "#!/usr/bin/env bash" > ${CREATE_ACCOUNT_FILE}
+chmod +x ${CREATE_ACCOUNT_FILE}
 echo "#!/usr/bin/env bash" > ${CREATE_USER_FILE}
 chmod +x ${CREATE_USER_FILE}
 echo "#!/usr/bin/env bash" > ${SEND_MONEY_FILE}
@@ -60,9 +65,14 @@ for item in jwt-plain-tokens/jwt*.json; do
 
         token=$(cat token.jwt)
 
+        echo "# Create account: "${token_name} >> ${CREATE_ACCOUNT_FILE}
+        echo "echo  -e \"\e[93mCreating account \e[96m${token_name}\e[0m\"" >> ${CREATE_ACCOUNT_FILE}
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts -X POST >> ${CREATE_ACCOUNT_FILE}
+        echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${CREATE_ACCOUNT_FILE}
+
         echo "# Create user: "${token_name} >> ${CREATE_USER_FILE}
         echo "echo  -e \"\e[93mCreating user \e[96m${token_name}\e[0m\"" >> ${CREATE_USER_FILE}
-        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts -X POST >> ${CREATE_USER_FILE}
+        echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/accounts/user -X POST >> ${CREATE_USER_FILE}
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${CREATE_USER_FILE}
 
         echo "# Send money to: "${token_name} >> ${SEND_MONEY_FILE}
