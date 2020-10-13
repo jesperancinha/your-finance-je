@@ -28,7 +28,7 @@
         <geronimo-json_1.1_spec.version>1.0</geronimo-json_1.1_spec.version>
         <lombok.version>1.18.12</lombok.version>
 
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <modules>
