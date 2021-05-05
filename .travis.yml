@@ -2,3 +2,6 @@ os: osx
 language: java
 jdk:
   - openjdk13
+script:
+  - mvn clean install coveralls:report -Dconsolerizer.show=false -DrepoToken=${COVERALLS_TOKEN}
+  - bash <(curl -s https://codecov.io/bash)
