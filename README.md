@@ -7,7 +7,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0692606b0864078b03f04e5d3464e5d)](https://www.codacy.com/manual/jofisaes/your-finance-je?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
 [![codebeat badge](https://codebeat.co/badges/66bd8179-b645-40f4-9a02-072a8df5ff32)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
-[![Build Status](https://travis-ci.org/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.org/jesperancinha/your-finance-je)
+[![Build Status](https://travis-ci.com/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.com/jesperancinha/your-finance-je)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/)
 [![Build status](https://ci.appveyor.com/api/projects/status/u5yk9x8ldvk1g7h1/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/your-finance-je/branch/master)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/your-finance-je/badge.svg)](https://snyk.io/test/github/jesperancinha/your-finance-je)
@@ -22,10 +22,10 @@ Let's make a bunch of [KumuluzEE](https://ee.kumuluz.com/) Apps and with it inve
 
 Here a the definitions of our apps:
 
-1. [your-finance-invoice-shipping](./your-financeje-invoice-shipping) - We will use JWT token. It will handle the sending of invoices
-2. [your-finance-banking](./your-financeje-banking) - We will access banking
-3. [your-finance-mortgages](./your-financeje-mortgages) - Let's buy a house!
-4. [your-financeje-overview](./your-financeje-overview) - Let's have an overview!
+1.  [your-finance-invoice-shipping](./your-financeje-invoice-shipping) - We will use JWT token. It will handle the sending of invoices
+2.  [your-finance-banking](./your-financeje-banking) - We will access banking
+3.  [your-finance-mortgages](./your-financeje-mortgages) - Let's buy a house!
+4.  [your-financeje-overview](./your-financeje-overview) - Let's have an overview!
 
 ## Running microservices
 
@@ -56,7 +56,7 @@ openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key
 
 ### [Further reading](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md)
 
-## References:
+## References
 
 -   [JSON Web Token Claims](https://auth0.com/docs/tokens/concepts/jwt-claims)
 -   [Kumuluz Blog](https://blog.kumuluz.com/product/developers/2017/05/03/microservices-with-java-ee-and-kumuluzee-updated.html)
