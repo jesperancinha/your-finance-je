@@ -1,22 +1,35 @@
 # Your Finance App
 
+---
+[![Twitter URL](https://img.shields.io/twitter/url?logoColor=blue&style=social&url=https%3A%2F%2Fimg.shields.io%2Ftwitter%2Furl%3Fstyle%3Dsocial)](https://twitter.com/intent/tweet?text=%20Checkout%20this%20%40github%20repo%20by%20%40joaofse%20%F0%9F%91%A8%F0%9F%8F%BD%E2%80%8D%F0%9F%92%BB%3A%20https%3A//github.com/jesperancinha/your-finance-je)
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Your%20finance%20JE&color=informational)](https://github.com/jesperancinha/your-finance-je) 
 [![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/your-finance-je.svg)](#)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0692606b0864078b03f04e5d3464e5d)](https://www.codacy.com/manual/jofisaes/your-finance-je?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
 [![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
-[![codebeat badge](https://codebeat.co/badges/66bd8179-b645-40f4-9a02-072a8df5ff32)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
 [![Build Status](https://travis-ci.com/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.com/jesperancinha/your-finance-je)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/)
 [![Build status](https://ci.appveyor.com/api/projects/status/u5yk9x8ldvk1g7h1/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/your-finance-je/branch/master)
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c0692606b0864078b03f04e5d3464e5d)](https://www.codacy.com/manual/jofisaes/your-finance-je?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/66bd8179-b645-40f4-9a02-072a8df5ff32)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
+[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/your-finance-je/badge.svg)](https://snyk.io/test/github/jesperancinha/your-finance-je)
+
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/your-finance-je/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/your-finance-je?branch=master)
 [![codecov](https://codecov.io/gh/jesperancinha/your-finance-je/branch/master/graph/badge.svg?token=Tn7WAPeYui)](https://codecov.io/gh/jesperancinha/your-finance-je)
 
 [![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/your-finance-je.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/your-finance-je.svg)](#)
 [![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/your-finance-je.svg)](#)
+
+---
+
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/java-50.png "Java")](https://www.oracle.com/nl/java/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/lombok-50.png "Lombok")](https://projectlombok.org/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/jetty-50.png "Jetty")](https://www.eclipse.org/jetty/)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-50/kumuluzee-50.png "KumuluzEE")](https://ee.kumuluz.com/)
+
+---
 
 Let's make a bunch of [KumuluzEE](https://ee.kumuluz.com/) Apps and with it investigate the most common secure protocols using REST services.
 
