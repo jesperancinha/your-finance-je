@@ -41,6 +41,12 @@ Here a the definitions of our apps:
 3.  [your-finance-mortgages](./your-financeje-mortgages) - Let's buy a house!
 4.  [your-financeje-overview](./your-financeje-overview) - Let's have an overview!
 
+
+This project is also the official support project of my article on medium:
+
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+[Understanding JWT in REST Services — Let’s improve performance and let’s get physical!](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+
 ## Running microservices
 
 In version 1.0.0, Kumuluz.EE ran only on Jetty. This is the server that is now being used although version 2.0.0 is now available.
