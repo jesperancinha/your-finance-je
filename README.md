@@ -34,13 +34,9 @@
 
 Let's make a bunch of [KumuluzEE](https://ee.kumuluz.com/) Apps and with it investigate the most common secure protocols using REST services.
 
-Here a the definitions of our apps:
+Our test app is located here:
 
-1.  [your-finance-invoice-shipping](./your-financeje-invoice-shipping) - We will use JWT token. It will handle the sending of invoices
-2.  [your-finance-banking](./your-financeje-banking) - We will access banking
-3.  [your-finance-mortgages](./your-financeje-mortgages) - Let's buy a house!
-4.  [your-financeje-overview](./your-financeje-overview) - Let's have an overview!
-
+[your-finance-banking](./your-financeje-banking) - We will access banking
 
 This project is also the official support project of my article on medium:
 

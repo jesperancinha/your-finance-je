@@ -34,13 +34,11 @@
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
+        <assertj-core.version>3.19.0</assertj-core.version>
     </properties>
 
     <modules>
         <module>your-financeje-banking</module>
-        <module>your-financeje-invoice-shipping</module>
-        <module>your-financeje-overview</module>
-        <module>your-financeje-mortgages</module>
     </modules>
 
     <build>
@@ -146,6 +144,15 @@
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
