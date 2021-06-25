@@ -7,7 +7,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
-[![Build Status](https://travis-ci.com/jesperancinha/your-finance-je.svg?branch=master)](https://travis-ci.com/jesperancinha/your-finance-je)
 [![Build status](https://ci.appveyor.com/api/projects/status/u5yk9x8ldvk1g7h1/branch/master?svg=true)](https://ci.appveyor.com/project/jesperancinha/your-finance-je/branch/master)
 [![your-finance-je](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je.yml/badge.svg)](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je.yml)
 
