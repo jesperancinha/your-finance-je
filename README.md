@@ -40,8 +40,16 @@ Our test app is located here:
 
 This project is also the official support project of my article on medium:
 
-[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
-[Understanding JWT in REST Services — Let’s improve performance and let’s get physical!](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Understanding JWT in REST Services — Improving performance with authentication and authorization")](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+[Understanding JWT in REST Services — Improving performance with authentication and authorization](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+
+<div align="center">
+      <a title="Understanding JWT in REST Services — Improving performance with authentication and authorization" href="https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da">
+     <img 
+          src="./docs/images/articles.your.finance.intro.png" 
+          style="width:100%;">
+      </a>
+</div>
 
 ## Running microservices
 
