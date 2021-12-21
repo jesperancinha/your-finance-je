@@ -27,7 +27,7 @@
         <logback.version>1.2.3</logback.version>
         <johnzon-core.version>1.2.3</johnzon-core.version>
         <jjwt.version>0.9.1</jjwt.version>
-        <geronimo-json_1.1_spec.version>1.0</geronimo-json_1.1_spec.version>
+        <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
         <lombok.version>1.18.22</lombok.version>
 
         <junit.version>4.13.1</junit.version>
