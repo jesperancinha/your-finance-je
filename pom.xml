@@ -30,7 +30,7 @@
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
         <lombok.version>1.18.22</lombok.version>
 
-        <junit.version>4.13.1</junit.version>
+        <junit.version>4.13.2</junit.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
