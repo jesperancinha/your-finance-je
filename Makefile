@@ -11,6 +11,7 @@ local: no-test
 	mkdir -p bin
 no-test:
 	mvn clean install -DskipTests
+	make setup-certificates
 docker:
 	docker-compose rm -svf
 	docker-compose up -d --build --remove-orphans
@@ -47,8 +48,6 @@ ask-credit:
 	bash askCredit.sh
 demo:
 	make dcup-full
-	make setup-certificates
 	make create-accounts
 	make create-users
 perform-transactions: send-money ask-credit
-
