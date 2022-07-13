@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  your-finance:
+    hostname: your-finance
+    container_name: your-finance
+    build:
+      context: your-financeje-banking/.
+    expose:
+      - 8080
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M

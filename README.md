@@ -78,8 +78,6 @@ openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinanc
 openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key -out yourfinance.pem
 ```
 
-### [Further reading](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/Hints%26Tricks.md)
-
 ## References
 
 -   [JSON Web Token Claims](https://auth0.com/docs/tokens/concepts/jwt-claims)

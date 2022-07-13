@@ -40,3 +40,6 @@ createAccount.sh
 
 # Codecov
 codecov.yml
+
+## Logs
+logs

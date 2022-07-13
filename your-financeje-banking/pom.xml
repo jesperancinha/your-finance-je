@@ -6,7 +6,7 @@
     <version>1.0.1-SNAPSHOT</version>
 
     <name>Your Finance Banking</name>
-    <url>http://maven.apache.org</url>
+    <url>https://joaofilipesabinoesperancinha.nl </url>
     <packaging>jar</packaging>
 
     <parent>
@@ -79,6 +79,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>com.kumuluz.ee</groupId>
