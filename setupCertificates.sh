@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-echo -e "\e[96mGenerating executable jar file...\e[0m"
-mvn clean install
+# Old code stays for reference
+# echo -e "\e[96mGenerating executable jar file...\e[0m"
+# mvn clean install
 
 MICROPROFILE_PROPERTY_FILE=microprofile-config.properties
 

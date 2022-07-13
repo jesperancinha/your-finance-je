@@ -35,3 +35,20 @@ cypress-firefox:
 	cd e2e && make cypress-firefox
 cypress-edge:
 	cd e2e && make cypress-edge
+setup-certificates:
+	bash setupCertificates.sh
+create-accounts:
+	bash createAccount.sh
+create-users:
+	bash createUser.sh
+send-money:
+	bash sendMoney.sh
+ask-credit:
+	bash askCredit.sh
+demo:
+	make dcup-full
+	make setup-certificates
+	make create-accounts
+	make create-users
+perform-transactions: send-money ask-credit
+

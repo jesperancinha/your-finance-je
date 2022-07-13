@@ -9,3 +9,5 @@ COPY entrypoint.sh /root
 COPY target/your-financeje-banking.jar /root/your-financeje-banking.jar
 
 ENTRYPOINT ["/root/entrypoint.sh"]
+
+EXPOSE 8080

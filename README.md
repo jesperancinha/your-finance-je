@@ -32,7 +32,9 @@
 
 ---
 
-Let's make a bunch of [KumuluzEE](https://ee.kumuluz.com/) Apps and with it investigate the most common secure protocols using REST services.
+# Introduction
+
+Creation of one  [KumuluzEE](https://ee.kumuluz.com/) App and with it investigate how the JWT token works.
 
 Our test app is located here:
 
@@ -50,24 +52,6 @@ This project is also the official support project of my article on medium:
           style="width:100%;">
       </a>
 </div>
-
-## Running microservices
-
-In version 1.0.0, Kumuluz.EE ran only on Jetty. This is the server that is now being used although version 2.0.0 is now available.
-
-To run the yourfinanceje-overview module on port 8080:
-
-```
-$ java -cp yourfinanceje-overview/target/classes:yourfinanceje-overview/target/dependency/* com.kumuluz.ee.EeApplication
-```
-
-## Setting up certificates
-
-In order to setup the certificate, private key and get the main admin token, please run the following file.
-
-```bash
-setupCertificates.sh
-```
 
 ## Hints and Tricks
 
