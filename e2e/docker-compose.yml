@@ -6,8 +6,6 @@ services:
     command: "--browser electron"
     volumes:
       - ./e2e:/e2e
-    networks:
-      - staco_net
 
   e2e-chrome:
     image: "cypress/included:10.3.0"
@@ -15,8 +13,6 @@ services:
     command: "--browser chrome"
     volumes:
       - ./e2e:/e2e
-    networks:
-      - staco_net
 
   e2e-firefox:
     image: "cypress/included:10.3.0"
@@ -24,8 +20,6 @@ services:
     command: "--browser firefox"
     volumes:
       - ./e2e:/e2e
-    networks:
-      - staco_net
 
   e2e-edge:
     image: "cypress/included:10.3.0"
@@ -33,5 +27,3 @@ services:
     command: "--browser edge"
     volumes:
       - ./e2e:/e2e
-    networks:
-      - staco_net
