@@ -1,4 +1,8 @@
 describe('Your Finance - Send Money Tests', () => {
+
+    const host = Cypress.env('host.jwtenizr') ? Cypress.env('host.jwtenizr') : 'localhost';
+    const port = Cypress.env('host.jwtenizr') ? 8080 : 8081;
+
     it('sends random value for all valid users', () => {
         cy.readFile('../jwtenizr-files/tokenNameValue.csv').then((data) => {
             const lines = data.split("\n");
@@ -11,7 +15,7 @@ describe('Your Finance - Send Money Tests', () => {
                         case "sunny":
                             cy.log(`user unauthorized testing for user ${user}`)
                             cy.request({
-                                url: "http://localhost:8081/accounts/50",
+                                url: `http://${host}:${port}/accounts/50`,
                                 method: "PUT",
                                 headers: {
                                     "Authorization": `Bearer ${token}`
@@ -26,7 +30,7 @@ describe('Your Finance - Send Money Tests', () => {
                             cy.log(`user authorized testing for user ${user}`)
                             cy.request({
                                 method: "PUT",
-                                url: "http://localhost:8081/accounts/50",
+                                url: `http://${host}:${port}/accounts/50`,
                                 headers: {
                                     "Authorization": `Bearer ${token}`
                                 }

@@ -57,3 +57,7 @@ dependency-reduced-pom.xml
 your-finance-images/jwtenizr
 your-finance-images/yf
 tokenNameValue.csv
+
+# Cypress
+screenshots
+videos
