@@ -2,7 +2,7 @@ name: e2e-your-finance-je
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   e2e-electron:
