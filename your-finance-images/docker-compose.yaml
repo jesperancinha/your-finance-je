@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+
+  your-finance:
+    hostname: your-finance
+    container_name: your-finance
+    build:
+      context: yf/.
+    expose:
+      - 8080
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M
+
+  your-finance-jwtenizr:
+    hostname: your-finance-jwtenizr
+    container_name: your-finance-jwtenizr
+    build:
+      context: jwtenizr/.
+    expose:
+      - 8080
+    deploy:
+      resources:
+        limits:
+          memory: 400M
+        reservations:
+          memory: 400M

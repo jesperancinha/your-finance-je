@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  your-finance:
+    ports:
+      - "8080:8080"
+
+  your-finance-jwtenizr:
+    ports:
+      - "8081:8080"

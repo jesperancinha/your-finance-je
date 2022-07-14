@@ -46,3 +46,13 @@ logs
 
 ## Node
 node_modules
+
+## Security
+*.pem
+
+# Shade Plugin
+dependency-reduced-pom.xml
+
+# Your Finance
+your-finance-images/jwtenizr
+your-finance-images/yf

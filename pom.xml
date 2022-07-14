@@ -18,6 +18,8 @@
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-compiler-plugin.target>${java.version}</maven-compiler-plugin.target>
         <maven-compiler-plugin.source>${java.version}</maven-compiler-plugin.source>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
@@ -37,10 +39,12 @@
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
         <assertj-core.version>3.23.1</assertj-core.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
+        <picocli.version>4.6.2</picocli.version>
     </properties>
 
     <modules>
         <module>your-financeje-banking</module>
+        <module>your-finance-jwt-generator</module>
     </modules>
 
     <build>
@@ -86,6 +90,11 @@
                 <version>${kumuluzee.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>info.picocli</groupId>
+                <artifactId>picocli</artifactId>
+                <version>${picocli.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.kumuluz.ee</groupId>

@@ -147,7 +147,7 @@ public class AccountResource {
             .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
             .add("totalCurrent", totalCredit)
-            .add("client", "Team Let's Get Physical")
+            .add("client", "Team The Monsters Within")
             .build();
 
         log.info("Summary");
