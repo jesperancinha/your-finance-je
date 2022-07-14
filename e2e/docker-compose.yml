@@ -5,25 +5,25 @@ services:
     working_dir: /e2e
     command: "--browser electron"
     volumes:
-      - .:/e2e
+      - ../e2e:/e2e
 
   e2e-chrome:
     image: "cypress/included:10.3.0"
     working_dir: /e2e
     command: "--browser chrome"
     volumes:
-      - .:/e2e
+      - ../e2e:/e2e
 
   e2e-firefox:
     image: "cypress/included:10.3.0"
     working_dir: /e2e
     command: "--browser firefox"
     volumes:
-      - .:/e2e
+      - ../e2e:/e2e
 
   e2e-edge:
     image: "cypress/included:10.3.0"
     working_dir: /e2e
     command: "--browser edge"
     volumes:
-      - .:/e2e
+      - ../e2e:/e2e
