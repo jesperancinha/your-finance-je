@@ -3,7 +3,7 @@ describe('Your Finance - Send Money Tests', () => {
     const host = Cypress.env('host.jwtenizr') ? Cypress.env('host.jwtenizr') : 'localhost';
     const port = Cypress.env('host.jwtenizr') ? 8080 : 8081;
 
-    it('sends random value for all valid users', () => {
+    it('should inject 50 to allowed users account', () => {
         cy.readFile('../jwtenizr-files/tokenNameValue.csv').then((data) => {
             const lines = data.split("\n");
             lines.forEach(line => {

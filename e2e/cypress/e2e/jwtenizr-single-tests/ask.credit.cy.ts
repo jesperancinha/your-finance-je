@@ -1,9 +1,10 @@
 describe('Your Finance - Send Money Tests', () => {
 
-    const host = Cypress.env('host.yf') ? Cypress.env('host.yf') : 'localhost';
+    const host = Cypress.env('host.jwtenizr') ? Cypress.env('host.jwtenizr') : 'localhost';
+    const port = Cypress.env('host.jwtenizr') ? 8080 : 8081;
 
-    it('should inject 50 to allowed users account', () => {
-        cy.readFile('../your-finance-files/tokenNameValue.csv').then((data) => {
+    it('should ask 10 credit in cash from allowed users', () => {
+        cy.readFile('../jwtenizr-files/tokenNameValue.csv').then((data) => {
             const lines = data.split("\n");
             lines.forEach(line => {
                 const [user, token] = line.split(",")
@@ -12,9 +13,10 @@ describe('Your Finance - Send Money Tests', () => {
                         case "dee":
                         case "ginger":
                         case "sunny":
+                        case "upset":
                             cy.log(`user unauthorized testing for user ${user}`)
                             cy.request({
-                                url: `http://${host}:8080/accounts/50`,
+                                url: `http://${host}:${port}/credit/10`,
                                 method: "PUT",
                                 headers: {
                                     "Authorization": `Bearer ${token}`
@@ -29,7 +31,7 @@ describe('Your Finance - Send Money Tests', () => {
                             cy.log(`user authorized testing for user ${user}`)
                             cy.request({
                                 method: "PUT",
-                                url: `http://${host}:8080/accounts/50`,
+                                url: `http://${host}:${port}/credit/10`,
                                 headers: {
                                     "Authorization": `Bearer ${token}`
                                 }
