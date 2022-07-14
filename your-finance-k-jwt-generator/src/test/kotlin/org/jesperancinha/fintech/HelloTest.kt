@@ -1,8 +1,0 @@
-package org.jesperancinha.fintech
-
-import org.junit.Test
-import kotlin.test.assertEquals
-
-class HelloTest {
-
-}

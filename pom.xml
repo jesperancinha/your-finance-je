@@ -40,18 +40,11 @@
         <assertj-core.version>3.23.1</assertj-core.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <picocli.version>4.6.3</picocli.version>
-
-        <!-- JWT Generators -->
-        <nimbus-jose-jwt.version>9.23</nimbus-jose-jwt.version>
-        <microprofile-jwt-auth-api.version>2.0</microprofile-jwt-auth-api.version>
-        <json-smart.version>2.4.8</json-smart.version>
-        <jakarta.json.version>1.1.0</jakarta.json.version>
     </properties>
 
     <modules>
         <module>your-financeje-banking</module>
         <module>your-finance-jwt-generator</module>
-        <module>your-finance-k-jwt-generator</module>
     </modules>
 
     <build>
@@ -152,26 +145,6 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>net.minidev</groupId>
-                <artifactId>json-smart</artifactId>
-                <version>${json-smart.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.microprofile.jwt</groupId>
-                <artifactId>microprofile-jwt-auth-api</artifactId>
-                <version>${microprofile-jwt-auth-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.nimbusds</groupId>
-                <artifactId>nimbus-jose-jwt</artifactId>
-                <version>${nimbus-jose-jwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.eclipse.parsson</groupId>
-                <artifactId>jakarta.json</artifactId>
-                <version>${jakarta.json.version}</version>
             </dependency>
 
             <dependency>
