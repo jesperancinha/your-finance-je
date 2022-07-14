@@ -49,6 +49,7 @@ CREATE_ACCOUNT_FILE=createAccount.sh
 CREATE_USER_FILE=createUser.sh
 SEND_MONEY_FILE=sendMoney.sh
 ASK_CREDIT_FILE=askCredit.sh
+TOKEN_NAME_VALUE=tokenNameValue.csv
 
 echo "#!/usr/bin/env bash" > ${CREATE_ACCOUNT_FILE}
 chmod +x ${CREATE_ACCOUNT_FILE}
@@ -89,5 +90,7 @@ for item in ../jwt-plain-tokens/jwt*.json; do
         echo "echo  -e \"\e[93mAsking credit from \e[96m${token_name}\e[0m\"" >> ${ASK_CREDIT_FILE}
         echo curl -i -H"'Authorization: Bearer "${token}"'" http://localhost:8080/credit/"\$((1 + RANDOM % 500))" -X PUT >> ${ASK_CREDIT_FILE}
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${ASK_CREDIT_FILE}
+
+        echo "${token_name},${token}" >> ${TOKEN_NAME_VALUE}
       fi
 done

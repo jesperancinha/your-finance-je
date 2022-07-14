@@ -15,7 +15,7 @@ no-test: build-maven
 docker:
 	docker-compose rm -svf
 	docker-compose up -d --build --remove-orphans
-docker-clean:
+docker-clean: cleanup-certificates
 	docker-compose rm -svf
 docker-clean-build-start: docker-clean b docker
 yfje-wait:
@@ -39,9 +39,9 @@ cypress-edge:
 cleanup-certificates:
 	rm -rf jwtenizr-files
 	rm -rf your-finance-files
-jwtenizr-setup-certificates: cleanup-certificates
+jwtenizr-setup-certificates:
 	bash jwtenizrSetupCertificates.sh
-setup-certificates: cleanup-certificates
+setup-certificates:
 	bash setupCertificates.sh
 create-users:
 	cd your-finance-files && bash createUser.sh
@@ -84,7 +84,7 @@ jwtenizr-create-users:
 	cd jwtenizr-files && bash createUser.sh
 jwtenizr-create-accounts:
 	cd jwtenizr-files && bash createAccount.sh
-dcup-full-action:
+dcup-full-action: cleanup-certificates
 	rm -rf your-finance-images/yf
 	rm -rf your-finance-images/jwtenizr
 	mkdir -p your-finance-images/yf
