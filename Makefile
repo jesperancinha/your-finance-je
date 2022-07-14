@@ -55,6 +55,7 @@ demo:
 	make dcup-full
 	make create-users
 	make create-accounts
+demo-action: dcup-full-action cypress-open
 perform-transactions: send-money ask-credit
 jwtenizr-old-file-cleanup:
 	rm askCredit.sh &
