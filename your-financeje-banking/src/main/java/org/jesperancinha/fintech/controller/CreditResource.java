@@ -117,7 +117,7 @@ public class CreditResource {
             .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
             .add("totalCredit", totalCredit)
-            .add("client", "Team The Monsters Within")
+            .add("client", "Mother Nature Dream Team")
             .build();
         log.info("Summary");
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));

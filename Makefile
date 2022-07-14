@@ -87,15 +87,20 @@ jwtenizr-create-accounts:
 dcup-full-action: cleanup-certificates
 	rm -rf your-finance-images/yf
 	rm -rf your-finance-images/jwtenizr
+	rm -rf your-financeje-banking/target
 	mkdir -p your-finance-images/yf
 	mkdir -p your-finance-images/jwtenizr
 	make no-test
 	cp your-financeje-banking/target/your-financeje-banking.jar your-finance-images/yf/
 	cp your-finance-images-template/* your-finance-images/yf/
+	rm -rf your-financeje-banking/target
 	make jwtenizr-no-test
 	cp your-financeje-banking/target/your-financeje-banking.jar your-finance-images/jwtenizr
 	cp your-finance-images-template/* your-finance-images/jwtenizr/
 	cd your-finance-images && docker-compose rm -svf
 	cd your-finance-images && docker-compose down
+	cd your-finance-images && docker-compose build
 	cd your-finance-images && docker-compose up -d
 	cd your-finance-images && bash yfje_wait.sh
+	make all-env
+all-env: create-users create-accounts jwtenizr-create-users create-accounts
