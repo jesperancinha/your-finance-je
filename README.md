@@ -40,7 +40,8 @@ Creation of one  [KumuluzEE](https://ee.kumuluz.com/) App and with it investigat
 
 Our test app is located here:
 
-[your-finance-banking](./your-financeje-banking) - We will access banking
+[your-finance-banking](./your-financeje-banking) - This is an extremely basic banking application that only performs a couple of functions
+[your-finance-jwt-generator](./your-finance-jwt-generator) - Java project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 
 This project is also the official support project of my article on medium:
 
@@ -55,9 +56,36 @@ This project is also the official support project of my article on medium:
       </a>
 </div>
 
-## Hints and Tricks
+## How to run
 
-### Generating Certificates
+There are many scripts available in the [Makefile](./Makefile) at the root of this project. However, the way to start this project and see all the aspects of it, it's better to just start the containers and open the cypress console;
+
+1. Run command `make dcup-full-action`
+2. Run cypress with `make cypress-open`
+
+> You can also run everything at once with `make demo-action`
+
+#### Behind the scenes
+
+Running the previous commands performs the following actions
+
+1. Cleanup environment
+2. Make a first Maven build to ensure that the JWT generator project is compiled
+3. Creates AWS tokens using [jwtenizr](https://github.com/AdamBien/jwtenizr) and [your-finance-jwt-generator](./your-finance-jwt-generator) in separate locations:
+   1. Run generation scripts and create bash scripts for:
+      1. User creation: [jwtenizr-files/createUser.sh](./jwtenizr-files/createUser.sh) and [your-finance-files/createUser.sh](./your-finance-files/createUser.sh)
+      2. Account creation: [jwtenizr-files/createAccount.sh](./jwtenizr-files/createAccount.sh) and [your-finance-files/createAccount.sh](./your-finance-files/createAccount.sh)
+      3. Send Money: [jwtenizr-files/sendMoney.sh](./jwtenizr-files/sendMoney.sh) and [your-finance-files/sendMoney.sh](./your-finance-files/sendMoney.sh)
+      4. Asks Credit: [jwtenizr-files/askCredit.sh](./jwtenizr-files/askCredit.sh) and [your-finance-files/askCredit.sh](./your-finance-files/askCredit.sh)
+   2. Creates CSV to be used in Swagger tests;
+      1. Name/JWT token pairs: [jwtenizr-files/tokenNameValue.csv](./jwtenizr-files/tokenNameValue.csv) and [your-finance-files/tokenNameValue.csv](./your-finance-files/tokenNameValue.csv)
+   3. Sets variables in [config.yml](your-financeje-banking/src/main/resources/config.yml)
+   4. Makes new Maven build to create a running [jar](your-financeje-banking/target/your-financeje-banking.jar) with the correct configuration
+4. Copies both jars to separate folders[your-finance-images](./your-finance-images)
+5. Starts both containers via [your-finance-images/docker-compose.yaml](./your-finance-images/docker-compose.yaml)
+6. Runs cypress console
+
+## Generating Certificates
 
 ```bash
 openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinance.csr
