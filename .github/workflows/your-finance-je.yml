@@ -1,7 +1,7 @@
 name: your-finance-je
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
