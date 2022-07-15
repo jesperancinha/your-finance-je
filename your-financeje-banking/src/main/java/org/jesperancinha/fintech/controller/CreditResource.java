@@ -125,16 +125,6 @@ public class CreditResource {
     }
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
-        val jsonObject = Json.createObjectBuilder()
-                .add("balance", currentAccount.currentValue())
-                .add("client", name)
-                .build();
-
-        accounts.getAccountMap()
-                .put(name.getString(), currentAccount);
-        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
-        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(jsonObject)
-                .build();
+        return AccountsFactory.createResponse(currentAccount, name, accounts, log, objectMapper, principal, jsonWebToken);
     }
 }
