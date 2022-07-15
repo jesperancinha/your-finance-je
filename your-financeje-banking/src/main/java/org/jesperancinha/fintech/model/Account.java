@@ -1,10 +1,6 @@
 package org.jesperancinha.fintech.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
