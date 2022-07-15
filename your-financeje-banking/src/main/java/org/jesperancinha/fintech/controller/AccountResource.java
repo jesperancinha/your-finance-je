@@ -31,7 +31,8 @@ import java.util.List;
 import java.util.UUID;
 
 import static java.util.Objects.isNull;
-import static java.util.Optional.ofNullable;
+import static java.util.Objects.requireNonNullElse;
+import static javax.ws.rs.core.Response.serverError;
 
 @Path("accounts")
 @RequestScoped
@@ -39,7 +40,7 @@ import static java.util.Optional.ofNullable;
 @Slf4j
 public class AccountResource {
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Inject
     @AccountsProduct
@@ -74,17 +75,16 @@ public class AccountResource {
     @POST
     @RolesAllowed({"admin", "client", "credit"})
     public Response createAccount() throws JsonProcessingException {
-        final Account currentAccount = ofNullable(
+        final Account currentAccount = requireNonNullElse(
                 accounts.getAccountMap()
-                        .get(name.getString()))
-                .orElse(
+                        .get(name.getString()), (
                         Account.builder()
                                 .client(
                                         Client.builder()
                                                 .name(name.getString())
                                                 .build())
                                 .accountNumber(UUID.randomUUID().toString())
-                                .build());
+                                .build()));
 
         return createResponse(currentAccount);
     }
@@ -93,14 +93,14 @@ public class AccountResource {
     @RolesAllowed({"admin", "user"})
     @Path("user")
     public Response createUser() throws JsonProcessingException {
-        final Account currentAccount = ofNullable(
-                accounts.getAccountMap().get(name.getString())).orElse(
-                Account.builder()
-                        .client(Client.builder()
-                                .name(name.getString())
-                                .build())
-                        .accountNumber(UUID.randomUUID().toString())
-                        .build());
+        final Account currentAccount = requireNonNullElse(
+                accounts.getAccountMap().get(name.getString()), (
+                        Account.builder()
+                                .client(Client.builder()
+                                        .name(name.getString())
+                                        .build())
+                                .accountNumber(UUID.randomUUID().toString())
+                                .build()));
 
         return createResponse(currentAccount);
     }
@@ -110,11 +110,9 @@ public class AccountResource {
     public Response getAccount() throws JsonProcessingException {
         final Account userAccount = accounts.getAccountMap()
                 .get(name.getString());
-        if (isNull(userAccount)) {
-            return Response.serverError()
-                    .build();
-        }
-        return createResponse(userAccount);
+
+        return requireNonNullElse(createResponse(userAccount), serverError()
+                .build());
     }
 
     @PUT
@@ -126,7 +124,7 @@ public class AccountResource {
         final Account userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
-            return Response.serverError()
+            return serverError()
                     .build();
         }
         userAccount.addCurrentValue(value);

@@ -7,7 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Optional;
+
+import static java.util.Objects.requireNonNullElse;
 
 @Builder
 @Getter
@@ -26,14 +27,12 @@ public class Account {
     private BigDecimal creditValue = BigDecimal.ZERO;
 
     public void addCurrentValue(Long value) {
-        this.currentValue = Optional.ofNullable(currentValue)
-            .orElse(BigDecimal.ZERO)
-            .add(BigDecimal.valueOf(value));
+        this.currentValue = requireNonNullElse(currentValue, BigDecimal.ZERO)
+                .add(BigDecimal.valueOf(value));
     }
 
     public void addCreditValue(Long value) {
-        this.creditValue = Optional.ofNullable(creditValue)
-            .orElse(BigDecimal.ZERO)
-            .add(BigDecimal.valueOf(value));
+        this.creditValue = requireNonNullElse(creditValue, BigDecimal.ZERO)
+                .add(BigDecimal.valueOf(value));
     }
 }

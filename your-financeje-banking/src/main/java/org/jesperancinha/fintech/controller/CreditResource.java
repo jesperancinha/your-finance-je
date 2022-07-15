@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.Objects.isNull;
+import static javax.ws.rs.core.Response.serverError;
 
 @Path("credit")
 @RequestScoped
@@ -68,28 +69,27 @@ public class CreditResource {
     private JsonNumber userId;
 
     @GET
-    @RolesAllowed({ "admin", "credit" })
+    @RolesAllowed({"admin", "credit"})
     public Response getAccount() throws JsonProcessingException {
         final Account userAccount = accounts.getAccountMap()
-            .get(name.getString());
+                .get(name.getString());
         if (isNull(userAccount)) {
-            return Response.serverError()
-                .build();
+            return serverError().build();
         }
         return createResponse(userAccount);
     }
 
     @PUT
     @Path("{value}")
-    @RolesAllowed({ "admin", "credit" })
+    @RolesAllowed({"admin", "credit"})
     public Response cashIn(
-        @PathParam("value")
+            @PathParam("value")
             Long value) throws JsonProcessingException {
         final Account userAccount = accounts.getAccountMap()
-            .get(name.getString());
+                .get(name.getString());
         if (isNull(userAccount)) {
-            return Response.serverError()
-                .build();
+            return serverError()
+                    .build();
         }
         userAccount.addCreditValue(value);
         return createResponse(userAccount);
@@ -99,44 +99,44 @@ public class CreditResource {
     @Path("all")
     public Response getAll() throws JsonProcessingException {
         final List<Account> allAcounts = new ArrayList<>(accounts.getAccountMap()
-            .values());
+                .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(allAcounts)
-            .build();
+                .build();
     }
 
     @GET
     @Path("summary")
     public Response getSummary() throws JsonProcessingException {
         final BigDecimal totalCredit = accounts.getAccountMap()
-            .values()
-            .stream()
-            .map(Account::getCreditValue)
-            .reduce(BigDecimal::add)
-            .orElse(BigDecimal.ZERO);
+                .values()
+                .stream()
+                .map(Account::getCreditValue)
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
-            .add("totalCredit", totalCredit)
-            .add("client", "Mother Nature Dream Team")
-            .build();
+                .add("totalCredit", totalCredit)
+                .add("client", "Mother Nature Dream Team")
+                .build();
         log.info("Summary");
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(jsonObject)
-            .build();
+                .build();
     }
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
         final JsonObject jsonObject = Json.createObjectBuilder()
-            .add("balance", currentAccount.getCurrentValue())
-            .add("client", name)
-            .build();
+                .add("balance", currentAccount.getCurrentValue())
+                .add("client", name)
+                .build();
 
         accounts.getAccountMap()
-            .put(name.getString(), currentAccount);
+                .put(name.getString(), currentAccount);
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(jsonObject)
-            .build();
+                .build();
     }
 }
