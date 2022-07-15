@@ -74,11 +74,11 @@ Running the previous commands performs the following actions
 1.  Cleanup environment
 2.  Make a first Maven build to ensure that the JWT generator project is compiled
 3.  Creates AWS tokens using [jwtenizr](https://github.com/AdamBien/jwtenizr) and [your-finance-jwt-generator](./your-finance-jwt-generator) in separate locations:   
-      1. Start Generation Scripts
-      2. Create User creation script: [jwtenizr-files/createUser.sh](./jwtenizr-files/createUser.sh) and [your-finance-files/createUser.sh](./your-finance-files/createUser.sh)
-      3. Create Account creation script: [jwtenizr-files/createAccount.sh](./jwtenizr-files/createAccount.sh) and [your-finance-files/createAccount.sh](./your-finance-files/createAccount.sh)
-      4. Create Send Money creation script: [jwtenizr-files/sendMoney.sh](./jwtenizr-files/sendMoney.sh) and [your-finance-files/sendMoney.sh](./your-finance-files/sendMoney.sh)
-      5. Create Asks Credit script: [jwtenizr-files/askCredit.sh](./jwtenizr-files/askCredit.sh) and [your-finance-files/askCredit.sh](./your-finance-files/askCredit.sh)
+      1.  Start Generation Scripts
+      2.  Create User creation script: [jwtenizr-files/createUser.sh](./jwtenizr-files/createUser.sh) and [your-finance-files/createUser.sh](./your-finance-files/createUser.sh)
+      3.  Create Account creation script: [jwtenizr-files/createAccount.sh](./jwtenizr-files/createAccount.sh) and [your-finance-files/createAccount.sh](./your-finance-files/createAccount.sh)
+      4.  Create Send Money creation script: [jwtenizr-files/sendMoney.sh](./jwtenizr-files/sendMoney.sh) and [your-finance-files/sendMoney.sh](./your-finance-files/sendMoney.sh)
+      5.  Create Asks Credit script: [jwtenizr-files/askCredit.sh](./jwtenizr-files/askCredit.sh) and [your-finance-files/askCredit.sh](./your-finance-files/askCredit.sh)
 4.  Creates CSV to be used in Swagger tests;
       1.  Name/JWT token pairs: [jwtenizr-files/tokenNameValue.csv](./jwtenizr-files/tokenNameValue.csv) and [your-finance-files/tokenNameValue.csv](./your-finance-files/tokenNameValue.csv)
 5.  Sets variables in [config.yml](your-financeje-banking/src/main/resources/config.yml)
