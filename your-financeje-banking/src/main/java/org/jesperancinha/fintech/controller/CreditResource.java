@@ -3,6 +3,7 @@ package org.jesperancinha.fintech.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jesperancinha.fintech.model.Account;
@@ -13,7 +14,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonNumber;
-import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
@@ -25,7 +25,6 @@ import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.List;
 
 import static java.util.Objects.isNull;
 import static javax.ws.rs.core.Response.serverError;
@@ -71,7 +70,7 @@ public class CreditResource {
     @GET
     @RolesAllowed({"admin", "credit"})
     public Response getAccount() throws JsonProcessingException {
-        final Account userAccount = accounts.getAccountMap()
+        val userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
             return serverError().build();
@@ -85,7 +84,7 @@ public class CreditResource {
     public Response cashIn(
             @PathParam("value")
             Long value) throws JsonProcessingException {
-        final Account userAccount = accounts.getAccountMap()
+        val userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
             return serverError()
@@ -97,7 +96,7 @@ public class CreditResource {
     @GET
     @Path("all")
     public Response getAll() throws JsonProcessingException {
-        final List<Account> allAcounts = new ArrayList<>(accounts.getAccountMap()
+        val allAcounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
@@ -108,13 +107,13 @@ public class CreditResource {
     @GET
     @Path("summary")
     public Response getSummary() throws JsonProcessingException {
-        final BigDecimal totalCredit = accounts.getAccountMap()
+        val totalCredit = accounts.getAccountMap()
                 .values()
                 .stream()
                 .map(Account::creditValue)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
-        final JsonObject jsonObject = Json.createObjectBuilder()
+        val jsonObject = Json.createObjectBuilder()
                 .add("totalCredit", totalCredit)
                 .add("client", "Mother Nature Dream Team")
                 .build();
@@ -126,7 +125,7 @@ public class CreditResource {
     }
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
-        final JsonObject jsonObject = Json.createObjectBuilder()
+        val jsonObject = Json.createObjectBuilder()
                 .add("balance", currentAccount.currentValue())
                 .add("client", name)
                 .build();
