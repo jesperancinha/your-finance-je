@@ -3,6 +3,7 @@ package org.jesperancinha.fintech.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.jesperancinha.fintech.model.Account;
@@ -121,20 +122,19 @@ public class AccountResource {
     public Response cashIn(
             @PathParam("value")
             Long value) throws JsonProcessingException {
-        final Account userAccount = accounts.getAccountMap()
+        val userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
             return serverError()
                     .build();
         }
-        userAccount.addCurrentValue(value);
-        return createResponse(userAccount);
+        return createResponse(userAccount.addCurrentValue(value));
     }
 
     @GET
     @Path("all")
     public Response getAll() throws JsonProcessingException {
-        final List<Account> allAcounts = new ArrayList<>(accounts.getAccountMap()
+        val allAcounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
@@ -145,10 +145,10 @@ public class AccountResource {
     @GET
     @Path("summary")
     public Response getSummary() throws JsonProcessingException {
-        BigDecimal totalCredit = accounts.getAccountMap()
+        val totalCredit = accounts.getAccountMap()
                 .values()
                 .stream()
-                .map(Account::getCurrentValue)
+                .map(Account::currentValue)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
@@ -164,8 +164,8 @@ public class AccountResource {
     }
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
-        final JsonObject jsonObject = Json.createObjectBuilder()
-                .add("balance", currentAccount.getCurrentValue())
+        val jsonObject = Json.createObjectBuilder()
+                .add("balance", currentAccount.currentValue())
                 .add("client", name)
                 .build();
 

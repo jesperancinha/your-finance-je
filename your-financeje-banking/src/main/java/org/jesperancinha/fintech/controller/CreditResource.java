@@ -91,8 +91,7 @@ public class CreditResource {
             return serverError()
                     .build();
         }
-        userAccount.addCreditValue(value);
-        return createResponse(userAccount);
+        return createResponse(userAccount.addCreditValue(value));
     }
 
     @GET
@@ -112,7 +111,7 @@ public class CreditResource {
         final BigDecimal totalCredit = accounts.getAccountMap()
                 .values()
                 .stream()
-                .map(Account::getCreditValue)
+                .map(Account::creditValue)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
         final JsonObject jsonObject = Json.createObjectBuilder()
@@ -128,7 +127,7 @@ public class CreditResource {
 
     private Response createResponse(Account currentAccount) throws JsonProcessingException {
         final JsonObject jsonObject = Json.createObjectBuilder()
-                .add("balance", currentAccount.getCurrentValue())
+                .add("balance", currentAccount.currentValue())
                 .add("client", name)
                 .build();
 

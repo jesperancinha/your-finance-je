@@ -10,29 +10,25 @@ import java.math.BigDecimal;
 
 import static java.util.Objects.requireNonNullElse;
 
-@Builder
-@Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class Account {
+public record Account(
+         String accountNumber,
+         Client client,
+         BigDecimal currentValue,
+         BigDecimal creditValue
+){
 
-    private String accountNumber;
-
-    private Client client;
-
-    @Default
-    private BigDecimal currentValue = BigDecimal.ZERO;
-
-    @Default
-    private BigDecimal creditValue = BigDecimal.ZERO;
-
-    public void addCurrentValue(Long value) {
-        this.currentValue = requireNonNullElse(currentValue, BigDecimal.ZERO)
-                .add(BigDecimal.valueOf(value));
+    @Builder
+    public Account(String accountNumber, Client client) {
+        this(accountNumber, client, BigDecimal.ZERO, BigDecimal.ZERO);
     }
 
-    public void addCreditValue(Long value) {
-        this.creditValue = requireNonNullElse(creditValue, BigDecimal.ZERO)
-                .add(BigDecimal.valueOf(value));
+    public Account addCurrentValue(Long value) {
+        return new Account(accountNumber, client, requireNonNullElse(currentValue, BigDecimal.ZERO)
+                .add(BigDecimal.valueOf(value)), creditValue);
+    }
+
+    public Account addCreditValue(Long value) {
+        return new Account(accountNumber, client, currentValue, requireNonNullElse(creditValue, BigDecimal.ZERO)
+                .add(BigDecimal.valueOf(value)));
     }
 }
