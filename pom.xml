@@ -45,6 +45,7 @@
     <modules>
         <module>your-financeje-banking</module>
         <module>your-finance-jwt-generator</module>
+        <module>your-finance-k-jwt-generator</module>
     </modules>
 
     <build>

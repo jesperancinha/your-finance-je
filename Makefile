@@ -18,10 +18,14 @@ docker:
 docker-clean: cleanup-certificates
 	docker-compose rm -svf
 docker-clean-build-start: docker-clean b docker
+docker-delete:
+	docker ps -a --format '{{.ID}}' -q --filter="name=your-finance"| xargs -I {}  docker stop {}
+	docker ps -a --format '{{.ID}}' -q --filter="name=your-finance"| xargs -I {}  docker rm {}
 yfje-wait:
 	bash yfje_wait.sh
 dcd:
 	docker-compose down
+	docker-delete
 dcup-full: dcd docker-clean no-test
 	docker-compose build
 	docker-compose up -d
@@ -100,6 +104,7 @@ dcup-full-action: cleanup-certificates
 	cp your-finance-images-template/* your-finance-images/jwtenizr/
 	cd your-finance-images && docker-compose rm -svf
 	cd your-finance-images && docker-compose down
+	make docker-delete
 	cd your-finance-images && docker-compose build
 	cd your-finance-images && docker-compose up -d
 	cd your-finance-images && bash yfje_wait.sh

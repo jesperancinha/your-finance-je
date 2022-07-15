@@ -42,6 +42,7 @@ Our test app is located here:
 
 [your-finance-banking](./your-financeje-banking) - This is an extremely basic banking application that only performs a couple of functions
 [your-finance-jwt-generator](./your-finance-jwt-generator) - Java project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
+[your-finance-jwt-generator](./your-finance-k-jwt-generator) - Kotlin project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 
 This project is also the official support project of my article on medium:
 
