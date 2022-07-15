@@ -46,7 +46,8 @@ object SecurityManager {
 
     private fun readPrivateKey(resourceName: File?): PrivateKey {
         val byteBuffer = ByteArray(16384)
-        val length = resourceName?.toURI()?.toURL()?.openStream()?.read(byteBuffer) ?: 0
+        val length =
+            resourceName?.toURI()?.toURL()?.openStream()?.use { inputStream -> inputStream.read(byteBuffer) } ?: 0
         val key = String(byteBuffer, 0, length)
             .replace("-----BEGIN (.*)-----".toRegex(), "")
             .replace("-----END (.*)----".toRegex(), "")
