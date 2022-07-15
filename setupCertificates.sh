@@ -61,7 +61,7 @@ chmod +x ${SEND_MONEY_FILE}
 echo "#!/usr/bin/env bash" > ${ASK_CREDIT_FILE}
 chmod +x ${ASK_CREDIT_FILE}
 
-for item in ../jwt-plain-tokens/jwt*.json; do
+for item in ../jwt-plain-tokens/jwt-token*.json; do
      if [[ -f "$item" ]]; then
         filename=${item##*/}
         per_token=${filename/jwt-token-/}
