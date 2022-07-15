@@ -16,7 +16,7 @@ java -jar ../your-finance-jwt-generator/target/your-finance-jwt-generator.jar \
         -key ../your-finance-files/privateKey.pem >> token.jwt
 
 CERT_PUBLIC_KEY=$(cat ../your-finance-files/publicKey.pem)
-CERT_ISSUER="airhacks"
+CERT_ISSUER="joaofilipesabinoesperancinha"
 
 echo -e "\e[96mGenerated public key: \e[0m $CERT_PUBLIC_KEY"
 echo -e "\e[96mIssued by: \e[0m $CERT_ISSUER"

@@ -31,6 +31,7 @@ sendMoney.sh
 askCredit.sh
 createUser.sh
 createAccount.sh
+!jwt-plain-tokens/jwtenizr-config.json
 
 # MACOS
 .DS_Store

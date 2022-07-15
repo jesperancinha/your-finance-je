@@ -13,6 +13,8 @@ function getProperty {
 
 mkdir -p jwtenizr-files
 
+cp jwt-plain-tokens/jwtenizr-config.json jwtenizr-files/
+
 curl -L https://github.com/AdamBien/jwtenizr/releases/download/0.0.4/jwtenizr.jar -o jwtenizr-files/jwtenizr.jar
 
 cd jwtenizr-files || exit
