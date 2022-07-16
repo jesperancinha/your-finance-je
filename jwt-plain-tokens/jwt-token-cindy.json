@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "3CHAD",
-  "sub": "Master of Finance",
+  "jti": "3CINDYTHEFEMASTER",
+  "sub": "cindy",
   "aud": "Everyone",
-  "upn": "fintech",
+  "upn": "cindy",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 3,
   "access": "TOP",
-  "name": "Chad"
+  "name": "Cindy"
 }
