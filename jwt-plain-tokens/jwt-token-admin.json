@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
   "jti": "01MASTERFINANCE",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "sub": "admin",
+  "aud": "nature",
+  "upn": "admin",
   "groups": [
     "user",
     "admin",
@@ -12,5 +12,5 @@
   ],
   "user_id": 1,
   "access": "TOP",
-  "name": "Dua Lipa"
+  "name": "Admin"
 }
