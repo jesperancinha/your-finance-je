@@ -6,8 +6,10 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.jesperancinha.fintech.model.Account;
 import org.jesperancinha.fintech.model.Accounts;
+import org.jesperancinha.fintech.model.TransactionBody;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -15,23 +17,23 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonNumber;
 import javax.json.JsonString;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
 
 import static java.util.Objects.isNull;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.serverError;
 
 @Path("credit")
 @RequestScoped
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(APPLICATION_JSON)
 @Slf4j
 public class CreditResource {
 
@@ -79,22 +81,23 @@ public class CreditResource {
     }
 
     @PUT
-    @Path("{value}")
     @RolesAllowed({"admin", "credit"})
-    public Response cashIn(
-            @PathParam("value")
-            Long value) throws JsonProcessingException {
+    @Consumes(APPLICATION_JSON)
+    public Response cashIn(final TransactionBody transactionBody) throws JsonProcessingException {
         val userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
             return serverError()
                     .build();
         }
-        return createResponse(userAccount.addCreditValue(value));
+        final Account currentAccount = userAccount.addCreditValue(transactionBody.saldo());
+        accounts.getAccountMap().put(name.getString(), currentAccount);
+        return createResponse(currentAccount);
     }
 
     @GET
     @Path("all")
+    @Produces(APPLICATION_JSON)
     public Response getAll() throws JsonProcessingException {
         val allAcounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
@@ -106,6 +109,7 @@ public class CreditResource {
 
     @GET
     @Path("summary")
+    @Produces(APPLICATION_JSON)
     public Response getSummary() throws JsonProcessingException {
         val totalCredit = accounts.getAccountMap()
                 .values()

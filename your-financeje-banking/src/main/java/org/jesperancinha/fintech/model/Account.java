@@ -1,16 +1,21 @@
 package org.jesperancinha.fintech.model;
 
 import lombok.Builder;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 
 import static java.util.Objects.requireNonNullElse;
 
 public record Account(
-         String accountNumber,
-         Client client,
-         BigDecimal currentValue,
-         BigDecimal creditValue
+        @Getter
+        String accountNumber,
+        @Getter
+        Client client,
+        @Getter
+        BigDecimal currentValue,
+        @Getter
+        BigDecimal creditValue
 ){
 
     @Builder

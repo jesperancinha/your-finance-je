@@ -16,13 +16,17 @@ describe('Your Finance - Send Money Tests', () => {
                         case "shikka":
                             cy.log(`user unauthorized testing for user ${user}`)
                             cy.request({
-                                url: `http://${host}:${port}/credit/10`,
+                                url: `http://${host}:${port}/credit`,
                                 method: "PUT",
                                 headers: {
-                                    "Authorization": `Bearer ${token}`
+                                    "Authorization": `Bearer ${token}`,
+                                    "Content-Type": "application/json"
                                 },
                                 followRedirect: false,
-                                failOnStatusCode: false
+                                failOnStatusCode: false,
+                                body: {
+                                    saldo: 10
+                                }
                             }).then((resp) => {
                                 expect(resp.status).to.eq(403)
                             });
@@ -31,9 +35,13 @@ describe('Your Finance - Send Money Tests', () => {
                             cy.log(`user authorized testing for user ${user}`)
                             cy.request({
                                 method: "PUT",
-                                url: `http://${host}:${port}/credit/10`,
+                                url: `http://${host}:${port}/credit`,
                                 headers: {
-                                    "Authorization": `Bearer ${token}`
+                                    "Authorization": `Bearer ${token}`,
+                                    "Content-Type": "application/json"
+                                },
+                                body: {
+                                    saldo: 10
                                 }
                             });
                     }

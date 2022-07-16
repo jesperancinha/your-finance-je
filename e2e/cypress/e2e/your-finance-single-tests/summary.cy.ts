@@ -1,4 +1,4 @@
-describe('Your Finance - Send Money Tests', () => {
+describe('Your Finance - Account Summary Tests', () => {
 
     const host = Cypress.env('host.yf') ? Cypress.env('host.yf') : 'localhost';
     const port = 8080;

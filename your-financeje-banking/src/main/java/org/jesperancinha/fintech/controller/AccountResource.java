@@ -6,9 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.jesperancinha.fintech.model.Account;
 import org.jesperancinha.fintech.model.Accounts;
 import org.jesperancinha.fintech.model.Client;
+import org.jesperancinha.fintech.model.TransactionBody;
 
 import javax.annotation.security.RolesAllowed;
 import javax.enterprise.context.RequestScoped;
@@ -17,13 +19,12 @@ import javax.json.Json;
 import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonString;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.math.BigDecimal;
 import java.security.Principal;
@@ -32,11 +33,12 @@ import java.util.UUID;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNullElse;
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static javax.ws.rs.core.Response.serverError;
 
 @Path("accounts")
 @RequestScoped
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(APPLICATION_JSON)
 @Slf4j
 public class AccountResource {
 
@@ -116,22 +118,23 @@ public class AccountResource {
     }
 
     @PUT
-    @Path("{value}")
     @RolesAllowed({"admin", "client"})
-    public Response cashIn(
-            @PathParam("value")
-            Long value) throws JsonProcessingException {
+    @Consumes(APPLICATION_JSON)
+    public Response cashIn(final TransactionBody transactionBody) throws JsonProcessingException {
         val userAccount = accounts.getAccountMap()
                 .get(name.getString());
         if (isNull(userAccount)) {
             return serverError()
                     .build();
         }
-        return createResponse(userAccount.addCurrentValue(value));
+        final Account currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
+        accounts.getAccountMap().put(name.getString(), currentAccount);
+        return createResponse(currentAccount);
     }
 
     @GET
     @Path("all")
+    @Produces(APPLICATION_JSON)
     public Response getAll() throws JsonProcessingException {
         val allAcounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
