@@ -37,6 +37,9 @@
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <picocli.version>4.6.3</picocli.version>
         <kumuluzee-microProfile-3.3.version>4.0.0</kumuluzee-microProfile-3.3.version>
+        <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
+        <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
+        <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
     </properties>
 
     <modules>
@@ -129,15 +132,18 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi-mp</artifactId>
+                <version>${kumuluzee-openapi-mp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.openapi</groupId>
+                <artifactId>kumuluzee-openapi-mp-ui</artifactId>
+                <version>${kumuluzee-openapi-mp.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+
             <dependency>
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>

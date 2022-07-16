@@ -15,22 +15,14 @@
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
-        <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
-        <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>com.kumuluz.ee.openapi</groupId>
             <artifactId>kumuluzee-openapi-mp</artifactId>
-            <version>${kumuluzee-openapi-mp.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee.openapi</groupId>
             <artifactId>kumuluzee-openapi-mp-ui</artifactId>
-            <version>${kumuluzee-openapi-mp.version}</version>
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
