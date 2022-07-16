@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "11TARDYB",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "11JUDYTHEPEACEKEEPER",
+  "sub": "judy",
+  "aud": "nature",
+  "upn": "judy",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 11,
   "access": "TOP",
-  "name": "Tardy-B"
+  "name": "Judy"
 }
