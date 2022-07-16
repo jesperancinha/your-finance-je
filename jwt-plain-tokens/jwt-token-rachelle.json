@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "8SHAY",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "8RACHELLETHEFAST",
+  "sub": "rachelle",
+  "aud": "nature",
+  "upn": "rachelle",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 8,
   "access": "TOP",
-  "name": "Shay"
+  "name": "Rachelle"
 }
