@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "9STEVE",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "9MARATHEBOSS",
+  "sub": "mara",
+  "aud": "nature",
+  "upn": "mara",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 9,
   "access": "TOP",
-  "name": "Good Ol’ Steve"
+  "name": "Mara"
 }
