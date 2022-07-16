@@ -6,7 +6,7 @@ New character set:
 - Mother nature dream team:
   - Lucy
   - Cindy
-  - Nakisa
+  - Sandra
   - Jack Fallout
   - Pietro
   - Namita

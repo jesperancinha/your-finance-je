@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "4CHITTER",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "4SANDRATHERESEARCHER",
+  "sub": "sandra",
+  "aud": "nature",
+  "upn": "sandra",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 4,
   "access": "TOP",
-  "name": "Chitter"
+  "name": "Sandra"
 }
