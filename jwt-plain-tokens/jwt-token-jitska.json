@@ -1,0 +1,13 @@
+{
+  "iss": "joaofilipesabinoesperancinha",
+  "jti": "10JITSKSATHESOCIALSMART",
+  "sub": "jitska",
+  "aud": "natura",
+  "upn": "jitska",
+  "groups": [
+    "user"
+  ],
+  "user_id": 10,
+  "access": "TOP",
+  "name": "Jitska"
+}

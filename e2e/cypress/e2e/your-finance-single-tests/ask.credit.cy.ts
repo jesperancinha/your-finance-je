@@ -11,7 +11,7 @@ describe('Your Finance - Send Money Tests', () => {
                     switch (user) {
                         case "jack":
                         case "malory":
-                        case "sunny":
+                        case "jitska":
                         case "upset":
                             cy.log(`user unauthorized testing for user ${user}`)
                             cy.request({
