@@ -1,14 +1,14 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "12UPSET",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "12SHIKKATHEWORLDENTREPRENEUR",
+  "sub": "shikka",
+  "aud": "nature",
+  "upn": "shikka",
   "groups": [
     "user",
     "client"
   ],
   "user_id": 12,
   "access": "TOP",
-  "name": "Upset"
+  "name": "Shikka"
 }

@@ -12,7 +12,7 @@ describe('Your Finance - Send Money Tests', () => {
                         case "jack":
                         case "malory":
                         case "jitska":
-                        case "upset":
+                        case "shikka":
                             cy.log(`user unauthorized testing for user ${user}`)
                             cy.request({
                                 url: `http://${host}:8080/credit/10`,
