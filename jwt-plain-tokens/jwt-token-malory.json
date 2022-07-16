@@ -1,13 +1,13 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "13Ginger",
-  "sub": "Master of Finance",
+  "jti": "13Maloryr",
+  "sub": "malory",
   "aud": "Everyone",
-  "upn": "fintech",
+  "upn": "malory",
   "groups": [
     "user"
   ],
   "user_id": 13,
   "access": "TOP",
-  "name": "Ginger Snap"
+  "name": "Malory"
 }
