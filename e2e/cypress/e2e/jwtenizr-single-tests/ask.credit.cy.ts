@@ -10,7 +10,7 @@ describe('Your Finance - Send Money Tests', () => {
                 const [user, token] = line.split(",")
                 if (user) {
                     switch (user) {
-                        case "dee":
+                        case "jack":
                         case "ginger":
                         case "sunny":
                         case "upset":
