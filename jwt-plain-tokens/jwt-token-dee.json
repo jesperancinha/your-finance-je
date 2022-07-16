@@ -1,13 +1,13 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "5DEE",
-  "sub": "Master of Finance",
+  "jti": "5JACKFALLOUT",
+  "sub": "jackfallout",
   "aud": "Everyone",
-  "upn": "fintech",
+  "upn": "jack",
   "groups": [
     "user"
   ],
   "user_id": 5,
   "access": "TOP",
-  "name": "Dee"
+  "name": "Jack Fallout"
 }
