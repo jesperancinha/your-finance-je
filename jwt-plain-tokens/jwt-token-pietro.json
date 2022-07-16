@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "6DELIGHT",
-  "sub": "Master of Finance",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "6PIETROEARING",
+  "sub": "pietro",
+  "aud": "nature",
+  "upn": "pietro",
   "groups": [
     "user",
     "admin",
@@ -11,5 +11,5 @@
   ],
   "user_id": 6,
   "access": "TOP",
-  "name": "Delight"
+  "name": "Pietro"
 }
