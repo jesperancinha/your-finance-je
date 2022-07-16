@@ -1,0 +1,13 @@
+{
+  "iss": "https://joaofilipesabinoesperancinha.nl/",
+  "jti": "5DEE",
+  "sub": "Master of Finance",
+  "aud": "Everyone",
+  "upn": "fintech",
+  "groups": [
+    "user"
+  ],
+  "user_id": 5,
+  "access": "TOP",
+  "name": "Dee"
+}
