@@ -1,9 +1,9 @@
 {
   "iss": "joaofilipesabinoesperancinha",
-  "jti": "2BRUCETHEJUICE",
-  "sub": "Master of the juice",
-  "aud": "Everyone",
-  "upn": "fintech",
+  "jti": "2LUCYTHEBEST",
+  "sub": "lucy",
+  "aud": "nature",
+  "upn": "lucy",
   "groups": [
     "user",
     "admin",
@@ -12,5 +12,5 @@
   ],
   "user_id": 2,
   "access": "TOP",
-  "name": "Bruce The Juice"
+  "name": "Lucy"
 }
