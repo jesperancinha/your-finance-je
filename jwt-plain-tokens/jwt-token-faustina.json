@@ -1,0 +1,15 @@
+{
+  "iss": "joaofilipesabinoesperancinha",
+  "jti": "14FAUSTINASAYSITBEST",
+  "sub": "faustina",
+  "aud": "nature",
+  "upn": "faustina",
+  "groups": [
+    "user",
+    "admin",
+    "client"
+  ],
+  "user_id": 14,
+  "access": "TOP",
+  "name": "Faustina"
+}

@@ -40,6 +40,8 @@ describe('Your Finance - Send Money Tests', () => {
                                 body: {
                                     saldo: 10
                                 }
+                            }).then((resp) => {
+                                expect(resp.status).to.eq(200)
                             });
                     }
                 }
