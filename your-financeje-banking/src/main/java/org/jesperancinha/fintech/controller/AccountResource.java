@@ -125,7 +125,7 @@ public class AccountResource {
         if (isNull(userAccount)) {
             return serverError()
                     .build();
-        }
+         }
         final Account currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
         accounts.getAccountMap().put(name.getString(), currentAccount);
         return createResponse(currentAccount);
@@ -135,11 +135,11 @@ public class AccountResource {
     @Path("all")
     @Produces(APPLICATION_JSON)
     public Response getAll() throws JsonProcessingException {
-        val allAcounts = new ArrayList<>(accounts.getAccountMap()
+        val allAccounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(allAcounts)
+        return Response.ok(allAccounts)
                 .build();
     }
 

@@ -113,4 +113,4 @@ dcup-full-action: cleanup-certificates
 	cd your-finance-images && docker-compose up -d
 	cd your-finance-images && bash yfje_wait.sh
 	make all-env
-all-env: create-users create-accounts send-money ask-credit jwtenizr-create-users jwtenizr-create-accounts jwtenizr-send-money jwtenizr-ask-credit
+all-env: create-users create-accounts jwtenizr-create-users jwtenizr-create-accounts send-money ask-credit jwtenizr-send-money jwtenizr-ask-credit
