@@ -38,6 +38,8 @@
 
 # Introduction
 
+🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧 !!! [Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md) !!! 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
+
 Creation of one  [KumuluzEE](https://ee.kumuluz.com/) App and with it investigate how the JWT token works.
 
 This is the main project struture:
@@ -46,10 +48,7 @@ This is the main project struture:
 2.  [your-finance-jwt-generator](./your-finance-jwt-generator) - Java project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 3.  [your-finance-k-jwt-generator](./your-finance-k-jwt-generator) - Kotlin project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 
-This project is also the official support project of my article on medium:
-
-[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Understanding JWT in REST Services — Improving performance with authentication and authorization")](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
-[Understanding JWT in REST Services — Improving performance with authentication and authorization](https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da)
+[//]: # (This project is also the official support project of my article on medium:)
 
 <div align="center">
       <a title="Understanding JWT in REST Services — Improving performance with authentication and authorization" href="https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da">
