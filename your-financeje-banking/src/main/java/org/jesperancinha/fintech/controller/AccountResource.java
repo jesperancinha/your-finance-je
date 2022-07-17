@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.jesperancinha.fintech.model.Account;
 import org.jesperancinha.fintech.model.Accounts;
 import org.jesperancinha.fintech.model.Client;

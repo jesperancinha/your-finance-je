@@ -86,12 +86,12 @@ for item in ../jwt-plain-tokens/jwt-token*.json; do
 
         echo "# Send money to: "${token_name} >> ${SEND_MONEY_FILE}
         echo "echo  -e \"\e[93mSending money to \e[96m${token_name}\e[0m\"" >> ${SEND_MONEY_FILE}
-        echo curl -i -H"'Authorization: Bearer ""${token}""'" http://localhost:8080/accounts/"\$((1 + RANDOM % 500))" -X PUT >> ${SEND_MONEY_FILE}
+        echo curl -i -H"'Content-Type: application/json'" -H"'Authorization: Bearer ""${token}""'" http://localhost:8080/accounts -X PUT -d "'{ \"saldo\": "$((1 + RANDOM % 500))"}'" >> ${SEND_MONEY_FILE}
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${SEND_MONEY_FILE}
 
         echo "# Asking money credit to: "${token_name} >> ${ASK_CREDIT_FILE}
         echo "echo  -e \"\e[93mAsking credit from \e[96m${token_name}\e[0m\"" >> ${ASK_CREDIT_FILE}
-        echo curl -i -H"'Authorization: Bearer ""${token}""'" http://localhost:8080/credit/"\$((1 + RANDOM % 500))" -X PUT >> ${ASK_CREDIT_FILE}
+        echo curl -i -H"'Content-Type: application/json'" -H"'Authorization: Bearer ""${token}""'" http://localhost:8080/credit -X PUT -d "'{ \"saldo\": "$((1 + RANDOM % 500))"}'">> ${ASK_CREDIT_FILE}
         echo "echo  -e \"\e[93m\n---\e[0m\"" >> ${ASK_CREDIT_FILE}
 
         echo "${token_name},${token}" >> ${TOKEN_NAME_VALUE}

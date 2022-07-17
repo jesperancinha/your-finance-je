@@ -54,7 +54,7 @@ create-accounts:
 send-money:
 	cd your-finance-files && bash sendMoney.sh
 ask-credit:
-	dc your-finance-files && bash askCredit.sh
+	cd your-finance-files && bash askCredit.sh
 demo:
 	make dcup-full
 	make create-users
@@ -89,6 +89,10 @@ jwtenizr-create-users:
 	cd jwtenizr-files && bash createUser.sh
 jwtenizr-create-accounts:
 	cd jwtenizr-files && bash createAccount.sh
+jwtenizr-send-money:
+	cd jwtenizr-files && bash sendMoney.sh
+jwtenizr-ask-credit:
+	cd jwtenizr-files && bash askCredit.sh
 dcup-full-action: cleanup-certificates
 	rm -rf your-finance-images/yf
 	rm -rf your-finance-images/jwtenizr
@@ -109,4 +113,4 @@ dcup-full-action: cleanup-certificates
 	cd your-finance-images && docker-compose up -d
 	cd your-finance-images && bash yfje_wait.sh
 	make all-env
-all-env: create-users create-accounts jwtenizr-create-users create-accounts
+all-env: create-users create-accounts send-money ask-credit jwtenizr-create-users jwtenizr-create-accounts jwtenizr-send-money jwtenizr-ask-credit
