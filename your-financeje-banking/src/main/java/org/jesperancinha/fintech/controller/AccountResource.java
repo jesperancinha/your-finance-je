@@ -24,6 +24,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
+import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -88,7 +89,7 @@ public class AccountResource {
     @RolesAllowed({"admin", "user"})
     @Path("user")
     public Response createUser() throws JsonProcessingException {
-       val currentAccount = requireNonNullElse(
+        val currentAccount = requireNonNullElse(
                 accounts.getAccountMap().get(name.getString()), (
                         Account.builder()
                                 .client(Client.builder()
@@ -119,7 +120,7 @@ public class AccountResource {
         if (isNull(userAccount)) {
             return serverError()
                     .build();
-         }
+        }
         val currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
         accounts.getAccountMap().put(name.getString(), currentAccount);
         return createResponse(currentAccount);
@@ -134,6 +135,27 @@ public class AccountResource {
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(allAccounts)
+                .build();
+    }
+
+    @GET
+    @Path("summary")
+    public Response getSummary() throws JsonProcessingException {
+        val totalCredit = accounts.getAccountMap()
+                .values()
+                .stream()
+                .map(Account::currentValue)
+                .reduce(BigDecimal::add)
+                .orElse(BigDecimal.ZERO);
+        val jsonObject = Json.createObjectBuilder()
+                .add("totalCurrent", totalCredit)
+                .add("client", "Mother Nature Dream Team")
+                .build();
+
+        log.info("Summary");
+        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
+        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
+        return Response.ok(jsonObject)
                 .build();
     }
 
