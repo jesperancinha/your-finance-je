@@ -38,8 +38,6 @@
 
 # Introduction
 
-🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧 !!! [Under construction...](https://github.com/jesperancinha/project-signer/blob/master/project-signer-templates/UnderConstruction.md) !!! 🚧🚧🚧🚧🚧🚧🚧🚧🚧🚧
-
 Creation of one  [KumuluzEE](https://ee.kumuluz.com/) App and with it investigate how the JWT token works.
 
 This is the main project struture:
