@@ -16,7 +16,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonNumber;
-import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -25,7 +24,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
-import java.math.BigDecimal;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -54,12 +52,8 @@ public class AccountResource {
     private JsonWebToken jsonWebToken;
 
     @Inject
-    @Claim("user_id")
-    private JsonNumber administratorId;
-
-    @Inject
     @Claim("access")
-    private JsonString administratorLevel;
+    private JsonString access;
 
     @Inject
     @Claim("iat")
@@ -144,22 +138,15 @@ public class AccountResource {
     }
 
     @GET
-    @Path("summary")
-    public Response getSummary() throws JsonProcessingException {
-        val totalCredit = accounts.getAccountMap()
-                .values()
-                .stream()
-                .map(Account::currentValue)
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+    @RolesAllowed({"admin", "client"})
+    @Path("jwt")
+    public Response getJWT() {
         val jsonObject = Json.createObjectBuilder()
-                .add("totalCurrent", totalCredit)
-                .add("client", "Mother Nature Dream Team")
+                .add("jwt", jsonWebToken.getRawToken())
+                .add("userId", userId.doubleValue())
+                .add("access", access.getString())
+                .add("iat", iat.doubleValue())
                 .build();
-
-        log.info("Summary");
-        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
-        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
         return Response.ok(jsonObject)
                 .build();
     }

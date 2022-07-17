@@ -6,7 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.JsonWebToken;
-import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.jesperancinha.fintech.model.Account;
 import org.jesperancinha.fintech.model.Accounts;
 import org.jesperancinha.fintech.model.TransactionBody;
@@ -50,12 +49,8 @@ public class CreditResource {
     private JsonWebToken jsonWebToken;
 
     @Inject
-    @Claim("user_id")
-    private JsonNumber administratorId;
-
-    @Inject
     @Claim("access")
-    private JsonString administratorLevel;
+    private JsonString access;
 
     @Inject
     @Claim("iat")
@@ -124,6 +119,20 @@ public class CreditResource {
         log.info("Summary");
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
+        return Response.ok(jsonObject)
+                .build();
+    }
+
+    @GET
+    @RolesAllowed({"admin", "client"})
+    @Path("jwt")
+    public Response getJWT() {
+        val jsonObject = Json.createObjectBuilder()
+                .add("jwt", jsonWebToken.getRawToken())
+                .add("userId", userId.doubleValue())
+                .add("access", access.getString())
+                .add("iat", iat.doubleValue())
+                .build();
         return Response.ok(jsonObject)
                 .build();
     }
