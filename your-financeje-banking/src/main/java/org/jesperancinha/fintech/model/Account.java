@@ -17,7 +17,6 @@ public record Account(
         @Getter
         BigDecimal creditValue
 ){
-
     @Builder
     public Account(String accountNumber, Client client) {
         this(accountNumber, client, BigDecimal.ZERO, BigDecimal.ZERO);

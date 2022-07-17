@@ -76,7 +76,7 @@ public class AccountResource {
     @POST
     @RolesAllowed({"admin", "client", "credit"})
     public Response createAccount() throws JsonProcessingException {
-        final Account currentAccount = requireNonNullElse(
+        val currentAccount = requireNonNullElse(
                 accounts.getAccountMap()
                         .get(name.getString()), (
                         Account.builder()
@@ -94,7 +94,7 @@ public class AccountResource {
     @RolesAllowed({"admin", "user"})
     @Path("user")
     public Response createUser() throws JsonProcessingException {
-        final Account currentAccount = requireNonNullElse(
+       val currentAccount = requireNonNullElse(
                 accounts.getAccountMap().get(name.getString()), (
                         Account.builder()
                                 .client(Client.builder()
@@ -109,7 +109,7 @@ public class AccountResource {
     @GET
     @RolesAllowed({"admin", "client"})
     public Response getAccount() throws JsonProcessingException {
-        final Account userAccount = accounts.getAccountMap()
+        val userAccount = accounts.getAccountMap()
                 .get(name.getString());
 
         return requireNonNullElse(createResponse(userAccount), serverError()
@@ -126,7 +126,7 @@ public class AccountResource {
             return serverError()
                     .build();
          }
-        final Account currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
+        val currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
         accounts.getAccountMap().put(name.getString(), currentAccount);
         return createResponse(currentAccount);
     }
@@ -152,7 +152,7 @@ public class AccountResource {
                 .map(Account::currentValue)
                 .reduce(BigDecimal::add)
                 .orElse(BigDecimal.ZERO);
-        final JsonObject jsonObject = Json.createObjectBuilder()
+        val jsonObject = Json.createObjectBuilder()
                 .add("totalCurrent", totalCredit)
                 .add("client", "Mother Nature Dream Team")
                 .build();

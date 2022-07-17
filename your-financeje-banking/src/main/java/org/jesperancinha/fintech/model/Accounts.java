@@ -12,6 +12,5 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Accounts {
-
     private Map<String, Account> accountMap;
 }

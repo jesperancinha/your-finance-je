@@ -37,7 +37,7 @@ import static javax.ws.rs.core.Response.serverError;
 @Slf4j
 public class CreditResource {
 
-    private static ObjectMapper objectMapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Inject
     @AccountsProduct
@@ -90,7 +90,7 @@ public class CreditResource {
             return serverError()
                     .build();
         }
-        final Account currentAccount = userAccount.addCreditValue(transactionBody.saldo());
+        val currentAccount = userAccount.addCreditValue(transactionBody.saldo());
         accounts.getAccountMap().put(name.getString(), currentAccount);
         return createResponse(currentAccount);
     }
@@ -99,11 +99,11 @@ public class CreditResource {
     @Path("all")
     @Produces(APPLICATION_JSON)
     public Response getAll() throws JsonProcessingException {
-        val allAcounts = new ArrayList<>(accounts.getAccountMap()
+        val allAccounts = new ArrayList<>(accounts.getAccountMap()
                 .values());
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
         log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
-        return Response.ok(allAcounts)
+        return Response.ok(allAccounts)
                 .build();
     }
 

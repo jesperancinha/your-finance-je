@@ -33,7 +33,6 @@ public class AccountsFactory implements Serializable {
                 .add("balance", currentAccount.currentValue())
                 .add("client", name)
                 .build();
-
         accounts.getAccountMap()
                 .put(name.getString(), currentAccount);
         log.info("Principal: {}", objectMapper.writeValueAsString(principal));
