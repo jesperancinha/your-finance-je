@@ -36,7 +36,7 @@
         <assertj-core.version>3.23.1</assertj-core.version>
         <omni-coveragereporter-maven-plugin.version>0.3.0</omni-coveragereporter-maven-plugin.version>
         <picocli.version>4.6.3</picocli.version>
-        <kumuluzee-microProfile-3.3.version>4.0.0</kumuluzee-microProfile-3.3.version>
+        <kumuluzee-microProfile-3.3.version>4.1.0</kumuluzee-microProfile-3.3.version>
         <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
         <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
