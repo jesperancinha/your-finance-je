@@ -12,7 +12,6 @@
 [![e2e-your-finance-je](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je-e2e.yml/badge.svg)](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je-e2e.yml)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b1ba6086c1b44820b62345c44bee2f1d)](https://www.codacy.com/gh/jesperancinha/your-finance-je/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/66bd8179-b645-40f4-9a02-072a8df5ff32)](https://codebeat.co/projects/github-com-jesperancinha-your-finance-je-master)
 [![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/your-finance-je/badge.svg)](https://snyk.io/test/github/jesperancinha/your-finance-je)
 
@@ -46,10 +45,13 @@ This is the main project struture:
 2.  [your-finance-jwt-generator](./your-finance-jwt-generator) - Java project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 3.  [your-finance-k-jwt-generator](./your-finance-k-jwt-generator) - Kotlin project that creates a JWT token. It is an alternative to project [jwtenizr](https://github.com/AdamBien/jwtenizr), by [Adam Bien](https://github.com/AdamBien).
 
-[//]: # (This project is also the official support project of my article on medium:)
+This project is also the official support project of my article on medium:
+
+[![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90) [Learning JWT security using KumuluzEE — The finances of a league of the environment](https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90)
+
 
 <div align="center">
-      <a title="Understanding JWT in REST Services — Improving performance with authentication and authorization" href="https://medium.com/swlh/understanding-jwt-in-rest-services-lets-improve-performance-and-let-s-get-physical-cfd42921d4da">
+      <a title="Learning JWT security using KumuluzEE — The finances of a league of the environment" href="https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90">
      <img 
           src="./docs/images/articles.your.finance.intro.png" 
           style="width:100%;">
