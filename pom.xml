@@ -24,7 +24,7 @@
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <logback.version>1.2.11</logback.version>
-        <johnzon-core.version>1.2.18</johnzon-core.version>
+        <johnzon-core.version>1.2.19</johnzon-core.version>
         <jjwt.version>0.9.1</jjwt.version>
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
         <lombok.version>1.18.24</lombok.version>
