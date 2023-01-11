@@ -23,7 +23,7 @@
         <nimbus-jose-jwt.version>9.28</nimbus-jose-jwt.version>
         <json-smart.version>2.4.8</json-smart.version>
         <microprofile-jwt-auth-api.version>2.1</microprofile-jwt-auth-api.version>
-        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
     </properties>
 
     <dependencies>
