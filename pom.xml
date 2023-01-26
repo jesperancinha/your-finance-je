@@ -21,13 +21,13 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
+        <kotlin.version>1.8.0</kotlin.version>
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <logback.version>1.4.5</logback.version>
         <johnzon-core.version>1.2.19</johnzon-core.version>
         <jjwt.version>0.9.1</jjwt.version>
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
-        <lombok.version>1.18.24</lombok.version>
 
         <junit-jupiter>5.9.2</junit-jupiter>
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
@@ -40,6 +40,9 @@
         <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
         <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
+        <mockk-jvm.version>1.13.3</mockk-jvm.version>
+        <springmockk.version>4.0.0</springmockk.version>
+        <kotest-assertions-core-jvm.version>5.5.4</kotest-assertions-core-jvm.version>
     </properties>
 
     <modules>
@@ -93,6 +96,11 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>info.picocli</groupId>
                 <artifactId>picocli</artifactId>
                 <version>${picocli.version}</version>
@@ -116,11 +124,6 @@
                 <groupId>org.apache.geronimo.specs</groupId>
                 <artifactId>geronimo-json_1.1_spec</artifactId>
                 <version>${geronimo-json_1.1_spec.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
@@ -155,7 +158,24 @@
                 <version>${assertj-core.version}</version>
                 <scope>test</scope>
             </dependency>
-
+            <dependency>
+                <groupId>io.mockk</groupId>
+                <artifactId>mockk-jvm</artifactId>
+                <version>${mockk-jvm.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.ninja-squad</groupId>
+                <artifactId>springmockk</artifactId>
+                <version>${springmockk.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.kotest</groupId>
+                <artifactId>kotest-assertions-core-jvm</artifactId>
+                <version>${kotest-assertions-core-jvm.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

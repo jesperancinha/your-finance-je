@@ -1,179 +1,186 @@
-package org.jesperancinha.fintech.controller;
+package org.jesperancinha.fintech.controller
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
-import lombok.val;
-import org.eclipse.microprofile.jwt.Claim;
-import org.eclipse.microprofile.jwt.JsonWebToken;
-import org.jesperancinha.fintech.model.Account;
-import org.jesperancinha.fintech.model.Accounts;
-import org.jesperancinha.fintech.model.Client;
-import org.jesperancinha.fintech.model.TransactionBody;
-
-import javax.annotation.security.RolesAllowed;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonNumber;
-import javax.json.JsonString;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
-import java.math.BigDecimal;
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.UUID;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.requireNonNullElse;
-import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
-import static javax.ws.rs.core.Response.serverError;
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.databind.ObjectMapper
+import lombok.extern.slf4j.Slf4j
+import org.eclipse.microprofile.jwt.Claim
+import org.eclipse.microprofile.jwt.JsonWebToken
+import org.jesperancinha.fintech.model.Account
+import org.jesperancinha.fintech.model.Accounts
+import org.jesperancinha.fintech.model.Client
+import org.jesperancinha.fintech.model.TransactionBody
+import java.math.BigDecimal
+import java.security.Principal
+import java.util.*
+import javax.annotation.security.RolesAllowed
+import javax.enterprise.context.RequestScoped
+import javax.inject.Inject
+import javax.json.Json
+import javax.json.JsonNumber
+import javax.json.JsonString
+import javax.ws.rs.*
+import javax.ws.rs.core.MediaType
+import javax.ws.rs.core.Response
 
 @Path("accounts")
 @RequestScoped
-@Produces(APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 @Slf4j
-public class AccountResource {
-
-    private static final ObjectMapper objectMapper = new ObjectMapper();
-
+class AccountResource {
     @Inject
     @AccountsProduct
-    private Accounts accounts;
+    private val accounts: Accounts? = null
 
     @Inject
-    private Principal principal;
+    private val principal: Principal? = null
 
     @Inject
-    private JsonWebToken jsonWebToken;
+    private val jsonWebToken: JsonWebToken? = null
 
     @Inject
     @Claim("access")
-    private JsonString access;
+    private val access: JsonString? = null
 
     @Inject
     @Claim("iat")
-    private JsonNumber iat;
+    private val iat: JsonNumber? = null
 
     @Inject
     @Claim("name")
-    private JsonString name;
+    private val name: JsonString? = null
 
     @Inject
     @Claim("user_id")
-    private JsonNumber userId;
-
+    private val userId: JsonNumber? = null
     @POST
-    @RolesAllowed({"admin", "client", "credit"})
-    public Response createAccount() throws JsonProcessingException {
-        val currentAccount = requireNonNullElse(
-                accounts.getAccountMap()
-                        .get(name.getString()), (
-                        Account.builder()
-                                .client(
-                                        Client.builder()
-                                                .name(name.getString())
-                                                .build())
-                                .accountNumber(UUID.randomUUID().toString())
-                                .build()));
-
-        return createResponse(currentAccount);
+    @RolesAllowed("admin", "client", "credit")
+    @Throws(JsonProcessingException::class)
+    fun createAccount(): Response? {
+        val currentAccount = Objects.requireNonNullElse(
+            accounts.getAccountMap()[name.getString()], Account.builder()
+                .client(
+                    Client.builder()
+                        .name(name.getString())
+                        .build()
+                )
+                .accountNumber(UUID.randomUUID().toString())
+                .build()
+        )
+        return createResponse(currentAccount)
     }
 
     @POST
-    @RolesAllowed({"admin", "user"})
+    @RolesAllowed("admin", "user")
     @Path("user")
-    public Response createUser() throws JsonProcessingException {
-        val currentAccount = requireNonNullElse(
-                accounts.getAccountMap().get(name.getString()), (
-                        Account.builder()
-                                .client(Client.builder()
-                                        .name(name.getString())
-                                        .build())
-                                .accountNumber(UUID.randomUUID().toString())
-                                .build()));
-
-        return createResponse(currentAccount);
+    @Throws(JsonProcessingException::class)
+    fun createUser(): Response? {
+        val currentAccount = Objects.requireNonNullElse(
+            accounts.getAccountMap()[name.getString()], Account.builder()
+                .client(
+                    Client.builder()
+                        .name(name.getString())
+                        .build()
+                )
+                .accountNumber(UUID.randomUUID().toString())
+                .build()
+        )
+        return createResponse(currentAccount)
     }
 
     @GET
-    @RolesAllowed({"admin", "client"})
-    public Response getAccount() throws JsonProcessingException {
-        val userAccount = accounts.getAccountMap()
-                .get(name.getString());
-
-        return requireNonNullElse(createResponse(userAccount), serverError()
-                .build());
+    @RolesAllowed("admin", "client")
+    @Throws(JsonProcessingException::class)
+    fun getAccount(): Response? {
+        val userAccount = accounts.getAccountMap()[name.getString()]
+        return Objects.requireNonNullElse(
+            createResponse(userAccount), Response.serverError()
+                .build()
+        )
     }
 
     @PUT
-    @RolesAllowed({"admin", "client"})
-    @Consumes(APPLICATION_JSON)
-    public Response cashIn(final TransactionBody transactionBody) throws JsonProcessingException {
-        val userAccount = accounts.getAccountMap()
-                .get(name.getString());
-        if (isNull(userAccount)) {
-            return serverError()
-                    .build();
+    @RolesAllowed("admin", "client")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Throws(
+        JsonProcessingException::class
+    )
+    fun cashIn(transactionBody: TransactionBody?): Response? {
+        val userAccount = accounts.getAccountMap()[name.getString()]
+        if (Objects.isNull(userAccount)) {
+            return Response.serverError()
+                .build()
         }
-        val currentAccount = userAccount.addCurrentValue(transactionBody.saldo());
-        accounts.getAccountMap().put(name.getString(), currentAccount);
-        return createResponse(currentAccount);
+        val currentAccount = userAccount.addCurrentValue(transactionBody.saldo)
+        accounts.getAccountMap()[name.getString()] = currentAccount
+        return createResponse(currentAccount)
     }
 
     @GET
     @Path("all")
-    @Produces(APPLICATION_JSON)
-    public Response getAll() throws JsonProcessingException {
-        val allAccounts = new ArrayList<>(accounts.getAccountMap()
-                .values());
-        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
-        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
+    @Produces(MediaType.APPLICATION_JSON)
+    @Throws(
+        JsonProcessingException::class
+    )
+    fun getAll(): Response? {
+        val allAccounts = ArrayList(
+            accounts.getAccountMap()
+                .values
+        )
+        AccountResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        AccountResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(allAccounts)
-                .build();
+            .build()
     }
 
     @GET
     @Path("summary")
-    public Response getSummary() throws JsonProcessingException {
+    @Throws(JsonProcessingException::class)
+    fun getSummary(): Response? {
         val totalCredit = accounts.getAccountMap()
-                .values()
-                .stream()
-                .map(Account::currentValue)
-                .reduce(BigDecimal::add)
-                .orElse(BigDecimal.ZERO);
+            .values
+            .stream()
+            .map(Account::currentValue)
+            .reduce { obj: BigDecimal?, augend: BigDecimal? -> obj.add(augend) }
+            .orElse(BigDecimal.ZERO)
         val jsonObject = Json.createObjectBuilder()
-                .add("totalCurrent", totalCredit)
-                .add("client", "Mother Nature Dream Team")
-                .build();
-
-        log.info("Summary");
-        log.info("Principal: {}", objectMapper.writeValueAsString(principal));
-        log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken));
+            .add("totalCurrent", totalCredit)
+            .add("client", "Mother Nature Dream Team")
+            .build()
+        AccountResource.log.info("Summary")
+        AccountResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        AccountResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(jsonObject)
-                .build();
+            .build()
     }
 
     @GET
-    @RolesAllowed({"admin", "client"})
+    @RolesAllowed("admin", "client")
     @Path("jwt")
-    public Response getJWT() {
+    fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
-                .add("jwt", jsonWebToken.getRawToken())
-                .add("userId", userId.doubleValue())
-                .add("access", access.getString())
-                .add("iat", iat.doubleValue())
-                .build();
+            .add("jwt", jsonWebToken.getRawToken())
+            .add("userId", userId.doubleValue())
+            .add("access", access.getString())
+            .add("iat", iat.doubleValue())
+            .build()
         return Response.ok(jsonObject)
-                .build();
+            .build()
     }
 
-    private Response createResponse(Account currentAccount) throws JsonProcessingException {
-        return AccountsFactory.createResponse(currentAccount, name, accounts, log, objectMapper, principal, jsonWebToken);
+    @Throws(JsonProcessingException::class)
+    private fun createResponse(currentAccount: Account?): Response? {
+        return AccountsFactory.Companion.createResponse(
+            currentAccount,
+            name,
+            accounts,
+            AccountResource.log,
+            objectMapper,
+            principal,
+            jsonWebToken
+        )
+    }
+
+    companion object {
+        private val objectMapper: ObjectMapper? = ObjectMapper()
     }
 }

@@ -1,4 +1,3 @@
-package org.jesperancinha.fintech.controller;
+package org.jesperancinha.fintech.controller
 
-public @interface AccountsProduct {
-}
+annotation class AccountsProduct 
