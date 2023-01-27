@@ -25,39 +25,39 @@ import javax.ws.rs.core.Response
 @Path("credit")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
-class CreditResource {
+open class CreditResource {
     @Inject
     @AccountsProduct
-    private lateinit var accounts: Accounts
+    open var accounts: Accounts? = null
 
     @Inject
-    private lateinit var principal: Principal
+    open var principal: Principal? = null
 
     @Inject
-    private lateinit var jsonWebToken: JsonWebToken
+    open var jsonWebToken: JsonWebToken? = null
 
     @Inject
     @Claim("access")
-    private lateinit var access: JsonString
+    open var access: JsonString? = null
 
     @Inject
     @Claim("iat")
-    private lateinit var iat: JsonNumber
+    open var iat: JsonNumber? = null
 
     @Inject
     @Claim("name")
-    private lateinit var name: JsonString
+    open var name: JsonString? = null
 
     @Inject
     @Claim("user_id")
-    private lateinit var userId: JsonNumber
+    open var userId: JsonNumber? = null
 
     @GET
     @RolesAllowed("admin", "credit")
     @Throws(JsonProcessingException::class)
-    fun getAccount(): Response {
-        return createResponse(
-            accounts.accountMap[name.string] ?: return Response.serverError().build()
+    fun getAccount(): Response = requireNotNull(accounts).let { accounts ->
+        createResponse(
+            accounts.accountMap[requireNotNull(name).string] ?: return Response.serverError().build()
         )
     }
 
@@ -67,13 +67,15 @@ class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun cashIn(transactionBody: TransactionBody): Response? {
-        accounts.accountMap[name.string] = (accounts.accountMap[name.string] ?: return Response.serverError()
-            .build()).addCreditValue(transactionBody.saldo)
-        return createResponse(
-            (accounts.accountMap[name.string] ?: return Response.serverError()
+    fun cashIn(transactionBody: TransactionBody) = requireNotNull(accounts).let { accounts ->
+        requireNotNull(name).let { name ->
+            accounts.accountMap[name.string] = (accounts.accountMap[name.string] ?: return Response.serverError()
                 .build()).addCreditValue(transactionBody.saldo)
-        )
+            createResponse(
+                (accounts.accountMap[name.string] ?: return Response.serverError()
+                    .build()).addCreditValue(transactionBody.saldo)
+            )
+        }
     }
 
     @GET
@@ -84,7 +86,7 @@ class CreditResource {
     )
     fun getAll(): Response? {
         val allAccounts = ArrayList(
-            accounts.accountMap
+            requireNotNull(accounts).accountMap
                 .values
         )
         logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
@@ -100,7 +102,7 @@ class CreditResource {
         JsonProcessingException::class
     )
     fun getSummary(): Response? {
-        val totalCredit = accounts.accountMap
+        val totalCredit = requireNotNull(accounts).accountMap
             .values
             .map(Account::creditValue)
             .stream()
@@ -122,10 +124,10 @@ class CreditResource {
     @Path("jwt")
     fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
-            .add("jwt", jsonWebToken.rawToken)
-            .add("userId", userId.doubleValue())
-            .add("access", access.string)
-            .add("iat", iat.doubleValue())
+            .add("jwt", requireNotNull(jsonWebToken).rawToken)
+            .add("userId", requireNotNull(userId).doubleValue())
+            .add("access", requireNotNull(access).string)
+            .add("iat", requireNotNull(iat).doubleValue())
             .build()
         return Response.ok(jsonObject)
             .build()
@@ -135,8 +137,8 @@ class CreditResource {
     private fun createResponse(currentAccount: Account): Response {
         return AccountsFactory.createResponse(
             currentAccount,
-            name,
-            accounts,
+            requireNotNull(name),
+            requireNotNull(accounts),
             logger,
             objectMapper,
             principal,
