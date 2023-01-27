@@ -21,15 +21,23 @@ docker-clean-build-start: docker-clean b docker
 docker-delete:
 	docker ps -a --format '{{.ID}}' -q --filter="name=your-finance"| xargs -I {}  docker stop {}
 	docker ps -a --format '{{.ID}}' -q --filter="name=your-finance"| xargs -I {}  docker rm {}
+docker-stop-all:
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker stop {}
+	docker network prune
+docker-remove-all: docker-stop-all
+	docker network list --format '{{.ID}}' | xargs -I {} docker network rm  {} || echo 'Done!'
+	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 yfje-wait:
 	bash yfje_wait.sh
 dcd:
 	docker-compose down
-	docker-delete
-dcup-full: dcd docker-clean no-test
+	make docker-delete
+dcup-full: dcd docker-clean no-test dcup
+dcup:
 	docker-compose build
 	docker-compose up -d
 	make yfje-wait
+
 cypress-open:
 	cd e2e && yarn && npm run cypress
 cypress-electron:
