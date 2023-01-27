@@ -1,6 +1,5 @@
 package org.jesperancinha.fintech;
 
-import lombok.Getter;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
@@ -14,7 +13,6 @@ import java.util.concurrent.Callable;
         mixinStandardHelpOptions = true,
         version = "0.0.0",
         description = "Creates a JWT token based on payload and private key PEM")
-@Getter
 public class JwtGeneratorCommand implements Callable<Integer> {
 
     @Option(names = {"-key", "--private-key-file"},

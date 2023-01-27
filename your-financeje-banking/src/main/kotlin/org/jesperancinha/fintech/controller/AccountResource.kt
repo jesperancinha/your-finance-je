@@ -2,13 +2,14 @@ package org.jesperancinha.fintech.controller
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
-import lombok.extern.slf4j.Slf4j
 import org.eclipse.microprofile.jwt.Claim
 import org.eclipse.microprofile.jwt.JsonWebToken
 import org.jesperancinha.fintech.model.Account
 import org.jesperancinha.fintech.model.Accounts
 import org.jesperancinha.fintech.model.Client
 import org.jesperancinha.fintech.model.TransactionBody
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.math.BigDecimal
 import java.security.Principal
 import java.util.*
@@ -25,39 +26,32 @@ import javax.ws.rs.core.Response
 @Path("accounts")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
-@Slf4j
 class AccountResource {
     @Inject
     @AccountsProduct
-    private val accounts: Accounts? = null
-
+    lateinit var accounts: Accounts
     @Inject
-    private val principal: Principal? = null
-
+    lateinit var principal: Principal
     @Inject
-    private val jsonWebToken: JsonWebToken? = null
-
+    lateinit var jsonWebToken: JsonWebToken
     @Inject
     @Claim("access")
-    private val access: JsonString? = null
-
+    lateinit var access: JsonString
     @Inject
     @Claim("iat")
-    private val iat: JsonNumber? = null
-
+    lateinit var iat: JsonNumber
     @Inject
     @Claim("name")
-    private val name: JsonString? = null
-
+    lateinit var name: JsonString
     @Inject
     @Claim("user_id")
-    private val userId: JsonNumber? = null
+    lateinit var userId: JsonNumber
     @POST
     @RolesAllowed("admin", "client", "credit")
     @Throws(JsonProcessingException::class)
     fun createAccount(): Response? {
         val currentAccount = Objects.requireNonNullElse(
-            accounts.getAccountMap()[name.getString()], Account.builder()
+            accounts.accountMap[name.getString()], Account.builder()
                 .client(
                     Client.builder()
                         .name(name.getString())
@@ -75,7 +69,7 @@ class AccountResource {
     @Throws(JsonProcessingException::class)
     fun createUser(): Response? {
         val currentAccount = Objects.requireNonNullElse(
-            accounts.getAccountMap()[name.getString()], Account.builder()
+            accounts.accountMap[name.getString()], Account.builder()
                 .client(
                     Client.builder()
                         .name(name.getString())
@@ -91,7 +85,7 @@ class AccountResource {
     @RolesAllowed("admin", "client")
     @Throws(JsonProcessingException::class)
     fun getAccount(): Response? {
-        val userAccount = accounts.getAccountMap()[name.getString()]
+        val userAccount = accounts.accountMap[name.getString()]
         return Objects.requireNonNullElse(
             createResponse(userAccount), Response.serverError()
                 .build()
@@ -105,13 +99,13 @@ class AccountResource {
         JsonProcessingException::class
     )
     fun cashIn(transactionBody: TransactionBody?): Response? {
-        val userAccount = accounts.getAccountMap()[name.getString()]
+        val userAccount = accounts.accountMap[name.getString()]
         if (Objects.isNull(userAccount)) {
             return Response.serverError()
                 .build()
         }
         val currentAccount = userAccount.addCurrentValue(transactionBody.saldo)
-        accounts.getAccountMap()[name.getString()] = currentAccount
+        accounts.accountMap[name.getString()] = currentAccount
         return createResponse(currentAccount)
     }
 
@@ -123,11 +117,11 @@ class AccountResource {
     )
     fun getAll(): Response? {
         val allAccounts = ArrayList(
-            accounts.getAccountMap()
+            accounts.accountMap
                 .values
         )
-        AccountResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
-        AccountResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
+        logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        logger.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(allAccounts)
             .build()
     }
@@ -136,7 +130,7 @@ class AccountResource {
     @Path("summary")
     @Throws(JsonProcessingException::class)
     fun getSummary(): Response? {
-        val totalCredit = accounts.getAccountMap()
+        val totalCredit = accounts.accountMap
             .values
             .stream()
             .map(Account::currentValue)
@@ -146,9 +140,9 @@ class AccountResource {
             .add("totalCurrent", totalCredit)
             .add("client", "Mother Nature Dream Team")
             .build()
-        AccountResource.log.info("Summary")
-        AccountResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
-        AccountResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
+        logger.info("Summary")
+        logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        logger.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(jsonObject)
             .build()
     }
@@ -169,11 +163,11 @@ class AccountResource {
 
     @Throws(JsonProcessingException::class)
     private fun createResponse(currentAccount: Account?): Response? {
-        return AccountsFactory.Companion.createResponse(
+        return AccountsFactory.createResponse(
             currentAccount,
             name,
             accounts,
-            AccountResource.log,
+            logger,
             objectMapper,
             principal,
             jsonWebToken
@@ -181,6 +175,7 @@ class AccountResource {
     }
 
     companion object {
-        private val objectMapper: ObjectMapper? = ObjectMapper()
+        val objectMapper: ObjectMapper? = ObjectMapper()
+        val logger: Logger = LoggerFactory.getLogger(AccountResource::class.java)
     }
 }

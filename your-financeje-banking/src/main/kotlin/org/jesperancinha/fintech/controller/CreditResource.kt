@@ -2,7 +2,6 @@ package org.jesperancinha.fintech.controller
 
 import com.fasterxml.jackson.core.JsonProcessingException
 import com.fasterxml.jackson.databind.ObjectMapper
-import lombok.extern.slf4j.Slf4j
 import org.eclipse.microprofile.jwt.Claim
 import org.eclipse.microprofile.jwt.JsonWebToken
 import org.jesperancinha.fintech.model.Account

@@ -18,20 +18,16 @@ class AccountsFactory : Serializable {
     @Produces
     @AccountsProduct
     @ApplicationScoped
-    fun getAccounts(): Accounts? {
-        return Accounts.builder()
-            .accountMap(HashMap())
-            .build()
-    }
+    fun getAccounts(): Accounts = Accounts(mutableMapOf())
 
     companion object {
         @Throws(JsonProcessingException::class)
         fun createResponse(
-            currentAccount: Account?,
+            currentAccount: Account,
             name: JsonString?,
-            accounts: Accounts?,
-            log: Logger?,
-            objectMapper: ObjectMapper?,
+            accounts: Accounts,
+            log: Logger,
+            objectMapper: ObjectMapper,
             principal: Principal?,
             jsonWebToken: JsonWebToken?
         ): Response? {
@@ -39,7 +35,7 @@ class AccountsFactory : Serializable {
                 .add("balance", currentAccount.currentValue)
                 .add("client", name)
                 .build()
-            accounts.getAccountMap()[name.getString()] = currentAccount
+            accounts.accountMap[name.getString()] = currentAccount
             log.info("Principal: {}", objectMapper.writeValueAsString(principal))
             log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
             return Response.ok(jsonObject)
