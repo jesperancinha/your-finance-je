@@ -23,58 +23,69 @@ import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
+/**
+ * Values have to be assigned to var and latet init var does not work with KumuluzEE probably because there is still no plugin available for this framework
+ */
 @Path("accounts")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
-class AccountResource {
+open class AccountResource {
+
     @Inject
     @AccountsProduct
-    lateinit var accounts: Accounts
+    open var accounts: Accounts? = null
+
     @Inject
-    lateinit var principal: Principal
+    open var principal: Principal? = null
+
     @Inject
-    lateinit var jsonWebToken: JsonWebToken
+    open var jsonWebToken: JsonWebToken? = null
+
     @Inject
     @Claim("access")
-    lateinit var access: JsonString
-    @Inject
+    open var access: JsonString? = null
+
     @Claim("iat")
-    lateinit var iat: JsonNumber
+    @Inject
+    open var iat: JsonNumber? = null
+
     @Inject
     @Claim("name")
-    lateinit var name: JsonString
+    open var name: JsonString? = null
+
     @Inject
     @Claim("user_id")
-    lateinit var userId: JsonNumber
+    open var userId: JsonNumber? = null
+
     @POST
     @RolesAllowed("admin", "client", "credit")
     @Throws(JsonProcessingException::class)
-    fun createAccount(): Response = createResponse(
-            accounts.accountMap[name.string] ?: Account(
-                    client = Client(name = name.string),
-                    accountNumber = UUID.randomUUID().toString()
-                )
+    open fun createAccount(): Response = createResponse(
+        requireNotNull(accounts).accountMap[requireNotNull(name).string] ?: Account(
+            client = Client(name = requireNotNull(name).string),
+            accountNumber = UUID.randomUUID().toString()
         )
+    )
 
     @POST
     @RolesAllowed("admin", "user")
     @Path("user")
     @Throws(JsonProcessingException::class)
-    fun createUser(): Response {
+    open fun createUser(): Response {
         return createResponse(
-            accounts.accountMap[name.string] ?: Account(
-                    client = Client(name = name.string),
-                    accountNumber = UUID.randomUUID().toString()
-                )
+            requireNotNull(accounts).accountMap[requireNotNull(name).string] ?: Account(
+                client = Client(name = requireNotNull(name).string),
+                accountNumber = UUID.randomUUID().toString()
+            )
         )
     }
 
     @GET
     @RolesAllowed("admin", "client")
     @Throws(JsonProcessingException::class)
-    fun getAccount(): Response? {
+    open fun getAccount(): Response? {
         return createResponse(
-            accounts.accountMap[name.string] ?: return Response.serverError()
+            requireNotNull(accounts).accountMap[requireNotNull(name).string] ?: return Response.serverError()
                 .build()
         )
     }
@@ -85,12 +96,13 @@ class AccountResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun cashIn(transactionBody: TransactionBody): Response? {
-        val userAccount = accounts.accountMap[name.string] ?: return Response.serverError()
-            .build()
+    open fun cashIn(transactionBody: TransactionBody): Response? {
+        val userAccount =
+            requireNotNull(accounts).accountMap[requireNotNull(name).string] ?: return Response.serverError()
+                .build()
 
         val currentAccount = userAccount.addCurrentValue(transactionBody.saldo)
-        accounts.accountMap[name.string] = currentAccount
+        requireNotNull(accounts).accountMap[requireNotNull(name).string] = currentAccount
         return createResponse(currentAccount)
     }
 
@@ -100,9 +112,9 @@ class AccountResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun getAll(): Response? {
+    open fun getAll(): Response? {
         val allAccounts = ArrayList(
-            accounts.accountMap
+            requireNotNull(accounts).accountMap
                 .values
         )
         logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
@@ -114,12 +126,12 @@ class AccountResource {
     @GET
     @Path("summary")
     @Throws(JsonProcessingException::class)
-    fun getSummary(): Response? {
-        val totalCredit = accounts.accountMap
+    open fun getSummary(): Response? {
+        val totalCredit = requireNotNull(accounts).accountMap
             .values
             .map(Account::currentValue)
             .stream()
-            .reduce { result, u -> result.add(u)}
+            .reduce { result, u -> result.add(u) }
             .orElse(BigDecimal.ZERO)
 
         val jsonObject = Json.createObjectBuilder()
@@ -136,12 +148,12 @@ class AccountResource {
     @GET
     @RolesAllowed("admin", "client")
     @Path("jwt")
-    fun getJWT(): Response? {
+    open fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
-            .add("jwt", jsonWebToken.rawToken)
-            .add("userId", userId.doubleValue())
-            .add("access", access.string)
-            .add("iat", iat.doubleValue())
+            .add("jwt", requireNotNull(jsonWebToken).rawToken)
+            .add("userId", requireNotNull(userId).doubleValue())
+            .add("access", requireNotNull(access).string)
+            .add("iat", requireNotNull(iat).doubleValue())
             .build()
         return Response.ok(jsonObject)
             .build()
@@ -151,8 +163,8 @@ class AccountResource {
     private fun createResponse(currentAccount: Account): Response =
         AccountsFactory.createResponse(
             currentAccount,
-            name,
-            accounts,
+            requireNotNull(name),
+            requireNotNull(accounts),
             logger,
             objectMapper,
             principal,

@@ -28,29 +28,29 @@ import javax.ws.rs.core.Response
 class CreditResource {
     @Inject
     @AccountsProduct
-    lateinit var accounts: Accounts
+    private lateinit var accounts: Accounts
 
     @Inject
-    lateinit var principal: Principal
+    private lateinit var principal: Principal
 
     @Inject
-    lateinit var jsonWebToken: JsonWebToken
+    private lateinit var jsonWebToken: JsonWebToken
 
     @Inject
     @Claim("access")
-    lateinit var access: JsonString
+    private lateinit var access: JsonString
 
     @Inject
     @Claim("iat")
-    lateinit var iat: JsonNumber
+    private lateinit var iat: JsonNumber
 
     @Inject
     @Claim("name")
-    lateinit var name: JsonString
+    private lateinit var name: JsonString
 
     @Inject
     @Claim("user_id")
-    lateinit var userId: JsonNumber
+    private lateinit var userId: JsonNumber
 
     @GET
     @RolesAllowed("admin", "credit")
@@ -122,7 +122,7 @@ class CreditResource {
     @Path("jwt")
     fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
-            .add("jwt", jsonWebToken.getRawToken())
+            .add("jwt", jsonWebToken.rawToken)
             .add("userId", userId.doubleValue())
             .add("access", access.string)
             .add("iat", iat.doubleValue())

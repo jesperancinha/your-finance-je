@@ -18,7 +18,7 @@ class AccountsFactory : Serializable {
     @Produces
     @AccountsProduct
     @ApplicationScoped
-    fun getAccounts(): Accounts = Accounts(mutableMapOf())
+    fun accounts(): Accounts = Accounts(mutableMapOf())
 
     companion object {
         @Throws(JsonProcessingException::class)

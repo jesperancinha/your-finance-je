@@ -19,8 +19,8 @@ data class Account(
     )
 }
 
-data class Accounts (
-    val accountMap: MutableMap<String, Account>
+open class Accounts constructor (
+   open val accountMap: MutableMap<String, Account> = mutableMapOf()
 )
 
 data class Client constructor(val name: String)
