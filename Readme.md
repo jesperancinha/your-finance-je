@@ -12,7 +12,6 @@
 [![e2e-your-finance-je](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je-e2e.yml/badge.svg)](https://github.com/jesperancinha/your-finance-je/actions/workflows/your-finance-je-e2e.yml)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/b1ba6086c1b44820b62345c44bee2f1d)](https://www.codacy.com/gh/jesperancinha/your-finance-je/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jesperancinha/your-finance-je&amp;utm_campaign=Badge_Grade)
-[![BCH compliance](https://bettercodehub.com/edge/badge/jesperancinha/your-finance-je?branch=master)](https://bettercodehub.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/jesperancinha/your-finance-je/badge.svg)](https://snyk.io/test/github/jesperancinha/your-finance-je)
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/b1ba6086c1b44820b62345c44bee2f1d)](https://www.codacy.com/gh/jesperancinha/your-finance-je/dashboard?utm_source=github.com&utm_medium=referral&utm_content=jesperancinha/your-finance-je&utm_campaign=Badge_Coverage)
