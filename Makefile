@@ -106,9 +106,9 @@ jwtenizr-send-money:
 jwtenizr-ask-credit:
 	cd jwtenizr-files && bash askCredit.sh
 dcup-full-action: cleanup-certificates
-	if [-d your-finance-images/yf ]; then rm -r your-finance-images/yf fi
-	if [-d your-finance-images/jwtenizr ]; then rm -r your-finance-images/jwtenizr fi
-	if [-d your-financeje-banking/target ]; then rm -r your-financeje-banking/target fi
+	if [ -d your-finance-images/yf ]; then rm -r your-finance-images/yf; fi
+	if [ -d your-finance-images/jwtenizr ]; then rm -r your-finance-images/jwtenizr; fi
+	if [ -d your-financeje-banking/target ]; then rm -r your-financeje-banking/target; fi
 	mkdir -p your-finance-images/yf
 	mkdir -p your-finance-images/jwtenizr
 	make no-test
