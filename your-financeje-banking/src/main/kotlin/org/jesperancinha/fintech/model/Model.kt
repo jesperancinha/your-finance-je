@@ -30,10 +30,10 @@ open class Accounts constructor(
 
 data class Client constructor(
     @JsonProperty
-    val name: String
+    var name: String ?= null
 )
 
 data class TransactionBody constructor(
     @JsonProperty
-    val saldo: Long
+    var saldo: Long ?= null
 )
