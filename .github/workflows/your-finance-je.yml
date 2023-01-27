@@ -1,4 +1,4 @@
-name: your-finance-je
+name: YFJE your-finance-je
 on:
   push:
     branches: [ master ]

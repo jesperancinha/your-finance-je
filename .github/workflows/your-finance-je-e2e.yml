@@ -1,8 +1,6 @@
-name: e2e-your-finance-je
+name: YFJE e2e-your-finance-je
 
-on:
-  push:
-    branches: [ master ]
+on: push
 
 jobs:
   e2e-electron:
