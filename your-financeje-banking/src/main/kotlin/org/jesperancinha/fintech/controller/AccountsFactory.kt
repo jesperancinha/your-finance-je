@@ -24,18 +24,18 @@ class AccountsFactory : Serializable {
         @Throws(JsonProcessingException::class)
         fun createResponse(
             currentAccount: Account,
-            name: JsonString?,
+            name: JsonString,
             accounts: Accounts,
             log: Logger,
             objectMapper: ObjectMapper,
             principal: Principal?,
             jsonWebToken: JsonWebToken?
-        ): Response? {
+        ): Response {
             val jsonObject = Json.createObjectBuilder()
                 .add("balance", currentAccount.currentValue)
                 .add("client", name)
                 .build()
-            accounts.accountMap[name.getString()] = currentAccount
+            accounts.accountMap[name.string] = currentAccount
             log.info("Principal: {}", objectMapper.writeValueAsString(principal))
             log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
             return Response.ok(jsonObject)

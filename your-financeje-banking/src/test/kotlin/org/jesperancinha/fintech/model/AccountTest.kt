@@ -1,25 +1,29 @@
 package org.jesperancinha.fintech.model
 
-import org.assertj.core.api.Assertions
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
 class AccountTest {
     @Test
-    fun testAddCurrentValue() {
-        val account = Account.builder().accountNumber("SDFSFS234862398643398246345345345928").build()
+    fun `should add current value`() {
+        val account = Account(
+            accountNumber = "SDFSFS234862398643398246345345345928"
+        )
         val accountNew = account.addCurrentValue(100L)
-        Assertions.assertThat(accountNew.accountNumber).isEqualTo("SDFSFS234862398643398246345345345928")
-        Assertions.assertThat(accountNew.creditValue).isEqualTo(BigDecimal.valueOf(0L))
-        Assertions.assertThat(accountNew.currentValue).isEqualTo(BigDecimal.valueOf(100L))
+        accountNew.accountNumber shouldBe "SDFSFS234862398643398246345345345928"
+        accountNew.creditValue shouldBe BigDecimal.valueOf(0L)
+        accountNew.currentValue shouldBe BigDecimal.valueOf(100L)
     }
 
     @Test
-    fun testAddCreditValue() {
-        val account = Account.builder().accountNumber("SDFSFS234862398643398246345345345928").build()
+    fun `should add credit value`() {
+        val account = Account(
+            accountNumber = "SDFSFS234862398643398246345345345928"
+        )
         val accountNew = account.addCreditValue(10L)
-        Assertions.assertThat(accountNew.accountNumber).isEqualTo("SDFSFS234862398643398246345345345928")
-        Assertions.assertThat(accountNew.creditValue).isEqualTo(BigDecimal.valueOf(10L))
-        Assertions.assertThat(accountNew.currentValue).isEqualTo(BigDecimal.valueOf(0L))
+        accountNew.accountNumber shouldBe "SDFSFS234862398643398246345345345928"
+        accountNew.creditValue shouldBe BigDecimal.valueOf(10L)
+        accountNew.currentValue shouldBe BigDecimal.valueOf(0L)
     }
 }

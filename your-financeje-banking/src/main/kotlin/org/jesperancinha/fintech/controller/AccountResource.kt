@@ -49,45 +49,32 @@ class AccountResource {
     @POST
     @RolesAllowed("admin", "client", "credit")
     @Throws(JsonProcessingException::class)
-    fun createAccount(): Response? {
-        val currentAccount = Objects.requireNonNullElse(
-            accounts.accountMap[name.getString()], Account.builder()
-                .client(
-                    Client.builder()
-                        .name(name.getString())
-                        .build()
+    fun createAccount(): Response = createResponse(
+            accounts.accountMap[name.string] ?: Account(
+                    client = Client(name = name.string),
+                    accountNumber = UUID.randomUUID().toString()
                 )
-                .accountNumber(UUID.randomUUID().toString())
-                .build()
         )
-        return createResponse(currentAccount)
-    }
 
     @POST
     @RolesAllowed("admin", "user")
     @Path("user")
     @Throws(JsonProcessingException::class)
-    fun createUser(): Response? {
-        val currentAccount = Objects.requireNonNullElse(
-            accounts.accountMap[name.getString()], Account.builder()
-                .client(
-                    Client.builder()
-                        .name(name.getString())
-                        .build()
+    fun createUser(): Response {
+        return createResponse(
+            accounts.accountMap[name.string] ?: Account(
+                    client = Client(name = name.string),
+                    accountNumber = UUID.randomUUID().toString()
                 )
-                .accountNumber(UUID.randomUUID().toString())
-                .build()
         )
-        return createResponse(currentAccount)
     }
 
     @GET
     @RolesAllowed("admin", "client")
     @Throws(JsonProcessingException::class)
     fun getAccount(): Response? {
-        val userAccount = accounts.accountMap[name.getString()]
-        return Objects.requireNonNullElse(
-            createResponse(userAccount), Response.serverError()
+        return createResponse(
+            accounts.accountMap[name.string] ?: return Response.serverError()
                 .build()
         )
     }
@@ -98,14 +85,12 @@ class AccountResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun cashIn(transactionBody: TransactionBody?): Response? {
-        val userAccount = accounts.accountMap[name.getString()]
-        if (Objects.isNull(userAccount)) {
-            return Response.serverError()
-                .build()
-        }
+    fun cashIn(transactionBody: TransactionBody): Response? {
+        val userAccount = accounts.accountMap[name.string] ?: return Response.serverError()
+            .build()
+
         val currentAccount = userAccount.addCurrentValue(transactionBody.saldo)
-        accounts.accountMap[name.getString()] = currentAccount
+        accounts.accountMap[name.string] = currentAccount
         return createResponse(currentAccount)
     }
 
@@ -132,10 +117,11 @@ class AccountResource {
     fun getSummary(): Response? {
         val totalCredit = accounts.accountMap
             .values
-            .stream()
             .map(Account::currentValue)
-            .reduce { obj: BigDecimal?, augend: BigDecimal? -> obj.add(augend) }
+            .stream()
+            .reduce { result, u -> result.add(u)}
             .orElse(BigDecimal.ZERO)
+
         val jsonObject = Json.createObjectBuilder()
             .add("totalCurrent", totalCredit)
             .add("client", "Mother Nature Dream Team")
@@ -152,9 +138,9 @@ class AccountResource {
     @Path("jwt")
     fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
-            .add("jwt", jsonWebToken.getRawToken())
+            .add("jwt", jsonWebToken.rawToken)
             .add("userId", userId.doubleValue())
-            .add("access", access.getString())
+            .add("access", access.string)
             .add("iat", iat.doubleValue())
             .build()
         return Response.ok(jsonObject)
@@ -162,8 +148,8 @@ class AccountResource {
     }
 
     @Throws(JsonProcessingException::class)
-    private fun createResponse(currentAccount: Account?): Response? {
-        return AccountsFactory.createResponse(
+    private fun createResponse(currentAccount: Account): Response =
+        AccountsFactory.createResponse(
             currentAccount,
             name,
             accounts,
@@ -172,10 +158,9 @@ class AccountResource {
             principal,
             jsonWebToken
         )
-    }
 
     companion object {
-        val objectMapper: ObjectMapper? = ObjectMapper()
+        val objectMapper: ObjectMapper = ObjectMapper()
         val logger: Logger = LoggerFactory.getLogger(AccountResource::class.java)
     }
 }

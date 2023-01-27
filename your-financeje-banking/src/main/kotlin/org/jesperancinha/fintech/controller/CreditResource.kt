@@ -7,6 +7,8 @@ import org.eclipse.microprofile.jwt.JsonWebToken
 import org.jesperancinha.fintech.model.Account
 import org.jesperancinha.fintech.model.Accounts
 import org.jesperancinha.fintech.model.TransactionBody
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import java.math.BigDecimal
 import java.security.Principal
 import java.util.*
@@ -23,41 +25,40 @@ import javax.ws.rs.core.Response
 @Path("credit")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
-@Slf4j
 class CreditResource {
     @Inject
     @AccountsProduct
-    private val accounts: Accounts? = null
+    lateinit var accounts: Accounts
 
     @Inject
-    private val principal: Principal? = null
+    lateinit var principal: Principal
 
     @Inject
-    private val jsonWebToken: JsonWebToken? = null
+    lateinit var jsonWebToken: JsonWebToken
 
     @Inject
     @Claim("access")
-    private val access: JsonString? = null
+    lateinit var access: JsonString
 
     @Inject
     @Claim("iat")
-    private val iat: JsonNumber? = null
+    lateinit var iat: JsonNumber
 
     @Inject
     @Claim("name")
-    private val name: JsonString? = null
+    lateinit var name: JsonString
 
     @Inject
     @Claim("user_id")
-    private val userId: JsonNumber? = null
+    lateinit var userId: JsonNumber
+
     @GET
     @RolesAllowed("admin", "credit")
     @Throws(JsonProcessingException::class)
-    fun getAccount(): Response? {
-        val userAccount = accounts.getAccountMap()[name.getString()]
-        return if (Objects.isNull(userAccount)) {
-            Response.serverError().build()
-        } else createResponse(userAccount)
+    fun getAccount(): Response {
+        return createResponse(
+            accounts.accountMap[name.string] ?: return Response.serverError().build()
+        )
     }
 
     @PUT
@@ -66,15 +67,13 @@ class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun cashIn(transactionBody: TransactionBody?): Response? {
-        val userAccount = accounts.getAccountMap()[name.getString()]
-        if (Objects.isNull(userAccount)) {
-            return Response.serverError()
-                .build()
-        }
-        val currentAccount = userAccount.addCreditValue(transactionBody.saldo)
-        accounts.getAccountMap()[name.getString()] = currentAccount
-        return createResponse(currentAccount)
+    fun cashIn(transactionBody: TransactionBody): Response? {
+        accounts.accountMap[name.string] = (accounts.accountMap[name.string] ?: return Response.serverError()
+            .build()).addCreditValue(transactionBody.saldo)
+        return createResponse(
+            (accounts.accountMap[name.string] ?: return Response.serverError()
+                .build()).addCreditValue(transactionBody.saldo)
+        )
     }
 
     @GET
@@ -85,11 +84,11 @@ class CreditResource {
     )
     fun getAll(): Response? {
         val allAccounts = ArrayList(
-            accounts.getAccountMap()
+            accounts.accountMap
                 .values
         )
-        CreditResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
-        CreditResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
+        logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        logger.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(allAccounts)
             .build()
     }
@@ -101,19 +100,19 @@ class CreditResource {
         JsonProcessingException::class
     )
     fun getSummary(): Response? {
-        val totalCredit = accounts.getAccountMap()
+        val totalCredit = accounts.accountMap
             .values
-            .stream()
             .map(Account::creditValue)
-            .reduce { obj: BigDecimal?, augend: BigDecimal? -> obj.add(augend) }
+            .stream()
+            .reduce { total, v -> total.add(v) }
             .orElse(BigDecimal.ZERO)
         val jsonObject = Json.createObjectBuilder()
             .add("totalCredit", totalCredit)
             .add("client", "Mother Nature Dream Team")
             .build()
-        CreditResource.log.info("Summary")
-        CreditResource.log.info("Principal: {}", objectMapper.writeValueAsString(principal))
-        CreditResource.log.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
+        logger.info("Summary")
+        logger.info("Principal: {}", objectMapper.writeValueAsString(principal))
+        logger.info("JSonWebToken: {}", objectMapper.writeValueAsString(jsonWebToken))
         return Response.ok(jsonObject)
             .build()
     }
@@ -125,7 +124,7 @@ class CreditResource {
         val jsonObject = Json.createObjectBuilder()
             .add("jwt", jsonWebToken.getRawToken())
             .add("userId", userId.doubleValue())
-            .add("access", access.getString())
+            .add("access", access.string)
             .add("iat", iat.doubleValue())
             .build()
         return Response.ok(jsonObject)
@@ -133,12 +132,12 @@ class CreditResource {
     }
 
     @Throws(JsonProcessingException::class)
-    private fun createResponse(currentAccount: Account?): Response? {
-        return AccountsFactory.Companion.createResponse(
+    private fun createResponse(currentAccount: Account): Response {
+        return AccountsFactory.createResponse(
             currentAccount,
             name,
             accounts,
-            CreditResource.log,
+            logger,
             objectMapper,
             principal,
             jsonWebToken
@@ -146,6 +145,7 @@ class CreditResource {
     }
 
     companion object {
-        private val objectMapper: ObjectMapper? = ObjectMapper()
+        val objectMapper: ObjectMapper = ObjectMapper()
+        val logger: Logger = LoggerFactory.getLogger(CreditResource::class.java)
     }
 }
