@@ -6,7 +6,11 @@ import kotlin.system.exitProcess
 object JwtGenerator {
     @JvmStatic
     fun main(args: Array<String>) {
-        val exitCode = CommandLine(JwtGeneratorCommand()).execute(*args)
+        val exitCode = runCommand(args)
         exitProcess(exitCode)
     }
+
+    fun runCommand(args: Array<String>) =
+        CommandLine(JwtGeneratorCommand()).execute(*args)
+
 }
