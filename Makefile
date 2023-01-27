@@ -53,8 +53,8 @@ cypress-firefox:
 cypress-edge:
 	cd e2e && make cypress-edge
 cleanup-certificates:
-	rm -rf jwtenizr-files
-	rm -rf your-finance-files
+	if [ -d jwtenizr-files ]; then rm -r jwtenizr-files; fi
+	if [ -d your-finance-files ]; then rm -r your-finance-files; fi
 jwtenizr-setup-certificates:
 	bash jwtenizrSetupCertificates.sh
 setup-certificates:
@@ -114,7 +114,7 @@ dcup-full-action: cleanup-certificates
 	make no-test
 	cp your-financeje-banking/target/your-financeje-banking.jar your-finance-images/yf/
 	cp your-finance-images-template/* your-finance-images/yf/
-	rm -rf your-financeje-banking/target
+	if [ -d your-financeje-banking/target ]; then rm -r your-financeje-banking/target; fi
 	make jwtenizr-no-test
 	cp your-financeje-banking/target/your-financeje-banking.jar your-finance-images/jwtenizr
 	cp your-finance-images-template/* your-finance-images/jwtenizr/
