@@ -39,7 +39,7 @@ dcup:
 	docker-compose build
 	docker-compose up -d
 	make yfje-wait
-dcup-composed:
+dcup-composed: dcd
 	cd your-finance-images && make dcup
 	make all-env
 cypress-open:
@@ -105,10 +105,10 @@ jwtenizr-send-money:
 	cd jwtenizr-files && bash sendMoney.sh
 jwtenizr-ask-credit:
 	cd jwtenizr-files && bash askCredit.sh
-dcup-full-action: cleanup-certificates dcd
-	rm -rf your-finance-images/yf
-	rm -rf your-finance-images/jwtenizr
-	rm -rf your-financeje-banking/target
+dcup-full-action: cleanup-certificates
+	if [-d your-finance-images/yf ]; then rm -r your-finance-images/yf fi
+	if [-d your-finance-images/jwtenizr ]; then rm -r your-finance-images/jwtenizr fi
+	if [-d your-financeje-banking/target ]; then rm -r your-financeje-banking/target fi
 	mkdir -p your-finance-images/yf
 	mkdir -p your-finance-images/jwtenizr
 	make no-test
