@@ -1,11 +1,16 @@
 package org.jesperancinha.fintech.model
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import java.math.BigDecimal
 
 data class Account(
+    @JsonProperty
     val accountNumber: String?,
+    @JsonProperty
     val client: Client? = null,
+    @JsonProperty
     var currentValue: BigDecimal = BigDecimal.ZERO,
+    @JsonProperty
     var creditValue: BigDecimal = BigDecimal.ZERO
 ) {
     fun addCurrentValue(value: Long) = Account(
@@ -19,10 +24,16 @@ data class Account(
     )
 }
 
-open class Accounts constructor (
-   open val accountMap: MutableMap<String, Account> = mutableMapOf()
+open class Accounts constructor(
+    open val accountMap: MutableMap<String, Account> = mutableMapOf()
 )
 
-data class Client constructor(val name: String)
+data class Client constructor(
+    @JsonProperty
+    val name: String
+)
 
-data class TransactionBody constructor(val saldo: Long)
+data class TransactionBody constructor(
+    @JsonProperty
+    val saldo: Long
+)
