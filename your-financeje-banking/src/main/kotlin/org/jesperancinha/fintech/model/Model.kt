@@ -25,4 +25,4 @@ open class Accounts constructor (
 
 data class Client constructor(val name: String)
 
-data class TransactionBody(val saldo: Long)
+data class TransactionBody constructor(val saldo: Long)
