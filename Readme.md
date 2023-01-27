@@ -57,6 +57,11 @@ This project is also the official support project of my article on medium:
       </a>
 </div>
 
+#### Stable releases
+
+-   [0.0.0](https://github.com/jesperancinha/your-finance-je/tree/0.0.0) - [0bae454ebed482d6f1652bbc295c2b8b07bd1a20](https://github.com/jesperancinha/your-finance-je/tree/0.0.0) - Java / JD17 / KumuluzEE
+-   [1.0.0](https://github.com/jesperancinha/your-finance-je/tree/1.0.0) - [ecd9d600f0ab265f343f3697f6f36a17a35f9aa6](https://github.com/jesperancinha/your-finance-je/tree/1.0.0) - Kotlin 1.8.0 / JDK17 / KumuluzEE
+
 ## How to run
 
 There are many scripts available in the [Makefile](./Makefile) at the root of this project. However, the way to start this project and see all the aspects of it, it's better to just start the containers and open the cypress console;
