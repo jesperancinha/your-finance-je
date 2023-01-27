@@ -55,7 +55,7 @@ open class CreditResource {
     @GET
     @RolesAllowed("admin", "credit")
     @Throws(JsonProcessingException::class)
-    fun getAccount(): Response = requireNotNull(accounts).let { accounts ->
+    open fun getAccount(): Response = requireNotNull(accounts).let { accounts ->
         createResponse(
             accounts.accountMap[requireNotNull(name).string] ?: return Response.serverError().build()
         )
@@ -67,13 +67,13 @@ open class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun cashIn(transactionBody: TransactionBody) = requireNotNull(accounts).let { accounts ->
+    open fun cashIn(transactionBody: TransactionBody) = requireNotNull(accounts).let { accounts ->
         requireNotNull(name).let { name ->
             accounts.accountMap[name.string] = (accounts.accountMap[name.string] ?: return Response.serverError()
-                .build()).addCreditValue(transactionBody.saldo)
+                .build()).addCreditValue(transactionBody.saldo?: 0L)
             createResponse(
                 (accounts.accountMap[name.string] ?: return Response.serverError()
-                    .build()).addCreditValue(transactionBody.saldo)
+                    .build()).addCreditValue(transactionBody.saldo?: 0L)
             )
         }
     }
@@ -84,7 +84,7 @@ open class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun getAll(): Response? {
+    open fun getAll(): Response? {
         val allAccounts = ArrayList(
             requireNotNull(accounts).accountMap
                 .values
@@ -101,7 +101,7 @@ open class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    fun getSummary(): Response? {
+    open fun getSummary(): Response? {
         val totalCredit = requireNotNull(accounts).accountMap
             .values
             .map(Account::creditValue)
@@ -122,7 +122,7 @@ open class CreditResource {
     @GET
     @RolesAllowed("admin", "client")
     @Path("jwt")
-    fun getJWT(): Response? {
+    open fun getJWT(): Response? {
         val jsonObject = Json.createObjectBuilder()
             .add("jwt", requireNotNull(jsonWebToken).rawToken)
             .add("userId", requireNotNull(userId).doubleValue())

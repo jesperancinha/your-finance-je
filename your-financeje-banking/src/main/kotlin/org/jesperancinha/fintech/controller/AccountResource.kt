@@ -101,7 +101,7 @@ open class AccountResource {
             requireNotNull(accounts).accountMap[requireNotNull(name).string] ?: return Response.serverError()
                 .build()
 
-        val currentAccount = userAccount.addCurrentValue(transactionBody.saldo)
+        val currentAccount = userAccount.addCurrentValue(transactionBody.saldo?: 0)
         requireNotNull(accounts).accountMap[requireNotNull(name).string] = currentAccount
         return createResponse(currentAccount)
     }
