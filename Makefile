@@ -31,13 +31,17 @@ yfje-wait:
 	bash yfje_wait.sh
 dcd:
 	docker-compose down
+	cd your-finance-images && docker-compose rm -svf
+	cd your-finance-images && docker-compose down
 	make docker-delete
 dcup-full: dcd docker-clean no-test dcup
 dcup:
 	docker-compose build
 	docker-compose up -d
 	make yfje-wait
-
+dcup-composed:
+	cd your-finance-images && make dcup
+	make all-env
 cypress-open:
 	cd e2e && yarn && npm run cypress
 cypress-electron:
@@ -101,7 +105,7 @@ jwtenizr-send-money:
 	cd jwtenizr-files && bash sendMoney.sh
 jwtenizr-ask-credit:
 	cd jwtenizr-files && bash askCredit.sh
-dcup-full-action: cleanup-certificates
+dcup-full-action: cleanup-certificates dcd
 	rm -rf your-finance-images/yf
 	rm -rf your-finance-images/jwtenizr
 	rm -rf your-financeje-banking/target
@@ -114,11 +118,5 @@ dcup-full-action: cleanup-certificates
 	make jwtenizr-no-test
 	cp your-financeje-banking/target/your-financeje-banking.jar your-finance-images/jwtenizr
 	cp your-finance-images-template/* your-finance-images/jwtenizr/
-	cd your-finance-images && docker-compose rm -svf
-	cd your-finance-images && docker-compose down
-	make docker-delete
-	cd your-finance-images && docker-compose build
-	cd your-finance-images && docker-compose up -d
-	cd your-finance-images && bash yfje_wait.sh
-	make all-env
+	make dcup-composed
 all-env: create-users create-accounts jwtenizr-create-users jwtenizr-create-accounts send-money ask-credit jwtenizr-send-money jwtenizr-ask-credit
