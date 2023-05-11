@@ -43,7 +43,7 @@
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
         <mockk-jvm.version>1.13.5</mockk-jvm.version>
         <springmockk.version>4.0.2</springmockk.version>
-        <kotest-assertions-core-jvm.version>5.6.1</kotest-assertions-core-jvm.version>
+        <kotest-assertions-core-jvm.version>5.6.2</kotest-assertions-core-jvm.version>
     </properties>
 
     <modules>
