@@ -21,7 +21,7 @@
         <junit.version>4.13.1</junit.version>
         <jakarta.json.version>1.1.1</jakarta.json.version>
         <nimbus-jose-jwt.version>9.31</nimbus-jose-jwt.version>
-        <json-smart.version>2.4.10</json-smart.version>
+        <json-smart.version>2.4.11</json-smart.version>
         <microprofile-jwt-auth-api.version>2.1</microprofile-jwt-auth-api.version>
         <junit-jupiter.version>5.9.3</junit-jupiter.version>
     </properties>
