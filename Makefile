@@ -43,7 +43,7 @@ dcup-composed: dcd
 	cd your-finance-images && make dcup
 	make all-env
 cypress-open:
-	cd e2e && yarn && npm run cypress
+	cd e2e && yarn && npm run cypress:open:electron
 cypress-electron:
 	cd e2e && make cypress-electron
 cypress-chrome:

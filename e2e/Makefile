@@ -1,5 +1,5 @@
 cypress-open:
-	yarn && npm run cypress
+	yarn && npm run cypress:open:electron
 cypress-electron:
 	yarn && docker-compose -f ../your-finance-images/docker-compose.yaml -f docker-compose.yml up --exit-code-from e2e-electron e2e-electron
 cypress-chrome:
