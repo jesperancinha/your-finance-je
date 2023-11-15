@@ -21,17 +21,17 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
-        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
-        <kotlin.version>1.9.10</kotlin.version>
+        <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
+        <kotlin.version>1.9.20</kotlin.version>
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <logback.version>1.4.11</logback.version>
-        <johnzon-core.version>1.2.21</johnzon-core.version>
-        <jjwt.version>0.9.1</jjwt.version>
+        <johnzon-core.version>2.0.0</johnzon-core.version>
+        <jjwt.version>0.12.3</jjwt.version>
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
 
-        <junit-jupiter>5.10.0</junit-jupiter>
-        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+        <junit-jupiter>5.10.1</junit-jupiter>
+        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
         <assertj-core.version>3.24.2</assertj-core.version>
@@ -41,9 +41,9 @@
         <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
         <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
-        <mockk-jvm.version>1.13.7</mockk-jvm.version>
+        <mockk-jvm.version>1.13.8</mockk-jvm.version>
         <springmockk.version>4.0.2</springmockk.version>
-        <kotest-assertions-core-jvm.version>5.6.2</kotest-assertions-core-jvm.version>
+        <kotest-assertions-core-jvm.version>5.8.0</kotest-assertions-core-jvm.version>
     </properties>
 
     <modules>
