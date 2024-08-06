@@ -29,13 +29,13 @@ docker-remove-all: docker-stop-all
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 yfje-wait:
 	bash yfje_wait.sh
-dcd:
+dcd: dc-migration
 	docker-compose down
 	cd your-finance-images && docker-compose rm -svf
 	cd your-finance-images && docker-compose down
 	make docker-delete
 dcup-full: dcd docker-clean no-test dcup
-dcup:
+dcup: dcd
 	docker-compose build
 	docker-compose up -d
 	make yfje-wait
@@ -132,3 +132,5 @@ deps-plugins-update:
 deps-quick-update: deps-cypress-update deps-plugins-update
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
+dc-migration:
+	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
