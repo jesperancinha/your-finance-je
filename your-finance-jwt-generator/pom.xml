@@ -39,7 +39,7 @@
     </dependencies>
 
     <properties>
-        <nimbus-jose-jwt.version>9.45</nimbus-jose-jwt.version>
+        <nimbus-jose-jwt.version>9.46</nimbus-jose-jwt.version>
         <microprofile-jwt-auth-api.version>2.1</microprofile-jwt-auth-api.version>
         <json-smart.version>2.5.1</json-smart.version>
     </properties>
