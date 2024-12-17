@@ -30,7 +30,7 @@
         <jjwt.version>0.12.6</jjwt.version>
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
 
-        <junit-jupiter>5.11.3</junit-jupiter>
+        <junit-jupiter>5.11.4</junit-jupiter>
         <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
