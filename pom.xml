@@ -41,7 +41,7 @@
         <kumuluzee-swagger.version>1.2.2</kumuluzee-swagger.version>
         <kumuluzee-openapi.version>1.0.1</kumuluzee-openapi.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
-        <mockk-jvm.version>1.13.13</mockk-jvm.version>
+        <mockk-jvm.version>1.13.14</mockk-jvm.version>
         <springmockk.version>4.0.2</springmockk.version>
         <kotest-assertions-core-jvm.version>5.9.1</kotest-assertions-core-jvm.version>
     </properties>
