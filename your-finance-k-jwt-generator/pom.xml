@@ -20,7 +20,7 @@
         <kotlin.code.style>official</kotlin.code.style>
         <junit.version>4.13.1</junit.version>
         <jakarta.json.version>1.1.7</jakarta.json.version>
-        <nimbus-jose-jwt.version>9.48</nimbus-jose-jwt.version>
+        <nimbus-jose-jwt.version>10.0</nimbus-jose-jwt.version>
         <json-smart.version>2.5.1</json-smart.version>
         <microprofile-jwt-auth-api.version>2.1</microprofile-jwt-auth-api.version>
         <junit-jupiter.version>5.11.4</junit-jupiter.version>
