@@ -41,7 +41,7 @@
     <properties>
         <nimbus-jose-jwt.version>10.4</nimbus-jose-jwt.version>
         <microprofile-jwt-auth-api.version>2.1</microprofile-jwt-auth-api.version>
-        <json-smart.version>2.5.2</json-smart.version>
+        <json-smart.version>2.6.0</json-smart.version>
     </properties>
 
     <build>
