@@ -22,7 +22,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-dependency-plugin.version>3.2.0</maven-dependency-plugin.version>
         <maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
-        <kotlin.version>2.2.0</kotlin.version>
+        <kotlin.version>2.2.10</kotlin.version>
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <logback.version>1.5.18</logback.version>
