@@ -27,7 +27,7 @@
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <logback.version>1.5.18</logback.version>
         <johnzon-core.version>2.0.2</johnzon-core.version>
-        <jjwt.version>0.12.6</jjwt.version>
+        <jjwt.version>0.12.7</jjwt.version>
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
 
         <junit-jupiter>5.13.4</junit-jupiter>
