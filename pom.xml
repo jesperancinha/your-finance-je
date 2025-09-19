@@ -34,7 +34,7 @@
         <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
-        <assertj-core.version>3.27.4</assertj-core.version>
+        <assertj-core.version>3.27.5</assertj-core.version>
         <omni-coveragereporter-maven-plugin.version>0.4.5</omni-coveragereporter-maven-plugin.version>
         <picocli.version>4.7.7</picocli.version>
         <kumuluzee-microProfile-3.3.version>4.1.0</kumuluzee-microProfile-3.3.version>
