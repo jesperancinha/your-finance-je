@@ -31,7 +31,7 @@
         <geronimo-json_1.1_spec.version>1.5</geronimo-json_1.1_spec.version>
 
         <junit-jupiter>6.0.0</junit-jupiter>
-        <jacoco-maven-plugin.version>0.8.13</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.14</jacoco-maven-plugin.version>
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <coveralls-maven-plugin.version>4.3.0</coveralls-maven-plugin.version>
         <assertj-core.version>3.27.6</assertj-core.version>
