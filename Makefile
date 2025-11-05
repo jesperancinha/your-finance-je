@@ -31,8 +31,7 @@ yfje-wait:
 	bash yfje_wait.sh
 dcd: dc-migration
 	docker-compose down
-	cd your-finance-images && docker-compose rm -svf
-	cd your-finance-images && docker-compose down
+	docker-compose rm -svf
 	make docker-delete
 dcup-full: dcd docker-clean no-test dcup
 dcup: dcd
