@@ -3,7 +3,7 @@
 ---
 
 [![Generic badge](https://img.shields.io/static/v1.svg?label=GitHub&message=Your%20finance%20JE&color=informational)](https://github.com/jesperancinha/your-finance-je) 
-[![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/your-finance-je.svg)](#)
+![GitHub release](https://img.shields.io/github/release-pre/jesperancinha/your-finance-je.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 [![CircleCI](https://circleci.com/gh/jesperancinha/your-finance-je.svg?style=svg)](https://circleci.com/gh/jesperancinha/your-finance-je)
@@ -18,9 +18,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/jesperancinha/your-finance-je/badge.svg?branch=master)](https://coveralls.io/github/jesperancinha/your-finance-je?branch=master)
 [![codecov](https://codecov.io/gh/jesperancinha/your-finance-je/branch/master/graph/badge.svg?token=Tn7WAPeYui)](https://codecov.io/gh/jesperancinha/your-finance-je)
 
-[![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/your-finance-je.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/your-finance-je.svg)](#)
-[![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/your-finance-je.svg)](#)
+![GitHub language count](https://img.shields.io/github/languages/count/jesperancinha/your-finance-je.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/jesperancinha/your-finance-je.svg)
+![GitHub top language](https://img.shields.io/github/languages/code-size/jesperancinha/your-finance-je.svg)
 
 ---
 
@@ -106,7 +106,7 @@ Prompt claude with the following:
 
 ### Run all skills
 ```text
-please run skills annotations, docker, java, jvm, kotlin, parallel on this project
+please run skills readme, annotations, docker, java, jvm, kotlin, parallel on this project
 ```
 
 ---
