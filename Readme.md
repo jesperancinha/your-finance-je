@@ -98,6 +98,19 @@ openssl req -new -newkey rsa:4096 -nodes -keyout yourfinance.key -out yourfinanc
 openssl x509 -req -sha256 -days 365 -in yourfinance.csr -signkey yourfinance.key -out yourfinance.pem
 ```
 
+---
+
+## Claude
+
+Prompt claude with the following:
+
+### Run all skills
+```text
+please run skills annotations, docker, java, jvm, kotlin, parallel on this project
+```
+
+---
+
 ## References
 
 -   [Eclipse MicroProfile JWT Authentication API](https://docs.payara.fish/enterprise/docs/documentation/microprofile/jwt.html)
