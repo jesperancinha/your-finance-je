@@ -49,11 +49,11 @@ This project is also the official support project of my article on medium:
 [![alt text](https://raw.githubusercontent.com/jesperancinha/project-signer/master/project-signer-templates/icons-20/medium-20.png "Medium")](https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90) [Learning JWT security using KumuluzEE — The finances of a league of the environment](https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90)
 
 
-<div align="center">
+<div style="text-align: center;">
       <a title="Learning JWT security using KumuluzEE — The finances of a league of the environment" href="https://itnext.io/learning-jwt-security-using-kumuluzee-the-finances-of-a-league-of-the-environment-2f541e99cc90">
      <img 
           src="./docs/images/articles.your.finance.intro.png" 
-          style="width:100%;">
+          style="width:100%;" alt="Learning JWT security using KumuluzEE — The finances of a league of the environment">
       </a>
 </div>
 
