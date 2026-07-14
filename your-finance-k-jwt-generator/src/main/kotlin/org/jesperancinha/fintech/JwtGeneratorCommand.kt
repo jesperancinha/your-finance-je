@@ -5,9 +5,6 @@ import picocli.CommandLine.Option
 import java.io.File
 import java.util.concurrent.Callable
 
-/**
- * Created by jofisaes on 13/07/2022
- */
 @Command(
     name = "JWT Generator",
     mixinStandardHelpOptions = true,

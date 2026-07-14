@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.math.BigDecimal
 
 data class Account(
-    @JsonProperty
+    @param:JsonProperty
     val accountNumber: String?,
-    @JsonProperty
+    @param:JsonProperty
     val client: Client? = null,
-    @JsonProperty
-    var currentValue: BigDecimal = BigDecimal.ZERO,
-    @JsonProperty
-    var creditValue: BigDecimal = BigDecimal.ZERO
+    @param:JsonProperty
+    val currentValue: BigDecimal = BigDecimal.ZERO,
+    @param:JsonProperty
+    val creditValue: BigDecimal = BigDecimal.ZERO
 ) {
     fun addCurrentValue(value: Long) = Account(
         accountNumber, client, currentValue
@@ -29,11 +29,11 @@ open class Accounts constructor(
 )
 
 data class Client constructor(
-    @JsonProperty
-    var name: String ?= null
+    @param:JsonProperty
+    val name: String ?= null
 )
 
 data class TransactionBody constructor(
-    @JsonProperty
-    var saldo: Long ?= null
+    @param:JsonProperty
+    val saldo: Long ?= null
 )

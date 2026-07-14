@@ -15,9 +15,6 @@ import java.security.PrivateKey
 import java.security.spec.PKCS8EncodedKeySpec
 import java.util.*
 
-/**
- * Created by jofisaes on 13/07/2022
- */
 object SecurityManager {
     fun generateJWTString(jsonResource: File?, privateKeyFile: File?): String? {
         val byteBuffer = ByteArray(16384)

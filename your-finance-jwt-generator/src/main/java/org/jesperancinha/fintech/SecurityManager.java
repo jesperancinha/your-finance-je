@@ -19,14 +19,11 @@ import static com.nimbusds.jose.JWSAlgorithm.RS256;
 import static com.nimbusds.jwt.JWTClaimsSet.parse;
 import static net.minidev.json.parser.JSONParser.DEFAULT_PERMISSIVE_MODE;
 
-/**
- * Created by jofisaes on 13/07/2022
- */
 public class SecurityManager {
     public static String generateJWTString(File jsonResource, File privateKeyFile) throws Exception {
         var byteBuffer = new byte[16384];
         final URL resource = jsonResource.toURI().toURL();
-        if(resource != null) {
+        if (resource != null) {
             try (var inputStream = resource
                     .openStream()) {
                 inputStream.read(byteBuffer);
@@ -57,7 +54,7 @@ public class SecurityManager {
 
     public static PrivateKey readPrivateKey(File resourceName) throws Exception {
         var byteBuffer = new byte[16384];
-        var length =resourceName.toURI().toURL()
+        var length = resourceName.toURI().toURL()
                 .openStream()
                 .read(byteBuffer);
 

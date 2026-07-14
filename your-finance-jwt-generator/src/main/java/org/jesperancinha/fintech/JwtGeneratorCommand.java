@@ -6,9 +6,6 @@ import picocli.CommandLine.Option;
 import java.io.File;
 import java.util.concurrent.Callable;
 
-/**
- * Created by jofisaes on 13/07/2022
- */
 @Command(name = "JWT Generator",
         mixinStandardHelpOptions = true,
         version = "0.0.0",
@@ -28,7 +25,7 @@ public class JwtGeneratorCommand implements Callable<Integer> {
 
     @Override
     public Integer call() throws Exception {
-         final String jwtString = SecurityManager.generateJWTString(payloadFile, privateKeyFile);
+        final String jwtString = SecurityManager.generateJWTString(payloadFile, privateKeyFile);
         System.out.println(jwtString);
         return 0;
     }
