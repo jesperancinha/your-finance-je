@@ -106,7 +106,6 @@
                         <arg>-Xjsr305=strict</arg>
                     </args>
                     <compilerPlugins>
-                        <plugin>jpa</plugin>
                         <plugin>all-open</plugin>
                         <plugin>no-arg</plugin>
                     </compilerPlugins>
