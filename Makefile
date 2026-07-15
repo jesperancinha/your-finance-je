@@ -3,6 +3,8 @@ build:
 	mvn clean install
 build-maven:
 	mvn clean install -DskipTests
+coverage:
+	mvn clean install jacoco:prepare-agent package jacoco:report
 test:
 	mvn test
 test-maven:
