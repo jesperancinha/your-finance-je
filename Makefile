@@ -139,3 +139,6 @@ accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
 dc-migration:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
+remove-lock-files:
+	find . -name "package-lock.json" | xargs -I {} rm {}; \
+	find . -name "yarn.lock" | xargs -I {} rm {};
