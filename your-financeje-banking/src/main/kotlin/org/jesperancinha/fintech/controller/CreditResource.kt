@@ -21,6 +21,9 @@ import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
 
+/**
+ * Values have to be assigned to var and latet init var does not work with KumuluzEE probably because there is still no plugin available for this framework
+ */
 @Path("credit")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)

@@ -27,7 +27,7 @@
         </dependency>
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
-            <artifactId>kumuluzee-microProfile-3.3</artifactId>
+            <artifactId>kumuluzee-micro-profile</artifactId>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
