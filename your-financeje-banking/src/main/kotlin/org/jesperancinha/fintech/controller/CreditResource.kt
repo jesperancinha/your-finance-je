@@ -66,7 +66,7 @@ open class CreditResource {
     @Throws(
         JsonProcessingException::class
     )
-    open fun cashIn(transactionBody: TransactionBody) = requireNotNull(accounts).let { accounts ->
+    open fun cashIn(transactionBody: TransactionBody): Response? = requireNotNull(accounts).let { accounts ->
         requireNotNull(name).let { name ->
             accounts.accountMap[name.string] = (accounts.accountMap[name.string] ?: return Response.serverError()
                 .build()).addCreditValue(transactionBody.saldo?: 0L)
