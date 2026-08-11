@@ -15,10 +15,10 @@ no-test: build-maven
 	make setup-certificates
 	make build-maven
 docker:
-	docker-compose rm -svf
-	docker-compose up -d --build --remove-orphans
+	docker compose rm -svf
+	docker compose up -d --build --remove-orphans
 docker-clean: cleanup-certificates
-	docker-compose rm -svf
+	docker compose rm -svf
 docker-clean-build-start: docker-clean b docker
 docker-delete:
 	docker ps -a --format '{{.ID}}' -q --filter="name=your-finance"| xargs -I {}  docker stop {}
@@ -31,14 +31,14 @@ docker-remove-all: docker-stop-all
 	docker ps -a --format '{{.ID}}' | xargs -I {}  docker rm {}
 yfje-wait:
 	bash yfje_wait.sh
-dcd: dc-migration
-	docker-compose down
-	docker-compose rm -svf
+dcd:
+	docker compose down
+	docker compose rm -svf
 	make docker-delete
 dcup-full: dcd docker-clean no-test dcup
 dcup: dcd
-	docker-compose build
-	docker-compose up -d
+	docker compose build
+	docker compose up -d
 	make yfje-wait
 dcup-composed: dcd
 	cd your-finance-images && make dcup
@@ -95,8 +95,8 @@ jwtenizr-demo:
 	make jwtenizr-create-users
 	make jwtenizr-create-accounts
 jwtenizr-dcup-full: dcd docker-clean jwtenizr-no-test
-	docker-compose build
-	docker-compose up -d
+	docker compose build
+	docker compose up -d
 	make yfje-wait
 jwtenizr-create-users:
 	cd jwtenizr-files && bash createUser.sh
@@ -137,8 +137,6 @@ update-repo-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/update-all-repo-prs.sh | bash
 accept-prs:
 	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/acceptPR.sh | bash
-dc-migration:
-	curl -sL https://raw.githubusercontent.com/jesperancinha/project-signer/master/setupDockerCompose.sh | bash
 remove-lock-files:
 	find . -name "package-lock.json" | xargs -I {} rm {}; \
 	find . -name "yarn.lock" | xargs -I {} rm {};

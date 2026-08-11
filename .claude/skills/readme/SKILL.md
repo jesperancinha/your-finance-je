@@ -55,3 +55,46 @@ with
 </div>
 
 ```
+
+## 3. Remove obsolete badges
+
+Some badges are no longer usable and don't work because some of the frameworks they used have been discontinued.
+For all `.md` files, or other markdown files, please remove badges from the following list:
+
+1. [![codebeat badge]()]() - All codebeat badges should be removed, along with any references to using it.
+2. [![BCH compliance]()]() - All BCH badges should be removed, along with any references to using it.
+
+## 4. `.md` files in Submodules, or subfolders, should not contain any of the following badges
+
+The following badges are applied to the whole project, hence why it makes no sense to keep them in submodules or subfolders.
+These badges should only be part of root `Readme.md` files. They should also be removed from other .md files if found.
+
+1. ![Twitter URL]()]()
+2. ![Generic badge]()]()
+3. ![GitHub release]()]()
+4. ![GitHub License]()]()
+5. ![CircleCI]()]()
+6. ![Build status]()]()
+7. ![jeorg-spring-master-test-drives](https://github.com/jesperancinha/jeorg-spring-master-test-drives/actions/workflows/jeorg-spring-master-test-drives.yml/badge.svg)](https://github.com/jesperancinha/jeorg-spring-master-test-drives/actions/workflows/jeorg-spring-master-test-drives.yml)
+8. ![Codacy Badge]()]()
+9. ![codebeat badge]()]()
+10. ![BCH compliance]()]()
+11. ![Known Vulnerabilities]()]()
+12. ![Codacy Badge]()]()
+13. ![Coverage Status]()]()
+14. ![codecov]()]()
+15. ![GitHub language count]()]()
+16. ![GitHub top language]()]()
+17. ![GitHub top language]()]()
+
+The pipeline GitHub action badges usually have the name of the project. They usually have `actions/workflows` in the links.
+These should only be part of root `Readme.md` files. They should also be removed from other .md files if found.
+
+## 5. Please remove emojis from badges
+
+There may be other badges with emojis in their presentation text.
+Most of these bages are the Generic one:
+
+[![Generic badge]()]()
+
+Look for these badges and simply remove the emoji from the presentation text, if any is found.
